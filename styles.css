@@ -1,0 +1,7 @@
+button#print {
+	background-image: url("https://www.toronto.ca/wp-content/themes/cot/img/icon-print.svg");
+}
+
+#page-content {
+	min-height:0px;
+}
