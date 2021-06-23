@@ -11,7 +11,7 @@ button#print {
 }
 
 
-.zmdc-layout-grid__inner, .zsection-buttons, .mdc-layout-grid__cell, h3, [data-element-id="headingsMap-2"] {
+.zmdc-layout-grid__inner, .zsection-buttons, .mdc-layout-grid__cell :not(section) , h3, [data-element-id="headingsMap-2"] {
   max-width: 1400px;
   outline:none;
   margin-right: auto;
