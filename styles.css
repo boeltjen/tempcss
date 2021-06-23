@@ -14,7 +14,7 @@ button#print {
 }
 
 
-.button {
+.button .mdc-button {
     background-color: #175689;
     border-color: #175689;
     color: #fff;
