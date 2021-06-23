@@ -12,3 +12,7 @@ button#print {
     padding-right: 32px
   }
 }
+
+.section-buttons {
+	display: none;
+}
