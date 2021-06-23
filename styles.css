@@ -6,12 +6,26 @@ button#print {
 	min-height:0px;
 }
 
+.mdc-layout-grid__inner {
+  max-width: 1400px;
+  outline:none;
+}
+
 @media(min-width: 768px) {
   .mdc-layout-grid__inner {
     padding-left: 32px;
     padding-right: 32px
   }
 }
+
+@media (max-width: 767px) {
+  .mdc-layout-grid__inner {
+    padding-right: 0;
+    padding-left: 0
+  }
+}
+
+
 
 
 .button, .mdc-button {
