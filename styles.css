@@ -11,7 +11,7 @@ button#print {
 }
 
 
-.zmdc-layout-grid__inner, .zsection-buttons, .mdc-layout-grid__cell {
+.zmdc-layout-grid__inner, .zsection-buttons, .mdc-layout-grid__cell, [data-element-id="headingsMap-2"] {
   max-width: 1400px;
   outline:none;
   margin-right: auto;
@@ -19,14 +19,14 @@ button#print {
 }
 
 @media(min-width: 768px) {
-  .zmdc-layout-grid__inner, .zsection-buttons, .mdc-layout-grid__cell {
+  .zmdc-layout-grid__inner, .zsection-buttons, .mdc-layout-grid__cell, [data-element-id="headingsMap-2"] {
     padding-left: 32px;
     padding-right: 32px;
   }
 }
 
 @media (max-width: 767px) {
-  .zmdc-layout-grid__inner, .zsection-buttons, .mdc-layout-grid__cell {
+  .zmdc-layout-grid__inner, .zsection-buttons, .mdc-layout-grid__cell, [data-element-id="headingsMap-2"] {
     padding-right: 0;
     padding-left: 0;
   }
