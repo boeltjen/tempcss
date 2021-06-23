@@ -10,7 +10,8 @@ button#print {
     margin-left: inherit;
 }
 
-.mdc-layout-grid__inner {
+
+.zmdc-layout-grid__inner, .section-buttons {
   max-width: 1400px;
   outline:none;
   margin-right: auto;
@@ -18,14 +19,14 @@ button#print {
 }
 
 @media(min-width: 768px) {
-  .mdc-layout-grid__inner {
+  .zmdc-layout-grid__inner, .section-buttons {
     padding-left: 32px;
     padding-right: 32px;
   }
 }
 
 @media (max-width: 767px) {
-  .mdc-layout-grid__inner {
+  .zmdc-layout-grid__inner, .section-buttons {
     padding-right: 0;
     padding-left: 0;
   }
