@@ -6,7 +6,7 @@ button#print {
   min-height:0px;
 }
 
-#breadcrumbs {
+#breadcrumbs .container-fluid {
     margin-left: inherit;
 }
 
