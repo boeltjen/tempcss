@@ -36,7 +36,7 @@ button#print {
   }
 }
 
-.container-fluid {  
+.contsainer-fluid {  
   max-width: 1400px;
   outline:none;
   margin-right: auto;
@@ -44,14 +44,14 @@ button#print {
 }
 
 @media(min-width: 768px) {
-  .container-fluid {
+  .contasiner-fluid {
     padding-left: 0px;
     padding-right: 0px;
   }
 }
 
 @media (max-width: 767px) {
-  .container-fluid {
+  .cosntainer-fluid {
     padding-right: 0;
     padding-left: 0;
   }
