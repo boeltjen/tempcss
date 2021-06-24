@@ -11,6 +11,32 @@ button#print {
 } */
 
 
+
+
+
+
+
+.body-layout > *, .zmdc-layout-grid__inner, .section-buttons, .mdc-text-field-helper-line, .section.with-top-margin, label.mdc-text-field, .mdc-button, [data-element-id="headingsMap-2"] {
+  max-width: 1400px;
+  outline:none;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media(min-width: 768px) {
+  .body-layout > *, .zmdc-layout-grid__inner, .section-buttons, .mdc-text-field-helper-line, .section.with-top-margin, label.mdc-text-field,  .mdc-button, [data-element-id="headingsMap-2"] {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .body-layout > *,  .zmdc-layout-grid__inner, .section-buttons, .mdc-text-field-helper-line, .section.with-top-margin, label.mdc-text-field, .mdc-button, [data-element-id="headingsMap-2"] {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
 .body-layout > :first-child {
   float: left;
   width: 100%;
@@ -19,30 +45,6 @@ button#print {
 .body-layout > :nth-child(2) {
   clear: both;			
 }
-
-
-.zmdc-layout-grid__inner, .section-buttons, .mdc-text-field-helper-line, .section.with-top-margin, label.mdc-text-field, .mdc-button, [data-element-id="headingsMap-2"] {
-  max-width: 1400px;
-  outline:none;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media(min-width: 768px) {
-  .zmdc-layout-grid__inner, .section-buttons, .mdc-text-field-helper-line, .section.with-top-margin, label.mdc-text-field,  .mdc-button, [data-element-id="headingsMap-2"] {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-}
-
-@media (max-width: 767px) {
-  .zmdc-layout-grid__inner, .section-buttons, .mdc-text-field-helper-line, .section.with-top-margin, label.mdc-text-field, .mdc-button, [data-element-id="headingsMap-2"] {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-}
-
-
 
 
 .button, .mdc-button {
