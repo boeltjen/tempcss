@@ -14,7 +14,7 @@ button#print {
 .body-layout form:first-of-type > div.section ~ :not(div:last-of-type), 
 .body-layout form:first-of-type > div.section ~ div:last-of-type > :first-child,
 .body-layout > div.section ~ :not(div:last-of-type), 
-.body-layout > div.section ~ div:last-of-type > :first-child, label { 
+.body-layout > div.section ~ div:last-of-type > :first-child { 
   max-width: 1400px;
   outline:none;
   margin-right: auto;
@@ -39,6 +39,13 @@ button#print {
     padding-right: 15px;
     padding-left: 15px;
   }
+}
+
+label { 
+  max-width: 1000px;
+  outline:none;
+  margin-right: auto;
+  margin-left: auto;
 }
 /* 
 .body-layout > :first-child {
