@@ -16,7 +16,7 @@ button#print {
 
 
 
-.body-layout > :not(:first-child):not(:last-child), .body-layout > :last-child > :first-child, .zmdc-layout-grid__inner, .section-buttons {
+.body-layout > :not(:first-child):not(:last-child), .body-layout > :last-child > :first-child, .zmdc-layout-grid__inner {
   max-width: 1400px;
   outline:none;
   margin-right: auto;
@@ -24,14 +24,14 @@ button#print {
 }
 
 @media(min-width: 768px) {
-  .body-layout > :not(:first-child):not(:last-child), .body-layout > :last-child > :first-child,.zmdc-layout-grid__inner, {
+  .body-layout > :not(:first-child):not(:last-child), .body-layout > :last-child > :first-child,.zmdc-layout-grid__inner {
     padding-left: 32px;
     padding-right: 32px;
   }
 }
 
 @media (max-width: 767px) {
-  .body-layout > :not(:first-child):not(:last-child),  .body-layout > :last-child > :first-child, .zmdc-layout-grid__inner, {
+  .body-layout > :not(:first-child):not(:last-child),  .body-layout > :last-child > :first-child, .zmdc-layout-grid__inner {
     padding-right: 15px;
     padding-left: 15px;
   }
