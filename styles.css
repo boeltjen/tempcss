@@ -15,6 +15,11 @@ button#print {
   float: left;
 }
 
+.body-layout > :nth-child(2) {
+  clear: both;			
+}
+
+
 .zmdc-layout-grid__inner, .section-buttons, .mdc-text-field-helper-line, .section.with-top-margin, label.mdc-text-field, .mdc-button, [data-element-id="headingsMap-2"] {
   max-width: 1400px;
   outline:none;
