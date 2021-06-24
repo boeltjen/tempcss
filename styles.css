@@ -13,6 +13,7 @@ button#print {
 
 .body-layout > :first-child {
   float: left;
+  width: 100%;
 }
 
 .body-layout > :nth-child(2) {
