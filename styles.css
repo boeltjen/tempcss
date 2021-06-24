@@ -16,7 +16,7 @@ button#print {
 
 
 
-.body-layout > :not(:first-child):not(:last-child), .body-layout > :last-child > :first-child, .zmdc-layout-grid__inner, .section-buttons, .mdc-text-field-helper-line, .section.with-top-margin, label.mdc-text-field, .mdc-button, [data-element-id="headingsMap-2"] {
+.body-layout > :not(:first-child):not(:last-child), .body-layout > :last-child > :first-child, .zmdc-layout-grid__inner, .section-buttons,  .section.with-top-margin, .mdc-button {
   max-width: 1400px;
   outline:none;
   margin-right: auto;
@@ -24,14 +24,14 @@ button#print {
 }
 
 @media(min-width: 768px) {
-  .body-layout > :not(:first-child):not(:last-child), .body-layout > :last-child > :first-child,.zmdc-layout-grid__inner, .section-buttons, .mdc-text-field-helper-line, .section.with-top-margin, label.mdc-text-field,  .mdc-button, [data-element-id="headingsMap-2"] {
+  .body-layout > :not(:first-child):not(:last-child), .body-layout > :last-child > :first-child,.zmdc-layout-grid__inner, .section-buttons,  .section.with-top-margin,  .mdc-button {
     padding-left: 32px;
     padding-right: 32px;
   }
 }
 
 @media (max-width: 767px) {
-  .body-layout > :not(:first-child):not(:last-child),  .body-layout > :last-child > :first-child, .zmdc-layout-grid__inner, .section-buttons, .mdc-text-field-helper-line, .section.with-top-margin, label.mdc-text-field, .mdc-button, [data-element-id="headingsMap-2"] {
+  .body-layout > :not(:first-child):not(:last-child),  .body-layout > :last-child > :first-child, .zmdc-layout-grid__inner, .section-buttons, .section.with-top-margin, .mdc-button {
     padding-right: 15px;
     padding-left: 15px;
   }
