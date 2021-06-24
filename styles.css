@@ -10,12 +10,9 @@ button#print {
     margin-left: inherit;
 } */
 
-/* note that a label is inline.  doesn't really below controls. */
-label { 
-  max-width: 1000px;
-  outline:none;
-  margin-right: auto;
-  margin-left: auto;
+/* note that a label is inline.  making it block here. */
+.body-layout form:first-of-type > div.section ~ label { 
+  display: block;
 }
 
 
