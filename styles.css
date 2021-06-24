@@ -36,7 +36,7 @@ button#print {
     padding-left: 15px;
   }
 }
-
+/* 
 .body-layout > :first-child {
   float: left;
   width: 100%;
@@ -44,7 +44,7 @@ button#print {
 
 .body-layout > :nth-child(2) {
   clear: both;			
-} 
+}  */
 
 
 .button, .mdc-button {
