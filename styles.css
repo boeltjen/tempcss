@@ -27,8 +27,8 @@ button#print {
 
 @media (max-width: 767px) {
   .zmdc-layout-grid__inner, .section-buttons, .1mdc-layout-grid__cell, .mdc-button, [data-element-id="headingsMap-2"] {
-    padding-right: 0;
-    padding-left: 0;
+    padding-right: 15px;
+    padding-left: 15px;
   }
 }
 
