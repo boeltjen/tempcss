@@ -10,10 +10,10 @@ button#print {
     margin-left: inherit;
 }
 
-p :not(.section) {
+/* p :not(.section) {
   min-height:100px;
 
-}
+} */
 
 .zmdc-layout-grid__inner, .zsection-buttons, .main-content , .mdc-button, [data-element-id="headingsMap-2"] {
   max-width: 1400px;
