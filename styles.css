@@ -10,12 +10,12 @@ button#print {
     margin-left: inherit;
 }
 
-/* p :not(.section) {
+p :not(.section) {
   min-height:100px;
 
-} */
+}
 
-.zmdc-layout-grid__inner, .zsection-buttons, .mdc-layout-grid__inner , .mdc-button, [data-element-id="headingsMap-2"] {
+.zmdc-layout-grid__inner, .zsection-buttons, .mdc-layout-grid__cell :not(.section) , .mdc-button, [data-element-id="headingsMap-2"] {
   max-width: 1400px;
   outline:none;
   margin-right: auto;
@@ -23,39 +23,20 @@ button#print {
 }
 
 @media(min-width: 768px) {
-  .zmdc-layout-grid__inner, .zsection-buttons, .mmdc-layout-grid__inner, .mdc-button, [data-element-id="headingsMap-2"] {
+  .zmdc-layout-grid__inner, .zsection-buttons, .1mdc-layout-grid__cell, .mdc-button, [data-element-id="headingsMap-2"] {
     padding-left: 32px;
     padding-right: 32px;
   }
 }
 
 @media (max-width: 767px) {
-  .zmdc-layout-grid__inner, .zsection-buttons, .mdc-layout-grid__inner, .mdc-button, [data-element-id="headingsMap-2"] {
+  .zmdc-layout-grid__inner, .zsection-buttons, .1mdc-layout-grid__cell, .mdc-button, [data-element-id="headingsMap-2"] {
     padding-right: 0;
     padding-left: 0;
   }
 }
 
-.contsainer-fluid {  
-  max-width: 1400px;
-  outline:none;
-  margin-right: auto;
-  margin-left: auto;
-}
 
-@media(min-width: 768px) {
-  .contasiner-fluid {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-}
-
-@media (max-width: 767px) {
-  .cosntainer-fluid {
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
 
 
 .button, .mdc-button {
