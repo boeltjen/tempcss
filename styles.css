@@ -13,7 +13,7 @@ button#print {
 
 .body-layout form:first-of-type > div.section ~ :not(div:last-of-type), 
 .body-layout form:first-of-type > div.section ~ div:last-of-type > :first-child,
-.body-layout > div.section ~ :not(div:last-of-type)
+.body-layout > div.section ~ :not(div:last-of-type) {
 /* .body-layout > div.section ~ div:last-of-type > :first-child {  */
   max-width: 1400px;
   outline:none;
@@ -24,7 +24,7 @@ button#print {
 @media(min-width: 768px) {
   .body-layout form:first-of-type > div.section ~ :not(div:last-of-type), 
   .body-layout form:first-of-type > div.section ~ div:last-of-type > :first-child,
-  .body-layout > div.section ~ :not(div:last-of-type)
+  .body-layout > div.section ~ :not(div:last-of-type) {
 /*   .body-layout > div.section ~ div:last-of-type > :first-child {  */
     padding-left: 32px;
     padding-right: 32px;
@@ -34,7 +34,7 @@ button#print {
 @media (max-width: 767px) {
   .body-layout form:first-of-type > div.section ~ :not(div:last-of-type), 
   .body-layout form:first-of-type > div.section ~ div:last-of-type > :first-child,
-  .body-layout > div.section ~ :not(div:last-of-type) 
+  .body-layout > div.section ~ :not(div:last-of-type) {
 /*   .body-layout > div.section ~ div:last-of-type > :first-child {  */
     padding-right: 15px;
     padding-left: 15px;
