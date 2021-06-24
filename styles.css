@@ -10,8 +10,16 @@ button#print {
     margin-left: inherit;
 } */
 
+/* note that a label is inline.  doesn't really below controls. */
+label { 
+  max-width: 1000px;
+  outline:none;
+  margin-right: auto;
+  margin-left: auto;
+}
 
-.body-layout form:first-of-type > div.section ~ *, 
+
+.body-layout form:first-of-type > div.section ~  :not(div:last-of-type), 
 .body-layout form:first-of-type > div.section ~ div:last-of-type > :first-child,
 .body-layout > div.section ~ :not(div:last-of-type),
 .body-layout > div.section ~ div:last-of-type > :first-child {
@@ -41,12 +49,7 @@ button#print {
   }
 }
 
-label { 
-  max-width: 1000px;
-  outline:none;
-  margin-right: auto;
-  margin-left: auto;
-}
+
 /* 
 .body-layout > :first-child {
   float: left;
