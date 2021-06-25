@@ -1,5 +1,5 @@
 //remove stock stylesheet
-$('link[rel=stylesheet][href*=""css/site.css"]').remove();
+$('link[rel=stylesheet][href*="css/site.css"]').remove();
 
 // if first element isn't the breadcrumb, move it to under the breadcrumb.
 // check if the first element is the breadcrumb (= 0 if not)
