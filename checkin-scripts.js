@@ -67,4 +67,4 @@ var footerHtml = `
 	</div>
 </footer>`;
 
-$("footer").replaceWith(footerHtml);
+$("footer").eq(0).replaceWith(footerHtml);
