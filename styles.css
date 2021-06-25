@@ -6,9 +6,9 @@ button#print {
   min-height:0px;
 }
 
-/* #breadcrumbs .container-fluid {
-    margin-left: inherit;
-} */
+#breadcrumbs .container-fluid {
+  max-width: none;	
+}
 
 /* note that a label is inline.  making it block here. */
 .body-layout form:first-of-type > div.section ~ label { 
