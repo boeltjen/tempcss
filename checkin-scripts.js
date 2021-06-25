@@ -24,7 +24,7 @@ var breadcrumbHtml = `
 		</ol>
 	</div>
 </nav>`;
-$(header).append(breadcrumbHtml);
+$("header").append(breadcrumbHtml);
 
 var footerHtml = `
 <footer id="footer" role="contentinfo">
@@ -67,4 +67,4 @@ var footerHtml = `
 	</div>
 </footer>`;
 
-$(footer).replaceWith(footerHtml);
+$("footer").replaceWith(footerHtml);
