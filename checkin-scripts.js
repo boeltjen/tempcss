@@ -24,7 +24,7 @@ var breadcrumbHtml = `
 		</ol>
 	</div>
 </nav>`;
-$("header").append(breadcrumbHtml);
+$("header").eq(0).append(breadcrumbHtml);
 
 var footerHtml = `
 <footer id="footer" role="contentinfo">
