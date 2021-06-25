@@ -1,0 +1,90 @@
+button#print {
+  background-image: url("https://www.toronto.ca/wp-content/themes/cot/img/icon-print.svg");
+}
+
+#page-content {
+  min-height:0px;
+}
+
+#breadcrumbs .container-fluid {
+  max-width: none;	
+}
+
+/* note that a label is inline.  making it block here. */
+.body-layout form:first-of-type > div.section ~ label { 
+  display: block;
+}
+
+
+.body-layout form:first-of-type > div.section ~  :not(div:last-of-type), 
+.body-layout form:first-of-type > div.section ~ div:last-of-type > section:first-of-type,
+.body-layout form:first-of-type > div:last-of-type > div[class*="mdc"] > div.section ~  :not(div:last-of-type),
+.body-layout form:first-of-type > div:last-of-type > div[class*="mdc"] > div.section ~ div:last-of-type > section:first-of-type,
+.body-layout > div.section ~ :not(div:last-of-type),
+.body-layout > div.section ~ div:last-of-type > section:first-of-type {
+  max-width: 1400px;
+  outline:none;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media(min-width: 768px) {
+  .body-layout form:first-of-type > div.section ~  :not(div:last-of-type), 
+  .body-layout form:first-of-type > div.section ~ div:last-of-type > section:first-of-type,
+  .body-layout form:first-of-type > div:last-of-type > div[class*="mdc"] > div.section ~  :not(div:last-of-type),
+  .body-layout form:first-of-type > div:last-of-type > div[class*="mdc"] > div.section ~ div:last-of-type > section:first-of-type,
+  .body-layout > div.section ~ :not(div:last-of-type),
+  .body-layout > div.section ~ div:last-of-type > section:first-of-type {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .body-layout form:first-of-type > div.section ~  :not(div:last-of-type), 
+  .body-layout form:first-of-type > div.section ~ div:last-of-type > section:first-of-type,
+  .body-layout form:first-of-type > div:last-of-type > div[class*="mdc"] > div.section ~  :not(div:last-of-type),
+  .body-layout form:first-of-type > div:last-of-type > div[class*="mdc"] > div.section ~ div:last-of-type > section:first-of-type,
+  .body-layout > div.section ~ :not(div:last-of-type),
+  .body-layout > div.section ~ div:last-of-type > section:first-of-type {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+
+/* 
+.body-layout > :first-child {
+  float: left;
+  width: 100%;
+}
+.body-layout > :nth-child(2) {
+  clear: both;			
+}  */
+
+
+.button, .mdc-button {
+    background-color: #175689;
+    border-color: #175689;
+    color: #fff;
+	
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
