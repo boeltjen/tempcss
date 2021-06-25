@@ -18,6 +18,8 @@ button#print {
 
 .body-layout form:first-of-type > div.section ~  :not(div:last-of-type), 
 .body-layout form:first-of-type > div.section ~ div:last-of-type > :first-child,
+.body-layout form:first-of-type > div:last-of-type > div[class*="mdc"] > div.section ~  :not(div:last-of-type),
+.body-layout form:first-of-type > div:last-of-type > div[class*="mdc"] > div.section ~ div:last-of-type > :first-child,
 .body-layout > div.section ~ :not(div:last-of-type),
 .body-layout > div.section ~ div:last-of-type > :first-child {
   max-width: 1400px;
