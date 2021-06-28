@@ -9,6 +9,8 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 	firstElement.insertAfter($("#breadcrumbs").parent());
 }
 
+$(".button, .mdc-button").addClass("btn btn-primary");
+
 
 var breadcrumbHtml = `
 <nav id="breadcrumbs" role="navigation" aria-label="breadcrumb">
