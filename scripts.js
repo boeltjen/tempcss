@@ -8,3 +8,5 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 	//first element isn't the breadcrumb.  move it to under the breadcrumb.
 	firstElement.insertAfter($("#breadcrumbs").parent());
 }
+
+$(".button, .mdc-button").addClass("btn btn-primary");
