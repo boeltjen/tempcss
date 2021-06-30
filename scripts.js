@@ -13,14 +13,10 @@ $(".button, .mdc-button").addClass("btn btn-primary");
 
 
 var appointmentDateSections = [];
-$("div.date.one-queue").eq(0).each(function() {
+$("div.date.one-queue").each(function() {
 	var tempDateTitle = $(this).find("a.title").eq(0).text().trim();
 	var tempDateTitleId = tempDateTitle.replace(/[^a-zA-Z0-9]/g, '');
-	var tempTimesLinks = $(this).find("ul.times-list a");
-	/*.each(function() {
-		tempTimesLinks.push($("<a/>").html($(this).html().replace(/\s/g, '')));
-	});
-	*/
+	
 	var tempDateHeaderEle = $("<h2/>")
 		.attr({
 		  "data-type":"toggle",
@@ -28,12 +24,22 @@ $("div.date.one-queue").eq(0).each(function() {
 		  "aria-expanded":"false"
 		})
 		.text(tempDateTitle);
+	
 	var tempInnerDiv = $("<div/>")
 		.attr({
 		  "id":tempDateTitleId,
 		});
-	tempInnerDiv.append(tempTimesLinks);
-	
+		
+		
+	$(this).find("ul.times-list li").each(function() {
+		if($(this).hasClass("hour-line")) {
+			tempInnerDiv.append("<br/>");
+		} else {
+			tempInnerDiv.append(
+				$("<div/>").addClass("time ampm-format").append($(this).children("a"))
+			);
+		}
+	});
 	var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
 
 
@@ -59,6 +65,6 @@ var accordionEle = $("<cotui-accordion/>")
 	})
 	.append(appointmentDateSections);
 
-//$("div.date.one-queue").remove();
+$("div.date.one-queue").remove();
 
 $("#dateTimesContainer").append(accordionEle);
