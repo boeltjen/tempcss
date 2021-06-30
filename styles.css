@@ -63,6 +63,10 @@ button#print {
 }  */
 
 
+a.mdc-button--unelevated {
+	margin: 5px;
+}
+
 .zbutton, .zmdc-button {
     background-color: #175689;
     border-color: #175689;
