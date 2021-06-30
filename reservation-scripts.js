@@ -21,7 +21,8 @@ $("div.date.one-queue").each(function() {
 		.attr({
 		  "data-type":"toggle",
 		  "aria-controls":tempDateTitleId,
-		  "aria-expanded":"false"
+		  "aria-expanded":"false",
+		  "id":tempDateTitleId+"-header"
 		})
 		.text(tempDateTitle);
 	
