@@ -1,3 +1,7 @@
+// hide appointment times before rewriting in <cotui-accordion>
+$("div.date.one-queue").css("display","none");
+
+
 //remove stock stylesheet
 $('link[rel=stylesheet][href*="bundle.css"]').remove();
 
@@ -10,11 +14,6 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 }
 
 $(".button, .mdc-button").addClass("btn btn-primary");
-
-
-// hide appointment times before rewriting in <cotui-accordion>
-$("div.date.one-queue").hide();
-
 
 var appointmentDateSections = [];
 $("div.date.one-queue").each(function() {
