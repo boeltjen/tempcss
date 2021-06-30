@@ -28,7 +28,7 @@ $("div.date.one-queue").each(function() {
 	var tempHiddenTitle = $("<div/>")
 		.attr({
 		  "id": tempDateTitleHeaderId,
-		  "class":"d-none"
+		  "class":"hidden"
 		})
 		.text(tempDateTitle);
 
