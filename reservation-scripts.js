@@ -1,9 +1,9 @@
+//remove stock stylesheet
+$('link[rel=stylesheet][href*="bundle.css"]').remove();
+
 // hide appointment times before rewriting in <cotui-accordion>
 $("div.date.one-queue").css("display","none");
 
-
-//remove stock stylesheet
-$('link[rel=stylesheet][href*="bundle.css"]').remove();
 
 // if first element isn't the breadcrumb, move it to under the breadcrumb.
 // check if the first element is the breadcrumb (= 0 if not)
