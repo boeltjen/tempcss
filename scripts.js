@@ -59,6 +59,6 @@ var accordionEle = $("<cotui-accordion/>")
 	})
 	.append(appointmentDateSections);
 
-$("div.date.one-queue").remove();
+//$("div.date.one-queue").remove();
 
 $("#dateTimesContainer").append(accordionEle);
