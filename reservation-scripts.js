@@ -21,8 +21,7 @@ $("div.date.one-queue").each(function() {
 		.attr({
 		  "data-type":"toggle",
 		  "aria-controls":tempDateTitleId,
-		  "aria-expanded":"false",
-		  "id": tempDateTitleHeaderId
+		  "aria-expanded":"false"
 		})
 		.text(tempDateTitle);
 	
@@ -43,8 +42,12 @@ $("div.date.one-queue").each(function() {
 			);
 		}
 	});
-	var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
-
+	var tempSectionEle = $("<section/>")
+		.attr({
+		  "id": tempDateTitleHeaderId
+		})
+		.append(tempDateHeaderEle).append(tempInnerDiv);
+	
 	appointmentDateSections.push(tempSectionEle);
   
  
