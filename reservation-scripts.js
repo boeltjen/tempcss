@@ -12,6 +12,10 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 $(".button, .mdc-button").addClass("btn btn-primary");
 
 
+// hide appointment times before rewriting in <cotui-accordion>
+$("div.date.one-queue").hide();
+
+
 var appointmentDateSections = [];
 $("div.date.one-queue").each(function() {
 	var tempDateTitle = $(this).find("a.title").eq(0).text().trim();
