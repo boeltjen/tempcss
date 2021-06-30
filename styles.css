@@ -63,6 +63,10 @@ button#print {
 }  */
 
 
+a.mdc-button--unelevated {
+    margin: 5px;
+}
+
 div.time {
 	display:inline;
 }
