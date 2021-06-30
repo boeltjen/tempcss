@@ -35,8 +35,10 @@ $("div.date.one-queue").each(function() {
 		if($(this).hasClass("hour-line")) {
 			tempInnerDiv.append("<br/>");
 		} else {
+			var tempLink = $(this).children("a");
+			tempLink.attr("aria-describedby",tempDateTitle);
 			tempInnerDiv.append(
-				$("<div/>").addClass("time ampm-format").append($(this).children("a"))
+				$("<div/>").addClass("time ampm-format").append(tempLink)
 			);
 		}
 	});
