@@ -25,10 +25,17 @@ $("div.date.one-queue").each(function() {
 		})
 		.text(tempDateTitle);
 	
+	var tempHiddenTitle = $("<div/>")
+	.attr({
+	  "id": tempDateTitleHeaderId,
+	  "class":"d-none"
+	});
+	
 	var tempInnerDiv = $("<div/>")
 		.attr({
 		  "id":tempDateTitleId,
-		});
+		})
+		.append(tempHiddenTitle);
 		
 		
 	$(this).find("ul.times-list li").each(function() {
@@ -42,12 +49,8 @@ $("div.date.one-queue").each(function() {
 			);
 		}
 	});
-	var tempSectionEle = $("<section/>")
-		.attr({
-		  "id": tempDateTitleHeaderId
-		})
-		.append(tempDateHeaderEle).append(tempInnerDiv);
-	
+	var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
+
 	appointmentDateSections.push(tempSectionEle);
   
  
