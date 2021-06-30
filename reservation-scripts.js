@@ -16,13 +16,13 @@ var appointmentDateSections = [];
 $("div.date.one-queue").each(function() {
 	var tempDateTitle = $(this).find("a.title").eq(0).text().trim();
 	var tempDateTitleId = tempDateTitle.replace(/[^a-zA-Z0-9]/g, '');
-	
+	var tempDateTitleHeaderId = tempDateTitleId+"-header";
 	var tempDateHeaderEle = $("<h2/>")
 		.attr({
 		  "data-type":"toggle",
 		  "aria-controls":tempDateTitleId,
 		  "aria-expanded":"false",
-		  "id":tempDateTitleId+"-header"
+		  "id": tempDateTitleHeaderId
 		})
 		.text(tempDateTitle);
 	
@@ -37,7 +37,7 @@ $("div.date.one-queue").each(function() {
 			tempInnerDiv.append("<br/>");
 		} else {
 			var tempLink = $(this).children("a");
-			tempLink.attr("aria-describedby",tempDateTitle);
+			tempLink.attr("aria-describedby",tempDateTitleHeaderId);
 			tempInnerDiv.append(
 				$("<div/>").addClass("time ampm-format").append(tempLink)
 			);
