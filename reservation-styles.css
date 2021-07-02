@@ -22,8 +22,8 @@ button#print {
 .body-layout form:first-of-type > div:last-of-type > div[class*="mdc"] > div.section ~ div:last-of-type > section:first-of-type,
 .body-layout > div.section ~ :not(div:last-of-type),
 .body-layout > div.section ~ div:last-of-type > section:first-of-type {   // not needed as footer is added using js */
-.body-layout > div.section,
-.body-layout form:first-of-type > div.section {
+.body-layout > div.section ~ div,
+.body-layout form:first-of-type > div.section ~ div {
   max-width: 1400px;
   outline:none;
   margin-right: auto;
