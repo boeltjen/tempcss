@@ -10,7 +10,7 @@ button#print {
   max-width: none;	
 }
 
-header:not(["role"="banner"]) {
+header:not([role="banner"]) {
   margin-bottom: 20px;
 }
 
