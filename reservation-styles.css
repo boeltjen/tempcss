@@ -10,6 +10,14 @@ button#print {
   max-width: none;	
 }
 
+header:first-of-type {
+  margin-bottom: 20px;
+}
+
+footer:first-of-type {
+  margin-top: 20px;
+}
+
 /* note that a label is inline.  making it block here. */
 .body-layout form:first-of-type > div.section ~ label { 
   display: block;
