@@ -11,7 +11,7 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 
 
 //find the breadcrumbs and place it under the header
-$("header").eq(0).append($("#breadcrumbs")).append($("<br/>"));
+$("header").eq(0).append($("#breadcrumbs"));
 
 
 
@@ -86,7 +86,6 @@ if($("div.date.one-queue").length > 0) {
 }
 
 var footerHtml = `
-<br/>
 <footer id="footer" role="contentinfo">
 	<div>
 		<div class="container-fluid">
