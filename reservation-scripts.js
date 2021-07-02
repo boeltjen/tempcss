@@ -1,10 +1,6 @@
 //remove stock stylesheet
 $('link[rel=stylesheet][href*="bundle.css"]').remove();
 
-// hide appointment times before rewriting in <cotui-accordion>
-$("div.date.one-queue").css("display","none");
-
-
 // if first element isn't the breadcrumb, move it to under the breadcrumb.
 // check if the first element is the breadcrumb (= 0 if not)
 var firstElement = $(".body-layout div:not([style*='display: none']").eq(0);
@@ -17,6 +13,9 @@ $(".button, .mdc-button").addClass("btn btn-primary");
 
 
 if($("div.date.one-queue").length > 0) {
+	// hide appointment times before rewriting in <cotui-accordion>
+	$("div.date.one-queue").css("display","none");
+
 	var appointmentDateSections = [];
 	$("div.date.one-queue").each(function() {
 		var tempDateTitle = $(this).find("a.title").eq(0).text().trim();
@@ -81,6 +80,7 @@ if($("div.date.one-queue").length > 0) {
 }
 
 var footerHtml = `
+<br/><br/>
 <footer id="footer" role="contentinfo">
 	<div>
 		<div class="container-fluid">
