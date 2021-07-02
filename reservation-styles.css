@@ -22,8 +22,7 @@ button#print {
 .body-layout form:first-of-type > div:last-of-type > div[class*="mdc"] > div.section ~ div:last-of-type > section:first-of-type,
 .body-layout > div.section ~ :not(div:last-of-type),
 .body-layout > div.section ~ div:last-of-type > section:first-of-type {   // not needed as footer is added using js */
-.body-layout > *,
-.body-layout form:first-of-type > * {
+.body-layout {
   max-width: 1400px;
   outline:none;
   margin-right: auto;
@@ -37,8 +36,7 @@ button#print {
   .body-layout form:first-of-type > div:last-of-type > div[class*="mdc"] > div.section ~ div:last-of-type > section:first-of-type,
   .body-layout > div.section ~ :not(div:last-of-type),
   .body-layout > div.section ~ div:last-of-type > section:first-of-type {  */
-  .body-layout > *,
-  .body-layout form:first-of-type > * {
+  .body-layout {
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -51,13 +49,13 @@ button#print {
   .body-layout form:first-of-type > div:last-of-type > div[class*="mdc"] > div.section ~ div:last-of-type > section:first-of-type,
   .body-layout > div.section ~ :not(div:last-of-type),
   .body-layout > div.section ~ div:last-of-type > section:first-of-type { */
-  .body-layout > *,
-  .body-layout form:first-of-type > * {
+  .body-layout {
     padding-right: 15px;
     padding-left: 15px;
   }
 }
 
+/* .body-layout form:first-of-type > **/
 
 /* 
 .body-layout > :first-child {
