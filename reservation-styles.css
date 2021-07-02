@@ -10,11 +10,11 @@ button#print {
   max-width: none;	
 }
 
-header:first-of-type {
+header:first-child {
   margin-bottom: 20px;
 }
 
-footer:first-of-type {
+footer:first-child {
   margin-top: 20px;
 }
 
