@@ -86,7 +86,7 @@ if($("div.date.one-queue").length > 0) {
 }
 
 var footerHtml = `
-<br/><br/>
+<br/>
 <footer id="footer" role="contentinfo">
 	<div>
 		<div class="container-fluid">
