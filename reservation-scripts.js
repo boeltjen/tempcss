@@ -11,7 +11,9 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 
 
 //find the breadcrumbs and place it under the header
-$("header").eq(0).after($("#breadcrumbs").parent());
+$("header").eq(0).append($("#breadcrumbs"));
+
+
 
 $(".button, .mdc-button").addClass("btn btn-primary");
 
