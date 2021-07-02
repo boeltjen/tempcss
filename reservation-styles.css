@@ -10,7 +10,7 @@ button#print {
   max-width: none;	
 }
 
-header:first-child {
+header :first-child {
   margin-bottom: 20px;
 }
 
