@@ -75,9 +75,9 @@ footer {
 }  */
 
 
-/* a.mdc-button--unelevated {
+a[data-datetime] {
     margin: 5px;
-} */
+}
 
 div.time {
 	display:inline;
