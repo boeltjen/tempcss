@@ -11,7 +11,7 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 
 
 //find the breadcrumbs and place it under the header
-$("header").eq(0).append($("#breadcrumbs"));
+$("header").eq(0).append($("#breadcrumbs")).append($("br"));
 
 
 
