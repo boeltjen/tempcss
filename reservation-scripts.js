@@ -69,12 +69,12 @@ var cframeFooterHtml = `
 `;
 
 
-w3IncludeHTML(function () {
-	var scriptTag = document.createElement('script'), // create a script tag
-	    firstScriptTag = document.getElementsByTagName('script')[0]; // find the first script tag in the document
-	scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";  // set the source of the script to your script
-	firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
-});
+// w3IncludeHTML(function () {
+// 	var scriptTag = document.createElement('script'), // create a script tag
+// 	    firstScriptTag = document.getElementsByTagName('script')[0]; // find the first script tag in the document
+// 	scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";  // set the source of the script to your script
+// 	firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
+// });
 
 
 
