@@ -135,7 +135,7 @@ $.ajax({
           $("footer").eq(0).replaceWith($(res.responseText).find('footer').eq(0));
        },
 	error: function(res) {
-		alert("error loading cframe");
+		//alert("error loading cframe");
 		$("footer").eq(0).replaceWith(footerHtml);
 	}
      });
