@@ -1,3 +1,84 @@
+var cframeHeaderHtml = `									
+	<header id="header" role="banner">
+	<div class="container-fluid">
+	<div id="header-left">
+		<div id="logo">
+					<a href="https://www.toronto.ca/" data-wt_params="WT.z_click_from=header;;WT.z_cat=Home">
+			<img src="https://www.toronto.ca/wp-content/themes/cot/img/logo.svg" width="225" height="70" alt="City of Toronto">
+			</a>
+				</div>
+		<button id="want-to-mobile" class="btn btn-warning" data-target="#want-to-modal" data-toggle="modal">I want to...</button>
+		<button id="nav-trigger" class="btn btn-default visible-xs visible-sm" aria-expanded="false" aria-haspopup="true"><span>Navigation Menu</span></button>
+	</div>
+		<div id="header-right">
+			<div id="top-bar">
+	<!--				<form id="siteSearch" class="form-inline" action="--><!--searchblox/servlet/SearchServlet" method="get" role="search" name="s">-->
+
+				<form id="siteSearch" class="form-inline" action="https://find.toronto.ca/searchblox/servlet/SearchServlet" method="get" role="search" name="s">
+					<div role="search" aria-label="site search">
+						<label class="sr-only" for="query">Search</label>
+						<input id="query" name="query" class="form-control" placeholder="Search" type="text">
+						<button id="query-search" type="submit" class="btn btn-default"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-search.svg" alt="Search"></button>
+						<input type="hidden" name="cname" value="www1">
+					</div>
+				</form>
+				<button id="text-increase" class="btn btn-default hidden-sm hidden-xs" title="Increase text size"><span class="sr-only">Increase text size</span><i id="i-text-increase" aria-hidden="true">A+</i></button>
+				<button id="text-decrease" class="btn btn-default hidden-sm hidden-xs" title="Decrease text size"><span class="sr-only">Decrease text size</span><i id="i-text-decrease" aria-hidden="true">A-</i></button>
+				<button id="want-to" class="btn btn-warning" data-target="#want-to-modal" data-toggle="modal">I want to...</button>
+			</div>
+			<div w3-include-html="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/header/" id="main-nav-container"><a href="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/header/"></a></div>
+		</div>
+	</div>
+	<!--startindex-->
+	<!--stopindex-->
+	    <nav id="breadcrumbs" aria-label="breadcrumb">
+	    <div class="container-fluid">
+		<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+		    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="https://www.toronto.ca/" itemscope itemtype="http://schema.org/Thing" itemprop="item" data-wt_params="WT.z_click_from=Breadcrumb;;WT.z_cat=Home"><i class="glyphicon glyphicon-home"></i><span itemprop="name" class="bc_home_link">City of Toronto</span></a></li>
+
+		    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active"><span itemprop="name">cframe</span></li>
+		</ol>
+	    </div>
+	    </nav>
+	<!--startindex-->
+	</header>
+`;
+
+
+var cframeFooterHtml = `
+	<div id="cotFooterAbove" class="cotPlaceholder"></div>
+	<footer id="footer" role="contentinfo">
+	<div id="cotFooterTop" class="cotPlaceholder"></div>
+
+	<div w3-include-html="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/footer/?fb=false">
+		<a href="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/footer/?fb=false"></a>
+	</div>
+
+	    <!--stopindex-->
+	    <a href="#header" id="return-to-top">
+				<img src="https://www.toronto.ca/wp-content/themes/cot/img/back-to-top-arrow.png" alt=""/>
+				<span class="return-to-top-tip">Back to Top</span>
+			</a>
+	    <!--startindex-->
+	<div id="cotFooterBottom" class="cotPlaceholder"></div>
+	</footer>
+
+		<script src="https://www.toronto.ca/wp-content/themes/cot/js/footer.js"></script>
+
+
+	<script>
+		w3IncludeHTML(function () {
+		var scriptTag = document.createElement('script'), // create a script tag
+		    firstScriptTag = document.getElementsByTagName('script')[0]; // find the first script tag in the document
+		scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";  // set the source of the script to your script
+		firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
+	    });
+	    </script>
+
+	<div id="want-to-modal" class="modal fade" tabindex="-1" role="dialog">
+`;
+
+
 //remove stock stylesheet
 $('link[rel=stylesheet][href*="bundle.css"]').remove();
 
@@ -8,6 +89,11 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 	//first element isn't the breadcrumb.  move it to under the breadcrumb.
 	firstElement.insertAfter($("#breadcrumbs").parent());
 }*/
+
+
+//replace header and footer with cframe (through corsAnywhere for now)
+$("header").eq(0).replaceWith(cframeHeaderHtml);
+$("footer").eq(0).replaceWith(cframeFooterHtml);
 
 
 //find the breadcrumbs and place it under the header
@@ -126,16 +212,4 @@ var footerHtml = `
 	</div>
 </footer>`;
 
-//$("footer").eq(0).replaceWith(footerHtml);
 
-$.ajax({
-       url: 'https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/cframe/',
-       type: 'GET',
-       success: function(res) {
-          $("footer").eq(0).replaceWith($(res.responseText).find('footer').eq(0));
-       },
-	error: function(res) {
-		//alert("error loading cframe");
-		$("footer").eq(0).replaceWith(footerHtml);
-	}
-     });
