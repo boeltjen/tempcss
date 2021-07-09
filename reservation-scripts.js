@@ -65,18 +65,17 @@ var cframeFooterHtml = `
 
 		<script src="https://www.toronto.ca/wp-content/themes/cot/js/footer.js"></script>
 
-
-	<script>
-		w3IncludeHTML(function () {
-		var scriptTag = document.createElement('script'), // create a script tag
-		    firstScriptTag = document.getElementsByTagName('script')[0]; // find the first script tag in the document
-		scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";  // set the source of the script to your script
-		firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
-	    });
-	    </script>
-
 	<div id="want-to-modal" class="modal fade" tabindex="-1" role="dialog">
 `;
+
+
+w3IncludeHTML(function () {
+	var scriptTag = document.createElement('script'), // create a script tag
+	    firstScriptTag = document.getElementsByTagName('script')[0]; // find the first script tag in the document
+	scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";  // set the source of the script to your script
+	firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
+});
+
 
 
 //remove stock stylesheet
