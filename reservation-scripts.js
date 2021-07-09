@@ -72,7 +72,7 @@ var includeScript = function(tagSrc) {
 	var scriptTag = document.createElement('script'), // create a script tag
 	    lastScriptTag = document.getElementsByTagName('script')[document.getElementsByTagName('script').length-1]; // find the last script tag in the document
 	scriptTag.src = tagSrc;  // set the source of the script to your script
-	lastScriptTag.parentNode.insertAfter(scriptTag, lastScriptTag);
+	lastScriptTag.insertAdjacentElement('afterend',scriptTag);
 };
 includeScript("https://www.toronto.ca/wp-content/themes/cot/js/footer.js");
 
