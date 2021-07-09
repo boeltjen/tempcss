@@ -129,7 +129,7 @@ var footerHtml = `
 //$("footer").eq(0).replaceWith(footerHtml);
 
 $.ajax({
-       url: 'https://www.toronto.ca/globalnav/cframe/',
+       url: 'https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/cframe/',
        type: 'GET',
        success: function(res) {
           $("footer").eq(0).replaceWith($(res.responseText).find('footer').eq(0));
