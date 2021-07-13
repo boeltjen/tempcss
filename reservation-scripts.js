@@ -2094,12 +2094,13 @@ var cframeHeaderHtml = `
                 <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="https://www.toronto.ca/" itemscope itemtype="http://schema.org/Thing" itemprop="item" data-wt_params="WT.z_click_from=Breadcrumb;;WT.z_cat=Home"><i class="glyphicon glyphicon-home"></i><span itemprop="name" class="bc_home_link">City of Toronto</span></a></li>
                     
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active"><span itemprop="name">cframe</span></li>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active"><span itemprop="name">Book an Appointment</span></li>
                 </ol>
             </div>
             </nav>
         <!--startindex-->
 	</header>
+	<br />
 `;
 
 
@@ -2140,11 +2141,20 @@ var cframeFooterHtml = `
 			firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
 		});
 		</script>
+			<script src="https://www.toronto.ca/wp-content/themes/cot/js/jquery-3.3.1.min.js"></script>
+	<script src="https://www.toronto.ca/wp-content/themes/cot/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="https://www.toronto.ca/cot/jquery-additional-custom-js.js?ver=1.0.0"></script>
+
+
+    <script src="https://www.toronto.ca/wp-content/themes/cot/js/bootstrap.3.4.1.min.js"></script>
+
+	<script src="https://www.toronto.ca/wp-content/themes/cot/js/footer.js"></script>
 `;
 
 //remove stock stylesheets
 $('link[rel=stylesheet][href*="bundle.css"]').remove();
 $('link[rel=stylesheet][href*="stackpath.bootstrapcdn.com"]').remove();
+$('script[type='text/javascript'][src*="stackpath.bootstrapcdn.com"]').remove();
 
 // if first element isn't the breadcrumb, move it to under the breadcrumb.
 // check if the first element is the breadcrumb (= 0 if not)
