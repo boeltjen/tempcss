@@ -2142,8 +2142,9 @@ var cframeFooterHtml = `
 		</script>
 `;
 
-//remove stock stylesheet
+//remove stock stylesheets
 $('link[rel=stylesheet][href*="bundle.css"]').remove();
+$('link[rel=stylesheet][href*="stackpath.bootstrapcdn.com"]').remove();
 
 // if first element isn't the breadcrumb, move it to under the breadcrumb.
 // check if the first element is the breadcrumb (= 0 if not)
