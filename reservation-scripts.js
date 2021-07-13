@@ -2118,8 +2118,8 @@ var cframeFooterHtml = `
 		<div id="cotFooterBottom" class="cotPlaceholder"></div>
 		</footer>
 		<div id="want-to-modal" class="modal fade" tabindex="-1" role="dialog">
-		    <div w3-include-html="https://www.toronto.ca/globalnav/iwantto/"><a
-				href="https://www.toronto.ca/globalnav/iwantto/"></a></div>
+		    <div w3-include-html="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/iwantto/"><a
+				href="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/iwantto/"></a></div>
 		</div>
 		<script>
 		var includeScript = function(tagSrc) {
