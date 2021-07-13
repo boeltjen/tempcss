@@ -104,12 +104,14 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
 
-//activate the w3-includes:
-w3IncludeHTML(function () {
-	var scriptTag = document.createElement('script'), // create a script tag
-	firstScriptTag = document.getElementsByTagName('script')[0]; // find the first script tag in the document
-	scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";  // set the source of the script to your script
-	firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
+$( document ).ready(function() {
+	//activate the w3-includes:
+	w3IncludeHTML(function () {
+		var scriptTag = document.createElement('script'), // create a script tag
+		firstScriptTag = document.getElementsByTagName('script')[0]; // find the first script tag in the document
+		scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";  // set the source of the script to your script
+		firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
+	});
 });
 
 
