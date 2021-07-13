@@ -189,6 +189,7 @@ if($("div.date.one-queue").length > 0) {
 		})
 		.append(appointmentDateSections);
 
+	$("div.date.one-queue").after("<div id='dateTimesContainer'/>")
 	$("div.date.one-queue").remove();
 
 	$("#dateTimesContainer").append(accordionEle);
