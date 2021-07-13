@@ -5,7 +5,7 @@
 var cframeHeaderHtml = `									
 	<a id="skippy" class="sr-only sr-only-focusable" href="#main"><span>Skip to content</span></a>
 	<img class="visible-print-block" src="https://www.toronto.ca/wp-content/themes/cot/img/logo-print.svg" width="175" height="53" alt="City of Toronto">
-	<div id="global-alertbox" w3-include-html="http://corsredirect-env.jqcmp56yri.us-west-2.elasticbeanstalk.com/https://www.toronto.ca/cot/globalalert/"></div>
+	<div id="global-alertbox" w3-include-html="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/cot/globalalert/"></div>
 	<header id="header" role="banner">
 	<div class="container-fluid">
 	<div id="header-left">
@@ -33,7 +33,7 @@ var cframeHeaderHtml = `
 				<button id="text-decrease" class="btn btn-default hidden-sm hidden-xs" title="Decrease text size"><span class="sr-only">Decrease text size</span><i id="i-text-decrease" aria-hidden="true">A-</i></button>
 				<button id="want-to" class="btn btn-warning" data-target="#want-to-modal" data-toggle="modal">I want to...</button>
 			</div>
-			<div w3-include-html="http://corsredirect-env.jqcmp56yri.us-west-2.elasticbeanstalk.com/https://www.toronto.ca/globalnav/header/" id="main-nav-container"><a href="http://corsredirect-env.jqcmp56yri.us-west-2.elasticbeanstalk.com/https://www.toronto.ca/globalnav/header/"></a></div>
+			<div w3-include-html="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/header/" id="main-nav-container"><a href="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/header/"></a></div>
 		</div>
 	</div>
 <!--startindex-->
@@ -58,8 +58,8 @@ var cframeFooterHtml = `
 	<footer id="footer" role="contentinfo">
 	<div id="cotFooterTop" class="cotPlaceholder"></div>
 
-	<div w3-include-html="http://corsredirect-env.jqcmp56yri.us-west-2.elasticbeanstalk.com/https://www.toronto.ca/globalnav/footer/?fb=false">
-		<a href="http://corsredirect-env.jqcmp56yri.us-west-2.elasticbeanstalk.com/https://www.toronto.ca/globalnav/footer/?fb=false"></a>
+	<div w3-include-html="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/footer/?fb=false">
+		<a href="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/footer/?fb=false"></a>
 	</div>
 
 	    <!--stopindex-->
@@ -71,8 +71,8 @@ var cframeFooterHtml = `
 	<div id="cotFooterBottom" class="cotPlaceholder"></div>
 	</footer>
 	<div id="want-to-modal" class="modal fade" tabindex="-1" role="dialog">
-	    <div w3-include-html="http://corsredirect-env.jqcmp56yri.us-west-2.elasticbeanstalk.com/https://www.toronto.ca/globalnav/iwantto/"><a
-			href="http://corsredirect-env.jqcmp56yri.us-west-2.elasticbeanstalk.com/https://www.toronto.ca/globalnav/iwantto/"></a></div>
+	    <div w3-include-html="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/iwantto/"><a
+			href="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/iwantto/"></a></div>
 	</div>
 
 	<script src="https://www.toronto.ca/wp-content/themes/cot/js/jquery-3.3.1.min.js"></script>
