@@ -2105,8 +2105,8 @@ var cframeFooterHtml = `
 		<footer id="footer" role="contentinfo">
 		<div id="cotFooterTop" class="cotPlaceholder"></div>
 
-		<div w3-include-html="https://www.toronto.ca/globalnav/footer/?fb=false">
-			<a href="https://www.toronto.ca/globalnav/footer/?fb=false"></a>
+		<div w3-include-html="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/footer/?fb=false">
+			<a href="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/footer/?fb=false"></a>
 		</div>
 
 		    <!--stopindex-->
