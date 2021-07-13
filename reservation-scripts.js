@@ -2054,6 +2054,9 @@ function scrollToTop(callback) {
 
 
 var cframeHeaderHtml = `									
+		<a id="skippy" class="sr-only sr-only-focusable" href="#main"><span>Skip to content</span></a>
+	<img class="visible-print-block" src="https://www.toronto.ca/wp-content/themes/cot/img/logo-print.svg" width="175" height="53" alt="City of Toronto">
+	<div id="global-alertbox" w3-include-html="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/cot/globalalert/"></div>
 	<header id="header" role="banner">
 	<div class="container-fluid">
 	<div id="header-left">
@@ -2067,8 +2070,8 @@ var cframeHeaderHtml = `
 	</div>
 		<div id="header-right">
 			<div id="top-bar">
-	<!--				<form id="siteSearch" class="form-inline" action="--><!--searchblox/servlet/SearchServlet" method="get" role="search" name="s">-->
-
+<!--				<form id="siteSearch" class="form-inline" action="--><!--searchblox/servlet/SearchServlet" method="get" role="search" name="s">-->
+			  
 				<form id="siteSearch" class="form-inline" action="https://find.toronto.ca/searchblox/servlet/SearchServlet" method="get" role="search" name="s">
 					<div role="search" aria-label="site search">
 						<label class="sr-only" for="query">Search</label>
@@ -2084,18 +2087,18 @@ var cframeHeaderHtml = `
 			<div w3-include-html="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/header/" id="main-nav-container"><a href="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/header/"></a></div>
 		</div>
 	</div>
-	<!--startindex-->
-	<!--stopindex-->
-	    <nav id="breadcrumbs" aria-label="breadcrumb">
-	    <div class="container-fluid">
-		<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-		    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="https://www.toronto.ca/" itemscope itemtype="http://schema.org/Thing" itemprop="item" data-wt_params="WT.z_click_from=Breadcrumb;;WT.z_cat=Home"><i class="glyphicon glyphicon-home"></i><span itemprop="name" class="bc_home_link">City of Toronto</span></a></li>
-
-		    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active"><span itemprop="name">cframe</span></li>
-		</ol>
-	    </div>
-	    </nav>
-	<!--startindex-->
+<!--startindex-->
+<!--stopindex-->
+            <nav id="breadcrumbs" aria-label="breadcrumb">
+            <div class="container-fluid">
+                <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="https://www.toronto.ca/" itemscope itemtype="http://schema.org/Thing" itemprop="item" data-wt_params="WT.z_click_from=Breadcrumb;;WT.z_cat=Home"><i class="glyphicon glyphicon-home"></i><span itemprop="name" class="bc_home_link">City of Toronto</span></a></li>
+                    
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active"><span itemprop="name">cframe</span></li>
+                </ol>
+            </div>
+            </nav>
+        <!--startindex-->
 	</header>
 `;
 
