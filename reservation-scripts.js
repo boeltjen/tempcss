@@ -3,7 +3,7 @@
 
 
 var cframeHeaderHtml = `									
-		<a id="skippy" class="sr-only sr-only-focusable" href="#main"><span>Skip to content</span></a>
+	<a id="skippy" class="sr-only sr-only-focusable" href="#main"><span>Skip to content</span></a>
 	<img class="visible-print-block" src="https://www.toronto.ca/wp-content/themes/cot/img/logo-print.svg" width="175" height="53" alt="City of Toronto">
 	<div id="global-alertbox" w3-include-html="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/cot/globalalert/"></div>
 	<header id="header" role="banner">
@@ -74,15 +74,6 @@ var cframeFooterHtml = `
 	    <div w3-include-html="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/iwantto/"><a
 			href="https://cors-anywhere.herokuapp.com/https://www.toronto.ca/globalnav/iwantto/"></a></div>
 	</div>
-	<script>
-	w3IncludeHTML(function () {
-		var scriptTag = document.createElement('script'), // create a script tag
-		firstScriptTag = document.getElementsByTagName('script')[0]; // find the first script tag in the document
-		scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";  // set the source of the script to your script
-		firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
-	});
-
-	</script>
 	<script src="https://www.toronto.ca/wp-content/themes/cot/js/jquery-3.3.1.min.js"></script>
 	<script src="https://www.toronto.ca/wp-content/themes/cot/js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="https://www.toronto.ca/cot/jquery-additional-custom-js.js?ver=1.0.0"></script>
@@ -112,6 +103,14 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 
 $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
+
+//activate the w3-includes:
+w3IncludeHTML(function () {
+	var scriptTag = document.createElement('script'), // create a script tag
+	firstScriptTag = document.getElementsByTagName('script')[0]; // find the first script tag in the document
+	scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";  // set the source of the script to your script
+	firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
+});
 
 
 //find the breadcrumbs and place it under the header
