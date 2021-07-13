@@ -115,10 +115,10 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 
 
 //replace header and footer with cframe (through corsAnywhere for now)
-$("footer").eq(0).replaceWith(footerHtml);
+// $("footer").eq(0).replaceWith(footerHtml);
 
-// $("footer").eq(0).replaceWith(cframeFooterHtml);
-// $("header").eq(0).replaceWith(cframeHeaderHtml);
+$("footer").eq(0).replaceWith(cframeFooterHtml);
+$("header").eq(0).replaceWith(cframeHeaderHtml);
 
 
 //find the breadcrumbs and place it under the header
