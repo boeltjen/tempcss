@@ -2121,6 +2121,7 @@ var cframeFooterHtml = `
 		    <div w3-include-html="https://www.toronto.ca/globalnav/iwantto/"><a
 				href="https://www.toronto.ca/globalnav/iwantto/"></a></div>
 		</div>
+		<script>
 		var includeScript = function(tagSrc) {
 			var scriptTag = document.createElement('script'), // create a script tag
 			    lastScriptTag = document.getElementsByTagName('script')[document.getElementsByTagName('script').length-1]; // find the last script tag in the document
@@ -2135,6 +2136,7 @@ var cframeFooterHtml = `
 			scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";  // set the source of the script to your script
 			firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
 		});
+		</script>
 `;
 
 //remove stock stylesheet
