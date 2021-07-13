@@ -75,7 +75,7 @@ footer {
 }  */
 
 
-a[data-datetime] {
+div.time a.btn {
     margin: 5px;
 }
 
