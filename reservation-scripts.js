@@ -172,9 +172,11 @@ $("main").eq(0).appendTo("#torontopagecontent");
 
 
 
-//find the breadcrumbs and place it under the header
-// $("header").eq(0).append($("#breadcrumbs"));
-
+//find the first H1 header, move it to the #torontopageheader, then add to the last breadcrumb
+var torontopageheaderText = $("h1").eq(0).text();
+$("h1").eq(0).remove();
+$("#torontopagecontent").text(torontopageheaderText);
+$("#breadcrumbs").find("li").eq(-1).text(torontopageheaderText);
 
 
 $(".button, .mdc-button").addClass("btn btn-primary");
