@@ -77,11 +77,9 @@ var cframeHeaderHtml = `
 			<div class="row">
 			    <div id="page-content" class="col-md-8 col-lg-9">
 				<div class="pagecontent" id="torontopagecontent">
-
-				<!-- insert booking content here -->
-
-				<!-- end booking content here -->
+					<!-- insert booking content here -->
 				</div>
+			    </div>
 				<aside class="col-md-4 col-lg-3">
 				<div id="cotSidebarTop" class="cotPlaceholder"></div>
 				<div id="sidebar">
