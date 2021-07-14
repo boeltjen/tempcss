@@ -128,7 +128,7 @@ $("header").eq(0).replaceWith(cframeHeaderHtml);
 $(".button, .mdc-button").addClass("btn btn-primary");
 
 
-if($("div.date.one-queue").length > 0 || false) { // temporarily disabling this section
+if($("div.date.one-queue").length > 0 && false) { // temporarily disabling this section
 	// hide appointment times before rewriting in <cotui-accordion>
 	$("div.date.one-queue").css("display","none");
 
