@@ -1,11 +1,12 @@
-button#print {
+/* button#print {
   background-image: url("https://www.toronto.ca/wp-content/themes/cot/img/icon-print.svg");
 }
 
 #page-content {
   min-height:0px;
 }
-
+ */
+/*
 #breadcrumbs .container-fluid {
   max-width: none;	
 }
@@ -17,12 +18,14 @@ header:not([role="banner"]) {
 footer {
   margin-top: 20px;
 }
+*/
 
 /* note that a label is inline.  making it block here. */
+/*
 .body-layout form:first-of-type > div.section ~ label { 
   display: block;
 }
-
+*/
 
 /*.body-layout form:first-of-type > div.section ~  :not(div:last-of-type),
 .body-layout form:first-of-type > div.section ~ div:last-of-type > section:first-of-type,
