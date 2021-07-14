@@ -163,9 +163,16 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 }*/
 
 
-//replace header and footer with cframe (through corsAnywhere for now)
-// $("footer").eq(0).replaceWith(footerHtml);
+//check if footer contains a ul with links.  If it does, move them to the breadcrumb
+var footerUlLinks = $("footer").eq(0).find("ul > li > a");
+var lastBreadcrumb = $("#breadcrumbs").find("li").eq(-1);
+footerUlLinks.each(function() {
+	lastBreadcrumb.before('<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href=' + 
+			      $(this).attr('href') + '><span itemprop="name">' + 
+			      $(this).text() + '</span></a></li>');
+});
 
+//replace header and footer with cframe (through copied w3 pages to github for now)
 $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
 $("main").eq(0).appendTo("#torontopagecontent");
