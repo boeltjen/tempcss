@@ -75,7 +75,6 @@ var cframeFooterHtml = `
 			href="https://boeltjen.github.io/tempcss/globalnav-iwantto.html"></a></div>
 	</div>
 
-	<script src="https://www.toronto.ca/wp-content/themes/cot/js/jquery-3.3.1.min.js"></script>
 	<script src="https://www.toronto.ca/wp-content/themes/cot/js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="https://www.toronto.ca/cot/jquery-additional-custom-js.js?ver=1.0.0"></script>
 
