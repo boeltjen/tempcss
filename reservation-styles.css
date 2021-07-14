@@ -81,6 +81,17 @@ footer {
 }  */
 
 
+@media (max-width: 767px) {
+	#sidebar {
+	    margin-top: 20px;
+	}
+}
+
+div:not(.time) a.btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 div.time a.btn {
     margin: 5px;
 }
