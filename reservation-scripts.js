@@ -173,11 +173,13 @@ $("main").eq(0).appendTo("#torontopagecontent");
 
 
 //find the first H1 header, move it to the #torontopageheader, then add to the last breadcrumb
-// var torontopageheaderText = $("h1:not(#torontopageheader)").eq(0).text();
-// $("#torontopageheader").text(torontopageheaderText);
-// $("#breadcrumbs").find("li").eq(-1).text(torontopageheaderText);
-// $("h1").eq(0).remove();
+var customPageHeaderH1 = $("h1:not('#torontopageheader')").eq(0);
+$("#torontopageheader").text(customPageHeaderH1.text());
+$("#breadcrumbs").find("li").eq(-1).text(customPageHeaderH1.text());
+customPageHeaderH1.remove();
 
+
+//add bootstrap button classes to all button like links
 $(".button, .mdc-button").addClass("btn btn-primary");
 
 
