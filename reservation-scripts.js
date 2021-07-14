@@ -167,8 +167,8 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 var footerUlLinks = $("footer").eq(0).find("ul > li > a");
 var lastBreadcrumb = $("#breadcrumbs").find("li").eq(-1);
 footerUlLinks.each(function() {
-	lastBreadcrumb.before('<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href=' + 
-			      $(this).attr('href') + '><span itemprop="name">' + 
+	lastBreadcrumb.before('<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href="' + 
+			      $(this).attr('href') + '"><span itemprop="name">' + 
 			      $(this).text() + '</span></a></li>');
 });
 
