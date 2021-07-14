@@ -174,9 +174,11 @@ $("main").eq(0).appendTo("#torontopagecontent");
 
 //find the first H1 header, move it to the #torontopageheader, then add to the last breadcrumb
 var customPageHeaderH1 = $("h1:not('#torontopageheader')").eq(0);
-$("#torontopageheader").text(customPageHeaderH1.text());
-$("#breadcrumbs").find("li").eq(-1).text(customPageHeaderH1.text());
-customPageHeaderH1.remove();
+if(customPageHeaderH1.length > 0) {
+	$("#torontopageheader").text(customPageHeaderH1.text());
+	$("#breadcrumbs").find("li").eq(-1).text(customPageHeaderH1.text());
+	customPageHeaderH1.remove();
+}
 
 
 //add bootstrap button classes to all button like links
