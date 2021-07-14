@@ -53,39 +53,35 @@ var cframeHeaderHtml = `
 	<!-- columned template -->
 	
 	<section id="main" class="content-page" role="main">
-	<div class="container-fluid">
-		<div id="cotHeaderTop" class="cotPlaceholder"></div>
-		<div class="page-header">
-		    <h1>Step 1: Apply for a Marriage Licence</h1>
-		    <nav id="actions" aria-label="Page Actions">
-			<!--stopindex--> 
-			<div id="sharebutton">
-			    <button id="shareit" class="btn btn-default" aria-haspopup="true" aria-expanded="false" aria-controls="sharebox" aria-label="share this page">Share</button> 
-			    <div id="sharebox" class="sharebox" tabindex="-1" aria-labelledby="shareit">
-				<ul class="share-list">
-				    <li> <a target="shareit" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F" id="share-link-1"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_facebook.png" id="share-img-1" alt=""><span class="sr-only">Share to </span><span>Facebook</span></a> </li>
-				    <li> <a target="shareit" href="https://twitter.com/share?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;text=Step+1%3A+Apply+for+a+Marriage+Licence&amp;via=cityoftoronto" id="share-link-2"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_twitter.png" id="share-img-2" alt=""><span class="sr-only">Share to </span><span>Twitter</span></a> </li>
-				    <li> <a target="shareit" href="https://pinterest.com/pin/create/bookmarklet/?media=https://www.toronto.ca/wp-content/themes/cot/img/share_toronto_twitter.jpg&amp;url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;description=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-3"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_pinterest.png" id="share-img-4" alt=""><span class="sr-only">Share to </span><span>Pinterest</span></a> </li>
-				    <li> <a target="shareit" href="http://www.linkedin.com/shareArticle?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;title=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-4"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_linkedin.png" id="share-img-5" alt=""><span class="sr-only">Share to </span><span>LinkedIn</span></a> </li>
-				</ul>
-			    </div>
+		<div class="container-fluid">
+			<div id="cotHeaderTop" class="cotPlaceholder"></div>
+			<div class="page-header">
+			    <h1>Step 1: Apply for a Marriage Licence</h1>
+			    <nav id="actions" aria-label="Page Actions">
+				<!--stopindex--> 
+				<div id="sharebutton">
+				    <button id="shareit" class="btn btn-default" aria-haspopup="true" aria-expanded="false" aria-controls="sharebox" aria-label="share this page">Share</button> 
+				    <div id="sharebox" class="sharebox" tabindex="-1" aria-labelledby="shareit">
+					<ul class="share-list">
+					    <li> <a target="shareit" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F" id="share-link-1"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_facebook.png" id="share-img-1" alt=""><span class="sr-only">Share to </span><span>Facebook</span></a> </li>
+					    <li> <a target="shareit" href="https://twitter.com/share?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;text=Step+1%3A+Apply+for+a+Marriage+Licence&amp;via=cityoftoronto" id="share-link-2"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_twitter.png" id="share-img-2" alt=""><span class="sr-only">Share to </span><span>Twitter</span></a> </li>
+					    <li> <a target="shareit" href="https://pinterest.com/pin/create/bookmarklet/?media=https://www.toronto.ca/wp-content/themes/cot/img/share_toronto_twitter.jpg&amp;url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;description=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-3"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_pinterest.png" id="share-img-4" alt=""><span class="sr-only">Share to </span><span>Pinterest</span></a> </li>
+					    <li> <a target="shareit" href="http://www.linkedin.com/shareArticle?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;title=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-4"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_linkedin.png" id="share-img-5" alt=""><span class="sr-only">Share to </span><span>LinkedIn</span></a> </li>
+					</ul>
+				    </div>
+				</div>
+				<button id="print" class="btn btn-default" onclick="window.print();">Print</button> <!--startindex--> 
+			    </nav>
 			</div>
-			<button id="print" class="btn btn-default" onclick="window.print();">Print</button> <!--startindex--> 
-		    </nav>
-		</div>
-		<div id="cotHeaderBottom" class="cotPlaceholder"></div>
-		<div class="row">
-		    <div id="page-content" class="col-md-8 col-lg-9">
-			<div class="pagecontent" id="torontopagecontent">
-			
-			<!-- insert booking content here -->
-	
-`;
+			<div id="cotHeaderBottom" class="cotPlaceholder"></div>
+			<div class="row">
+			    <div id="page-content" class="col-md-8 col-lg-9">
+				<div class="pagecontent" id="torontopagecontent">
 
+				<!-- insert booking content here -->
 
-var cframeFooterHtml = `
-			<!-- end booking content here -->
-		  				</div>
+				<!-- end booking content here -->
+				</div>
 				<aside class="col-md-4 col-lg-3">
 				<div id="cotSidebarTop" class="cotPlaceholder"></div>
 				<div id="sidebar">
@@ -104,6 +100,11 @@ var cframeFooterHtml = `
 			</div>
 		</div>
 	</section>
+`;
+
+
+var cframeFooterHtml = `
+			
 	
 	<!-- cotfooter here -->
 
@@ -169,6 +170,7 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 
 $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
+$("main").eq(0).appendTo("#torontopagecontent");
 
 
 
