@@ -88,12 +88,12 @@ footer {
     margin-bottom: 20px;
 }
 
-div:not(.time) a.btn {
-    margin-top: 5px;
-    margin-bottom: 5px;
+div:not(.time) .btn {
+/*     margin-top: 5px; */
+    margin-bottom: 10px;
 }
 
-div.time a.btn {
+div.time .btn {
     margin: 5px;
 }
 
