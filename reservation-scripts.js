@@ -168,8 +168,8 @@ var footerUlLinks = $("footer").eq(0).find("ul > li > a");
 var lastBreadcrumb = $("#breadcrumbs").find("li").eq(-1);
 footerUlLinks.each(function() {
 	lastBreadcrumb.before('<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href="' + 
-			      $(this).attr('href') + '"><span itemprop="name">' + 
-			      $(this).text() + '</span></a></li>');
+			      'test.com' + '"><span itemprop="name">' + 
+			      'test' + '</span></a></li>');
 });
 
 //replace header and footer with cframe (through copied w3 pages to github for now)
