@@ -84,10 +84,8 @@ footer {
 }  */
 
 
-@media (max-width: 767px) {
-	#sidebar {
-	    margin-top: 20px;
-	}
+#torontopagecontent {
+    margin-bottom: 20px;
 }
 
 div:not(.time) a.btn {
