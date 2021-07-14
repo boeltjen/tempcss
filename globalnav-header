@@ -1,0 +1,325 @@
+
+<!--stopindex-->
+<nav id="main-nav" aria-label="Main Navigation">
+    <ul>
+                        <li class="menu-list-item">
+                    <span>
+                        <button type="button">
+                            Services &amp; Payments                        </button>
+                    </span>
+                                        <div class="dropdown">
+                        <ul>
+                            <li>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/services-payments/building-construction/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Services &amp; Payments">Building &amp; Construction</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/services-payments/grants-incentives-rebates/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Services &amp; Payments">Grants, Incentives &amp; Rebates</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/services-payments/permits-licences-bylaws/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Services &amp; Payments">Permits &amp; Licences</a>
+                                    </li>
+
+                                                                    </ul>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/services-payments/property-taxes-utilities/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Services &amp; Payments">Property Taxes &amp; Utilities</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/services-payments/recycling-organics-garbage/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Services &amp; Payments">Recycling, Organics &amp; Garbage</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/services-payments/streets-parking-transportation/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Services &amp; Payments">Streets, Parking &amp; Transportation</a>
+                                    </li>
+
+                                                                    </ul>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/services-payments/tickets-fines-penalties/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Services &amp; Payments">Tickets, Fines &amp; Penalties</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/services-payments/venues-facilities-bookings/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Services &amp; Payments">Venues, Facilities &amp; Bookings</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/services-payments/water-environment/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Services &amp; Payments">Water &amp; Environment</a>
+                                    </li>
+
+                                                                    </ul>
+                            </li>
+                        </ul>
+                                            </div>
+                </li>
+                            <li class="menu-list-item">
+                    <span>
+                        <button type="button">
+                            Community &amp; People                        </button>
+                    </span>
+                                        <div class="dropdown">
+                        <ul>
+                            <li>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/community-people/animals-pets/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Community &amp; People">Animals &amp; Pets</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/community-people/children-parenting/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Community &amp; People">Children, Youth, Parents &amp; Seniors</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/community-people/community-partners/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Community &amp; People">Community Partners</a>
+                                    </li>
+
+                                                                    </ul>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/community-people/employment-social-support/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Community &amp; People">Financial &amp; Employment Support</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/community-people/get-involved/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Community &amp; People">Get Involved</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/community-people/health-wellness-care/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Community &amp; People">Health &amp; Wellness</a>
+                                    </li>
+
+                                                                    </ul>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/community-people/housing-shelter/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Community &amp; People">Housing &amp; Shelter</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/community-people/moving-to-toronto/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Community &amp; People">Moving to Toronto</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/community-people/public-safety-alerts/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Community &amp; People">Public Safety &amp; Alerts</a>
+                                    </li>
+
+                                                                    </ul>
+                            </li>
+                        </ul>
+                                            </div>
+                </li>
+                            <li class="menu-list-item">
+                    <span>
+                        <button type="button">
+                            Business &amp; Economy                        </button>
+                    </span>
+                                        <div class="dropdown">
+                        <ul>
+                            <li>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/business-economy/business-operation-growth/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Business &amp; Economy">Business Operation &amp; Growth</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/business-economy/business-start-ups/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Business &amp; Economy">Business Start-Ups</a>
+                                    </li>
+
+                                                                    </ul>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/business-economy/doing-business-with-the-city/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Business &amp; Economy">Doing Business with the City</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/business-economy/industry-sector-support/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Business &amp; Economy">Industry Sector Support</a>
+                                    </li>
+
+                                                                    </ul>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/business-economy/invest-in-toronto/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Business &amp; Economy">Invest in Toronto</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/business-economy/partnerships-sponsorships-donations/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Business &amp; Economy">Partnerships, Sponsorships &amp; Donations</a>
+                                    </li>
+
+                                                                    </ul>
+                            </li>
+                        </ul>
+                                            </div>
+                </li>
+                            <li class="menu-list-item">
+                    <span>
+                        <button type="button">
+                            Explore &amp; Enjoy                        </button>
+                    </span>
+                                        <div class="dropdown">
+                        <ul>
+                            <li>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/explore-enjoy/festivals-events/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Explore &amp; Enjoy">Festivals &amp; Events</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Explore &amp; Enjoy">Parks, Gardens &amp; Beaches</a>
+                                    </li>
+
+                                                                    </ul>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/explore-enjoy/history-art-culture/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Explore &amp; Enjoy">History, Art &amp; Culture</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/explore-enjoy/recreation/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Explore &amp; Enjoy">Recreation</a>
+                                    </li>
+
+                                                                    </ul>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/explore-enjoy/visitor-services/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=Explore &amp; Enjoy">Visitor Services</a>
+                                    </li>
+
+                                    <li></li>                                </ul>
+                            </li>
+                        </ul>
+                                            </div>
+                </li>
+                            <li class="menu-list-item">
+                    <span>
+                        <button type="button" id="lastMenuButton">
+                            City Government                        </button>
+                    </span>
+                                        <div class="dropdown">
+                        <ul>
+                            <li>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/city-government/accessibility-human-rights/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=City Government">Accessibility &amp; Human Rights</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/city-government/accountability-operations-customer-service/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=City Government">Accountability, Operations &amp; Customer Service</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/city-government/awards-tributes/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=City Government">Awards &amp; Tributes</a>
+                                    </li>
+
+                                                                    </ul>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/city-government/budget-finances/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=City Government">Budget &amp; Finances</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/city-government/council/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=City Government">Council</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/city-government/data-research-maps/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=City Government">Data, Research &amp; Maps</a>
+                                    </li>
+
+                                                                    </ul>
+                                <ul class="cot-main-menu-sub-list">
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/city-government/elections/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=City Government">Elections</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/city-government/planning-development/"
+                                           data-wt_params="WT.z_click_from=header;;WT.z_cat=City Government">Planning &amp; Development</a>
+                                    </li>
+
+                                    
+                                    <li>
+                                        <a href="https://www.toronto.ca/city-government/public-notices-bylaws/"
+                                           class="lastMenuLink" data-wt_params="WT.z_click_from=header;;WT.z_cat=City Government">Public Notices &amp; Bylaws</a>
+                                    </li>
+
+                                                                    </ul>
+                            </li>
+                        </ul>
+                                            </div>
+                </li>
+                        </ul>
+</nav>
+<!--startindex--> 
