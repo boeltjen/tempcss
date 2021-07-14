@@ -49,7 +49,6 @@ var cframeHeaderHtml = `
             </nav>
         <!--startindex-->
 	</header>
-	<br />
 `;
 
 
