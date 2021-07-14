@@ -164,12 +164,12 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 
 
 //check if footer contains a ul with links.  If it does, move them to the breadcrumb
-var footerUlLinks = $("footer").eq(0).find("ul > li > a");
+var footerUlLinks = $("footer").eq(0).find("ul > li > a").clone();
 var lastBreadcrumb = $("#breadcrumbs").find("li").eq(-1);
 footerUlLinks.each(function() {
 	lastBreadcrumb.before('<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href="' + 
-			      'test.com' + '"><span itemprop="name">' + 
-			      'test' + '</span></a></li>');
+			      $(this).attr('href') + '"><span itemprop="name">' + 
+			      $(this).text() + '</span></a></li>');
 });
 
 //replace header and footer with cframe (through copied w3 pages to github for now)
