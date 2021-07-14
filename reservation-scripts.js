@@ -183,9 +183,9 @@ footerUlLinks.each(function() {
 
 //check if on the sms validation page by find #code.  if not sms validation, find the first H1 header. else use default header "Book an Appointment" if no other H1 is present
 if($("#code").length > 0) {
-	var customPageHeaderH1 = $("h1:not('#torontopageheader')").eq(0);
-} else {
 	var customPageHeaderH1 = $("<h1>Provide Verification Code</h1>");
+} else {
+	var customPageHeaderH1 = $("h1:not('#torontopageheader')").eq(0);
 }
 // move customPageHeaderH1 to the #torontopageheader, then add to the last breadcrumb
 if(customPageHeaderH1.length > 0) {
