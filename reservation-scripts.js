@@ -163,20 +163,22 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 }*/
 
 
-//check if footer contains a ul with links.  If it does, move them to the breadcrumb
+//check if footer contains a ul with links.  If it does, save them for later moving to the breadcrumb
 var footerUlLinks = $("footer").eq(0).find("ul > li > a").clone();
-var lastBreadcrumb = $("#breadcrumbs").find("li").eq(-1);
-footerUlLinks.each(function() {
-	lastBreadcrumb.before('<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href="' + 
-			      $(this).attr('href') + '"><span itemprop="name">' + 
-			      $(this).text() + '</span></a></li>');
-});
+
 
 //replace header and footer with cframe (through copied w3 pages to github for now)
 $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
 $("main").eq(0).appendTo("#torontopagecontent");
 
+// if footer contains a ul with links, and was saved, move them to the breadcrumb
+var lastBreadcrumb = $("#breadcrumbs").find("li").eq(-1);
+footerUlLinks.each(function() {
+	lastBreadcrumb.before('<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href="' + 
+			      $(this).attr('href') + '"><span itemprop="name">' + 
+			      $(this).text() + '</span></a></li>');
+});
 
 
 //find the first H1 header, move it to the #torontopageheader, then add to the last breadcrumb
