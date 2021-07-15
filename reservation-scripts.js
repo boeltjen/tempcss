@@ -1,4 +1,70 @@
+if($("div.date.one-queue").length > 0) {
+	// hide appointment times before rewriting in <cotui-accordion>
+	$("div.date.one-queue").css("display","none");
 
+	var appointmentDateSections = [];
+	$("div.date.one-queue").each(function() {
+		var tempDateTitle = $(this).find("a.title").eq(0).text().trim();
+		var tempDateTitleId = tempDateTitle.replace(/[^a-zA-Z0-9]/g, '');
+		var tempDateTitleHeaderId = tempDateTitleId+"-header";
+		var tempDateHeaderEle = $("<h2/>")
+			.attr({
+			  "data-type":"toggle",
+			  "aria-controls":tempDateTitleId,
+			  "aria-expanded":"false"
+			})
+			.text(tempDateTitle);
+
+		var tempHiddenTitle = $("<div/>")
+			.attr({
+			  "id": tempDateTitleHeaderId,
+			  "class":"hidden"
+			})
+			.text(tempDateTitle);
+
+
+		var tempInnerDiv = $("<div/>")
+			.attr({
+			  "id":tempDateTitleId,
+			})
+			.append(tempHiddenTitle);
+
+
+		$(this).find("ul.times-list li").each(function() {
+			if($(this).hasClass("hour-line")) {
+				tempInnerDiv.append("<br/>");
+			} else {
+				var tempLink = $(this).children("a");
+				tempLink.attr("aria-describedby",tempDateTitleHeaderId);
+				tempInnerDiv.append(
+					$("<div/>").addClass("time ampm-format").append(tempLink)
+				);
+			}
+		});
+		var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
+
+		appointmentDateSections.push(tempSectionEle);
+
+
+	});
+
+	var accordionEle = $("<cotui-accordion/>")
+		.attr({
+		  "id": "times-list-accordion",
+		  "class": "cot-accordion",
+		  "data-title": "Select Appointment Time",
+		  "data-level": "2",
+		  "data-button-expand": "btn btn-link",
+		  "data-button-collapse": "btn btn-link",
+		  "data-allow-multiple": true
+		})
+		.append(appointmentDateSections);
+
+	$("div.date.one-queue").after("<div id='dateTimesContainer'/>")
+	$("div.date.one-queue").remove();
+
+	$("#dateTimesContainer").append(accordionEle);
+}
 
 
 
@@ -198,73 +264,7 @@ if(customPageHeaderH1.length > 0) {
 $(".button, .mdc-button").addClass("btn btn-primary");
 
 
-if($("div.date.one-queue").length > 0) {
-	// hide appointment times before rewriting in <cotui-accordion>
-	$("div.date.one-queue").css("display","none");
 
-	var appointmentDateSections = [];
-	$("div.date.one-queue").each(function() {
-		var tempDateTitle = $(this).find("a.title").eq(0).text().trim();
-		var tempDateTitleId = tempDateTitle.replace(/[^a-zA-Z0-9]/g, '');
-		var tempDateTitleHeaderId = tempDateTitleId+"-header";
-		var tempDateHeaderEle = $("<h2/>")
-			.attr({
-			  "data-type":"toggle",
-			  "aria-controls":tempDateTitleId,
-			  "aria-expanded":"false"
-			})
-			.text(tempDateTitle);
-
-		var tempHiddenTitle = $("<div/>")
-			.attr({
-			  "id": tempDateTitleHeaderId,
-			  "class":"hidden"
-			})
-			.text(tempDateTitle);
-
-
-		var tempInnerDiv = $("<div/>")
-			.attr({
-			  "id":tempDateTitleId,
-			})
-			.append(tempHiddenTitle);
-
-
-		$(this).find("ul.times-list li").each(function() {
-			if($(this).hasClass("hour-line")) {
-				tempInnerDiv.append("<br/>");
-			} else {
-				var tempLink = $(this).children("a");
-				tempLink.attr("aria-describedby",tempDateTitleHeaderId);
-				tempInnerDiv.append(
-					$("<div/>").addClass("time ampm-format").append(tempLink)
-				);
-			}
-		});
-		var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
-
-		appointmentDateSections.push(tempSectionEle);
-
-
-	});
-
-	var accordionEle = $("<cotui-accordion/>")
-		.attr({
-		  "id": "times-list-accordion",
-		  "class": "cot-accordion",
-		  "data-title": "Select Appointment Time",
-		  "data-level": "2",
-		  "data-button-expand": "btn btn-link",
-		  "data-button-collapse": "btn btn-link",
-		  "data-allow-multiple": true
-		})
-		.append(appointmentDateSections);
-
-	$("div.date.one-queue").after("<div id='dateTimesContainer'/>")
-	$("div.date.one-queue").remove();
-
-	$("#dateTimesContainer").append(accordionEle);
-}
 
 var footerHtml = `
 <footer id="footer" role="contentinfo">
