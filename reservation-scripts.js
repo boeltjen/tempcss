@@ -232,7 +232,6 @@ if($("div.date.one-queue").length > 0) {
 			} else {
 				var tempLink = $(this).children("a");
 				tempLink.attr("aria-describedby",tempDateTitleHeaderId);
-				tempLink.addClass("btn btn-primary");
 				tempInnerDiv.append(
 					$("<div/>").addClass("time ampm-format").append(tempLink)
 				);
@@ -258,11 +257,14 @@ if($("div.date.one-queue").length > 0) {
 		.append(appointmentDateSections);
 
 	$("div.date.one-queue").after("<div id='dateTimesContainer'/>")
-
+	
+	//hide and append accordion to dateTimesContainer
+	$("#dateTimesContainer").css("display","none").append(accordionEle);
+	$("div.date.one-queue").remove();
+	
 	//reshow mainElement after cotui is finished rendering
 	setTimeout(function() {
-		$("#dateTimesContainer").append(accordionEle);
-		$("div.date.one-queue").remove();
+		$("#dateTimesContainer").css("display","block");
 	},500);
 	
 }
