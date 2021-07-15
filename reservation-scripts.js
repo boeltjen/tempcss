@@ -220,12 +220,20 @@ $(".button, .mdc-button, button.action").addClass("btn btn-primary");
 $("a.action").addClass("btn btn-default");
 
 //add styling for reservation delete options
-$(".existing-reservation-block").addClass("row");
-$(".existing-reservation-block > div:nth-child(1)").addClass("col-xs-12 col-sm-8 col-md-9");
-$(".existing-reservation-block > div:nth-child(2)").addClass("col-xs-12 col-sm-4 col-md-3");
-
-
-
+$(".existing-reservation-block").each(function() {
+	$(this).addClass("row").after("<br/>");
+	
+	var reservationInfo = $(this).children("div:nth-child(1)");
+	reservationInfo.addClass("col-xs-12 col-sm-8 col-md-9");
+	var dateTimeEle = reservationInfo.children("div").eq(-1);
+	var ariaDescrId = (dateTimeEle.replace(/[^a-zA-Z0-9]/g, ''))+"-descr";
+	dateTimeEle.attr("id", ariaDescrId);
+	
+	var reservationDelButton = $(this).children("div:nth-child(2)");
+	reservationDelButton.addClass("col-xs-12 col-sm-4 col-md-3");
+	reservationDelButton.find("a, button").eq(0).attr("aria-describedby",ariaDescrId);
+});
+				      
 //convert any visible non-button input fields with cot styling
 var visibleInputFields = $("main").eq(0).find("form").eq(0).find("input:not([type='hidden']):not([type='button']):not([type='submit']):not([type='reset']):not([type='submit'])");
 visibleInputFields.each(function(index) {
