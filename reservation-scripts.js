@@ -218,10 +218,11 @@ visibleInputFields.each(function(index) {
 	var inputSectionContainerCol = $('<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 form-group form-group-vertical has-feedback" />');
 	var inputContainer = $('<div class="entryField"/>');
 	var tempDivSection = $(this).parents("div.section").eq(0);
+	var tempLabel = $(this).parents("label").eq(0);
 	var tempInput = $(this).detach();
 			
 	if(tempDivSection.length > 0 ) { //check if input includes validation + helper fields
-		var tempLabel = tempDivSection.find("label").eq(0).detach();
+		tempLabel = tempDivSection.find("label").eq(0).detach();
 		var tempDivSectionChildren = tempDivSection.children().detach();
 		
 		if((index+1) % 2 != 0) {
@@ -236,7 +237,6 @@ visibleInputFields.each(function(index) {
 		}
 		
 	} else {
-		var tempLabel = $(this).parents("label").eq(0);
 		inputSectionContainerRow.insertAfter(tempLabel);
 		inputSectionContainerRow.append(inputSectionContainerCol);
 	}
