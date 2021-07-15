@@ -245,7 +245,7 @@ if($("div.date.one-queue").length > 0) {
 			if($(this).hasClass("hour-line")) {
 				tempInnerDiv.append("<br/>");
 			} else {
-				var tempLink = $(this).children("a");
+				var tempLink = $(this).children("a, button");
 				tempLink.attr("aria-describedby",tempDateTitleHeaderId);
 				tempInnerDiv.append(
 					$("<div/>").addClass("time ampm-format").append(tempLink)
