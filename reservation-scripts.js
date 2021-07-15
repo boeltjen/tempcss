@@ -252,7 +252,15 @@ if($("div.date.one-queue").length > 0) {
 			}
 		});
 		
-		if(timesListLi.length == 0 ) tempInnerDiv.append($(this).children(".title").eq(0).children().eq(0).siblings());
+		// if no list, pass error text to
+		if(timesListLi.length == 0 ) {
+			tempInnerDiv.append(
+			    $("<div/>")
+			    .addClass("text-danger")
+			    .attr("aria-describedby",tempDateTitleHeaderId);
+			    .text($(this).children(".title").eq(0).children().eq(0).siblings().text())
+			);
+		}
 		
 		var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
 
