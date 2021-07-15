@@ -232,7 +232,9 @@ visibleInputFields.each(function(index) {
 			tempDivSection.prevAll("div.section").eq(0).children("div.row").append(inputSectionContainerCol);
 			inputSectionContainerCol.append(tempDivSectionChildren);
 			tempDivSection.remove();
+			inputSectionContainerCol.parents("div.section").eq(0).next("br").remove();			
 		}
+		
 	} else {
 		var tempLabel = $(this).parents("label").eq(0);
 		inputSectionContainerRow.insertAfter(tempLabel);
