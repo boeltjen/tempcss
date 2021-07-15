@@ -215,7 +215,7 @@ $(".button, .mdc-button").addClass("btn btn-primary");
 var visibleInputFields = $("main").eq(0).find("form").eq(0).find("input:not([type='hidden']):not([type='button']):not([type='submit']):not([type='reset']):not([type='submit'])");
 visibleInputFields.each(function(index) {
 	var inputSectionContainerRow = $('<div class="row" />');
-	var inputSectionContainerCol = $('<div class="col-xs-12 col-sm-12 col-md-6 form-group form-group-vertical has-feedback" />');
+	var inputSectionContainerCol = $('<div class="col-xs-12 col-sm-9 col-md-6 form-group form-group-vertical has-feedback" />');
 	var inputContainer = $('<div class="entryField"/>');
 	var tempDivSection = $(this).parents("div.section").eq(0);
 	var tempInput = $(this).detach();
