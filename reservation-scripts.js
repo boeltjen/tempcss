@@ -263,7 +263,6 @@ if($("div.date.one-queue").length > 0) {
 		$("#dateTimesContainer").append(accordionEle);
 		$("div.date.one-queue").remove();
 	},500);
-}
 	
 }
 
