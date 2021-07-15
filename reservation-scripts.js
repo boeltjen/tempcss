@@ -132,12 +132,11 @@ var cframeFooterHtml =
 +'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/bootstrap.3.4.1.min.js"></script>'
 +'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/footer.js"></script>'
 +'	<script>'
-+'		//activate the w3-includes:'
 +'		setTimeout(function() {'
 +'			w3IncludeHTML(function () {'
-+'				var scriptTag = document.createElement("script"), // create a script tag'
-+'				firstScriptTag = document.getElementsByTagName("script")[0]; // find the first script tag in the document'
-+'				scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";  // set the source of the script to your script'
++'				var scriptTag = document.createElement("script"),'
++'				firstScriptTag = document.getElementsByTagName("script")[0];'
++'				scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";'
 +'				firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);'
 +'			});'
 +'		},500);'
@@ -146,6 +145,7 @@ var cframeFooterHtml =
 
 //remove stock stylesheets
 $('link[rel=stylesheet][href*="bundle.css"]').remove();
+$('link[rel=stylesheet][href*="/css/site.css"]').remove();
 
 $('link[rel=stylesheet][href*="stackpath.bootstrapcdn.com"]').remove();
 $('script[src*="stackpath.bootstrapcdn.com"]').remove();
@@ -168,6 +168,14 @@ $("head").eq(0).append(faviconsHtml);
 $("main").find("h3").each(function() {
 	if($(this).html().trim().length == 0) $(this).remove();
 });
+
+//remove any main styling
+$("main").removeClass();
+
+//remove first div.row class
+$("main").children("div.row").removeClass("row");
+
+
 
 //check if footer contains a ul with links.  If it does, save them for later moving to the breadcrumb
 var footerUlLinks = $("footer").eq(0).find("ul > li > a").clone();
@@ -208,7 +216,8 @@ if(customPageHeaderH1.length > 0) {
 document.title = $("#torontopageheader").text() + " - City of Toronto";
 
 //add bootstrap button classes to all button like links
-$(".button, .mdc-button").addClass("btn btn-primary");
+$(".button, .mdc-button, button.action").addClass("btn btn-primary");
+$("a.action").addClass("btn btn-default");
 
 
 //convert any visible non-button input fields with cot styling
@@ -398,5 +407,3 @@ var footerHtml =
 +'	</div>'
 +'    </footer>'
 ;
-
-
