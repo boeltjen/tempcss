@@ -185,7 +185,7 @@ if($("#code").length > 0) {
 	var customPageHeaderH1 = $("h1:not('#torontopageheader')").eq(0);
 }
 
-// move customPageHeaderH1 to the #torontopageheader, then add to the last breadcrumb.  If the customPageHeaderH1 is the same as the last link, remove the li.
+// move customPageHeaderH1 to the #torontopageheader, then add to the last breadcrumb.  If the customPageHeaderH1 is the same as the last link, remove the li.  
 if(customPageHeaderH1.length > 0) {
 	$("#torontopageheader").text(customPageHeaderH1.text());
 	$("#breadcrumbs").find("li").eq(-1).text(customPageHeaderH1.text());
@@ -195,6 +195,9 @@ if(customPageHeaderH1.length > 0) {
 		$("#breadcrumbs").find("li").eq(-2).remove();
 	}
 }
+
+// Set the final #torontopageheader as the document.title for wcag
+document.title = $("#torontopageheader").text() + " - City of Toronto";
 
 //add bootstrap button classes to all button like links
 $(".button, .mdc-button").addClass("btn btn-primary");
