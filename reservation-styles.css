@@ -25,3 +25,17 @@ div.time .btn {
 div.time {
 	display:inline;
 }
+
+.existing-reservation-block {
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  padding: 20px 20px 20px 30px;
+}
+
+.existing-reservation-block .col-sm-4 {
+  text-align: right;
+}
+
+.existing-reservation-block .col-sm-4 a {
+  white-space: normal;
+}
