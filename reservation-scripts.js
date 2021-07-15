@@ -260,7 +260,7 @@ if($("div.date.one-queue").length > 0) {
 	$("div.date.one-queue").remove();
 
 	//hide and append accordion to dateTimesContainer
-	$("#dateTimesContainer").css("display","none").append(accordionEle);
+	$("#dateTimesContainer").append(accordionEle);//.css("display","none");
 	// $("#dateTimesContainer").append(accordionEle);
 	
 	//reshow mainElement after cotui is finished rendering
