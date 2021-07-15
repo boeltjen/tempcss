@@ -148,10 +148,6 @@ var cframeFooterHtml = `
 	</script>
 `;
 
-//hide mainElement; replace header and footer with cframe (through copied w3 pages to github for now)
-var mainElement = $("main").eq(0);
-mainElement.css("display","none");
-
 //remove stock stylesheets
 $('link[rel=stylesheet][href*="bundle.css"]').remove();
 
@@ -173,7 +169,7 @@ var footerUlLinks = $("footer").eq(0).find("ul > li > a").clone();
 //replace header and footer with cframe (through copied w3 pages to github for now)
 $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
-mainElement.appendTo("#torontopagecontent");
+$("main").eq(0).appendTo("#torontopagecontent");
 
 // if footer contains a ul with links, and was saved, move them to the breadcrumb
 var lastBreadcrumb = $("#breadcrumbs").find("li").eq(-1);
@@ -261,9 +257,14 @@ if($("div.date.one-queue").length > 0) {
 		.append(appointmentDateSections);
 
 	$("div.date.one-queue").after("<div id='dateTimesContainer'/>")
-	$("div.date.one-queue").remove();
 
-	$("#dateTimesContainer").append(accordionEle);
+	//reshow mainElement after cotui is finished rendering
+	setTimeout(function() {
+		$("#dateTimesContainer").append(accordionEle);
+		$("div.date.one-queue").remove();
+	},500);
+}
+	
 }
 
 
@@ -271,10 +272,6 @@ if($("div.date.one-queue").length > 0) {
 //add bootstrap button classes to all button like links
 $(".button, .mdc-button").addClass("btn btn-primary");
 
-//reshow mainElement after cotui is finished rendering
-setTimeout(function() {
-	mainElement.css("display","block");
-},500);
 
 
 
