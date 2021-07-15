@@ -212,10 +212,10 @@ $(".button, .mdc-button").addClass("btn btn-primary");
 
 
 //convert any visible non-button input fields with cot styling
-var visibleInputFields = $("main").eq(0).find("form").eq(0).find("input:not([type='button']):not([type='submit']):not([type='reset']):not([type='submit']):
+var visibleInputFields = $("main").eq(0).find("form").eq(0).find("input:not([type='hidden'])::not([type='button']):not([type='submit']):not([type='reset']):not([type='submit']):
 
 
-//convert to cotui-accordion
+//convert to cotui-accordio
 if($("div.date.one-queue").length > 0) {
 
 	var appointmentDateSections = [];
