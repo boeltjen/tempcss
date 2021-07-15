@@ -232,6 +232,7 @@ if($("div.date.one-queue").length > 0) {
 			} else {
 				var tempLink = $(this).children("a");
 				tempLink.attr("aria-describedby",tempDateTitleHeaderId);
+				tempLink.addClass("btn btn-primary");
 				tempInnerDiv.append(
 					$("<div/>").addClass("time ampm-format").append(tempLink)
 				);
