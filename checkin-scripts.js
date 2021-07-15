@@ -146,6 +146,7 @@ var cframeFooterHtml =
 
 //remove stock stylesheets
 $('link[rel=stylesheet][href*="bundle.css"]').remove();
+$('link[rel=stylesheet][href*="/css/site.css"]').remove();
 
 $('link[rel=stylesheet][href*="stackpath.bootstrapcdn.com"]').remove();
 $('script[src*="stackpath.bootstrapcdn.com"]').remove();
