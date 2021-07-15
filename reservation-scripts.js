@@ -156,7 +156,10 @@ $('link[rel=stylesheet][href*="bundle.css"]').remove();
 $('link[rel=stylesheet][href*="stackpath.bootstrapcdn.com"]').remove();
 $('script[src*="stackpath.bootstrapcdn.com"]').remove();
 
-
+//remove any empty h3s
+$("main").find("h3").each(function() {
+	if($(this).html().trim().length == 0) $(this).remove();
+});
 
 //check if footer contains a ul with links.  If it does, save them for later moving to the breadcrumb
 var footerUlLinks = $("footer").eq(0).find("ul > li > a").clone();
