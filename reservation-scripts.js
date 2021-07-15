@@ -206,7 +206,7 @@ if($("div.date.one-queue").length > 0) {
 
 	var appointmentDateSections = [];
 	$("div.date.one-queue").each(function() {
-		var tempDateTitle = $(this).find("a.title").eq(0).text().trim();
+		var tempDateTitle = $(this).children(".title").eq(0).text().trim();
 		var tempDateTitleId = tempDateTitle.replace(/[^a-zA-Z0-9]/g, '');
 		var tempDateTitleHeaderId = tempDateTitleId+"-header";
 		var tempDateHeaderEle = $("<h2/>")
@@ -232,17 +232,22 @@ if($("div.date.one-queue").length > 0) {
 			.append(tempHiddenTitle);
 
 
-		$(this).find("ul.times-list li").each(function() {
-			if($(this).hasClass("hour-line")) {
-				tempInnerDiv.append("<br/>");
-			} else {
-				var tempLink = $(this).children("a");
-				tempLink.attr("aria-describedby",tempDateTitleHeaderId);
-				tempInnerDiv.append(
-					$("<div/>").addClass("time ampm-format").append(tempLink)
-				);
-			}
-		});
+		var timesListLi = $(this).find("ul.times-list li");
+		if(timesListLi.length > 0 ) {
+			timesListLi.each(function() {
+				if($(this).hasClass("hour-line")) {
+					tempInnerDiv.append("<br/>");
+				} else {
+					var tempLink = $(this).children("a");
+					tempLink.attr("aria-describedby",tempDateTitleHeaderId);
+					tempInnerDiv.append(
+						$("<div/>").addClass("time ampm-format").append(tempLink)
+					);
+				}
+			});
+		} else {
+			tempInnerDiv.append($(this).children(".title").eq(0).siblings());
+		}
 		var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
 
 		appointmentDateSections.push(tempSectionEle);
