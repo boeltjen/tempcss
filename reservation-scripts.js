@@ -285,7 +285,13 @@ if($("div.date.one-queue").length > 0) {
 	$("div.date.one-queue").remove();
 
 	$("#dateTimesContainer").append(accordionEle);
-	
+
+	// hide dateTimesContainer before appending <cotui-accordion>.  then unhide after 0.5 sec
+	$("#dateTimesContainer").css("display","none").append(accordionEle);
+
+	setTimeout(function() {
+		$("#dateTimesContainer").css("display","block");
+	},500);
 }
 
 
