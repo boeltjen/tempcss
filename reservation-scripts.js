@@ -222,10 +222,10 @@ $("a.action").addClass("btn btn-default");
 //add styling for reservation delete options
 $(".existing-reservation-block").each(function() {
 	$(this).addClass("row").after("<br/>");
-	
+
 	var reservationInfo = $(this).children("div:nth-child(1)");
 	reservationInfo.addClass("col-xs-12 col-sm-8 col-md-9");
-	var dateTimeEle = reservationInfo.children("div").eq(-1);
+	var dateTimeEle = reservationInfo.children("div:last-child");
 	var ariaDescrId = (dateTimeEle.replace(/[^a-zA-Z0-9]/g, ''))+"-descr";
 	dateTimeEle.attr("id", ariaDescrId);
 	
