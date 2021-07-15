@@ -213,6 +213,44 @@ $(".button, .mdc-button").addClass("btn btn-primary");
 
 //convert any visible non-button input fields with cot styling
 var visibleInputFields = $("main").eq(0).find("form").eq(0).find("input:not([type='hidden']):not([type='button']):not([type='submit']):not([type='reset']):not([type='submit'])");
+visibleInputFields.each(function(index) {
+	var inputSectionContainerRow = $('<div class="row" />');
+	var inputSectionContainerCol = $('<div class="col-xs-12 col-sm-12 form-group form-group-vertical has-feedback" />');
+	var inputContainer = $('<div class="entryField"/>');
+	var tempDivSection = $(this).parents("div.section").eq(0);
+	var tempInput = $(this).detach();
+			
+	if(tempDivSection.length > 0 ) { //check if input includes validation + helper fields
+		var tempLabel = tempDivSection.find("label").eq(0).detach();
+		var tempDivSectionChildren = tempDivSection.children().detach();
+		
+		tempDivSection.append(inputSectionContainerRow);
+		inputSectionContainerRow.append(inputSectionContainerCol);
+		inputSectionContainerCol.append(tempDivSectionChildren);
+	} else {
+		var tempLabel = $(this).parents("label").eq(0);
+		inputSectionContainerRow.insertAfter(tempLabel);
+		inputSectionContainerRow.append(inputSectionContainerCol);
+	}
+
+	inputSectionContainerCol.prepend(inputContainer);
+	inputSectionContainerCol.prepend(tempLabel);
+	
+	var intlTelInputDiv = inputSectionContainerCol.children(".intl-tel-input").eq(0).detach();
+	if(intlTelInputDiv.length > 0) {
+		intlTelInputDiv.append(tempInput);
+		inputContainer.append(intlTelInputDiv);
+	} else {
+		inputContainer.append(tempInput);
+	}
+	
+	tempInput.addClass("form-control");
+	tempLabel.addClass("control-label");
+	
+	//remove extra br whitespaces
+	inputSectionContainerCol.find("br").remove();
+});
+
 
 //convert to cotui-accordio
 if($("div.date.one-queue").length > 0) {
