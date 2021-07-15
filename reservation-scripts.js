@@ -219,6 +219,12 @@ document.title = $("#torontopageheader").text() + " - City of Toronto";
 $(".button, .mdc-button, button.action").addClass("btn btn-primary");
 $("a.action").addClass("btn btn-default");
 
+//add styling for reservation delete options
+$(".existing-reservation-block").addClass("row");
+$(".existing-reservation-block > div:nth-child(1)").addClass("col-xs-12 col-sm-8 col-md-9");
+$(".existing-reservation-block > div:nth-child(2)").addClass("col-xs-12 col-sm-4 col-md-3");
+
+
 
 //convert any visible non-button input fields with cot styling
 var visibleInputFields = $("main").eq(0).find("form").eq(0).find("input:not([type='hidden']):not([type='button']):not([type='submit']):not([type='reset']):not([type='submit'])");
