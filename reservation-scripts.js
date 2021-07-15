@@ -225,8 +225,14 @@ visibleInputFields.each(function(index) {
 		var tempDivSectionChildren = tempDivSection.children().detach();
 		
 		tempDivSection.append(inputSectionContainerRow);
-		inputSectionContainerRow.append(inputSectionContainerCol);
-		inputSectionContainerCol.append(tempDivSectionChildren);
+		if((index+1) % 2 != 0) {
+			inputSectionContainerRow.append(inputSectionContainerCol);
+			inputSectionContainerCol.append(tempDivSectionChildren);
+		} else {
+			tempDivSection.prev("div.section").append(inputSectionContainerCol);
+			inputSectionContainerCol.append(tempDivSectionChildren);
+			tempDivSection.remove();
+		}
 	} else {
 		var tempLabel = $(this).parents("label").eq(0);
 		inputSectionContainerRow.insertAfter(tempLabel);
