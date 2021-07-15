@@ -199,6 +199,7 @@ $(".button, .mdc-button").addClass("btn btn-primary");
 
 
 //convert to cotui-accordion
+
 if($("div.date.one-queue").length > 0) {
 	// hide appointment times before rewriting in <cotui-accordion>
 	$("div.date.one-queue").css("display","none");
@@ -264,14 +265,7 @@ if($("div.date.one-queue").length > 0) {
 	$("div.date.one-queue").after("<div id='dateTimesContainer'/>")
 	$("div.date.one-queue").remove();
 
-	//hide and append accordion to dateTimesContainer
-	$("#dateTimesContainer").append(accordionEle);//.css("display","none");
-	// $("#dateTimesContainer").append(accordionEle);
-	
-	//reshow mainElement after cotui is finished rendering
-	setTimeout(function() {
-// 		$("#dateTimesContainer").css("display","block");
-	},500);
+	$("#dateTimesContainer").append(accordionEle);
 }
 
 
