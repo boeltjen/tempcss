@@ -211,8 +211,11 @@ document.title = $("#torontopageheader").text() + " - City of Toronto";
 $(".button, .mdc-button").addClass("btn btn-primary");
 
 
-//convert to cotui-accordion
+//convert any visible non-button input fields with cot styling
+var visibleInputFields = $("main").eq(0).find("form").eq(0).find("input:not([type='button']):not([type='submit']):not([type='reset']):not([type='submit']):
 
+
+//convert to cotui-accordion
 if($("div.date.one-queue").length > 0) {
 
 	var appointmentDateSections = [];
