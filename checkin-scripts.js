@@ -169,6 +169,14 @@ $("main").find("h3").each(function() {
 	if($(this).html().trim().length == 0) $(this).remove();
 });
 
+//remove any main styling
+$("main").removeClass();
+
+//remove first div.row class
+$("main").children("div.row").removeClass("row");
+
+
+
 //check if footer contains a ul with links.  If it does, save them for later moving to the breadcrumb
 var footerUlLinks = $("footer").eq(0).find("ul > li > a").clone();
 
