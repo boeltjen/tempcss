@@ -164,7 +164,7 @@ faviconsHtml = `
 	<link rel="icon" type="image/png" href="https://www.toronto.ca/wp-content/themes/cot/img/favicon-16x16.png" sizes="16x16">
 	<link rel="mask-icon" href="https://www.toronto.ca/wp-content/themes/cot/img/safari-pinned-tab.svg" color="#165788">
 `;
-$('link[rel="*icon"').remove();
+$('link[rel*="icon"').remove();
 $("head").eq(0).append(faviconsHtml);
 
 	
