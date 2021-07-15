@@ -259,7 +259,7 @@ if($("div.date.one-queue").length > 0) {
 			    $("<div/>")
 			    .addClass("text-danger")
 			    .attr("aria-describedby",tempDateTitleHeaderId)
-			    .text($(this).children().eq(0).children().eq(0).siblings().text())
+			    .text($(this).children().eq(0).children().eq(0).siblings().text().trim())
 			);
 		}
 		
