@@ -214,6 +214,7 @@ $(".button, .mdc-button").addClass("btn btn-primary");
 //convert any visible non-button input fields with cot styling
 var visibleInputFields = $("main").eq(0).find("form").eq(0).find("input:not([type='hidden']):not([type='button']):not([type='submit']):not([type='reset']):not([type='submit'])");
 visibleInputFields.each(function(index) {
+	console.log(index,$(this));
 	var inputSectionContainerRow = $('<div class="row" />');
 	var inputSectionContainerCol = $('<div class="col-xs-12 col-sm-6 form-group form-group-vertical has-feedback" />');
 	var inputContainer = $('<div class="entryField"/>');
