@@ -265,7 +265,7 @@ if($("div.date.one-queue").length > 0) {
 	
 	//reshow mainElement after cotui is finished rendering
 	setTimeout(function() {
-		$("#dateTimesContainer").css("display","block");
+// 		$("#dateTimesContainer").css("display","block");
 	},500);
 }
 
