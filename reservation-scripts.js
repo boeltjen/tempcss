@@ -148,6 +148,10 @@ var cframeFooterHtml = `
 	</script>
 `;
 
+//hide mainElement; replace header and footer with cframe (through copied w3 pages to github for now)
+var mainElement = $("main").eq(0);
+mainElement.css("display","none");
+
 //remove stock stylesheets
 $('link[rel=stylesheet][href*="bundle.css"]').remove();
 
@@ -166,10 +170,7 @@ if(firstElement.find("#breadcrumbs").length == 0) {
 //check if footer contains a ul with links.  If it does, save them for later moving to the breadcrumb
 var footerUlLinks = $("footer").eq(0).find("ul > li > a").clone();
 
-//hide mainElement; replace header and footer with cframe (through copied w3 pages to github for now)
-var mainElement = $("main").eq(0);
-mainElement.css("display","none");
-
+//replace header and footer with cframe (through copied w3 pages to github for now)
 $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
 mainElement.appendTo("#torontopagecontent");
