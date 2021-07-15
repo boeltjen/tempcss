@@ -208,7 +208,8 @@ if(customPageHeaderH1.length > 0) {
 document.title = $("#torontopageheader").text() + " - City of Toronto";
 
 //add bootstrap button classes to all button like links
-$(".button, .mdc-button").addClass("btn btn-primary");
+$(".button, .mdc-button, button.action").addClass("btn btn-primary");
+$("a.action").addClass("btn btn-default");
 
 
 //convert any visible non-button input fields with cot styling
