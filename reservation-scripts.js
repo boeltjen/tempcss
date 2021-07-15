@@ -224,6 +224,7 @@ visibleInputFields.each(function(index) {
 		var tempLabel = tempDivSection.find("label").eq(0).detach();
 		var tempDivSectionChildren = tempDivSection.children().detach();
 		
+		console.log(index+1,((index+1) % 2),$(this));
 		if((index+1) % 2 != 0) {
 			tempDivSection.append(inputSectionContainerRow);
 			inputSectionContainerRow.append(inputSectionContainerCol);
