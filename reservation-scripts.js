@@ -271,8 +271,11 @@ if($("div.date.one-queue").length > 0) {
 //add bootstrap button classes to all button like links
 $(".button, .mdc-button").addClass("btn btn-primary");
 
-//reshow mainElement
-mainElement.css("display","block");
+//reshow mainElement after cotui is finished rendering
+setTimeout(function() {
+	mainElement.css("display","block");
+},500);
+
 
 
 
