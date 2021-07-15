@@ -257,18 +257,16 @@ if($("div.date.one-queue").length > 0) {
 		.append(appointmentDateSections);
 
 	$("div.date.one-queue").after("<div id='dateTimesContainer'/>")
-	
-	//hide and append accordion to dateTimesContainer
-// 	$("#dateTimesContainer").css("display","none").append(accordionEle);
-	$("#dateTimesContainer").append(accordionEle);
-
 	$("div.date.one-queue").remove();
+
+	//hide and append accordion to dateTimesContainer
+	$("#dateTimesContainer").css("display","none").append(accordionEle);
+	// $("#dateTimesContainer").append(accordionEle);
 	
 	//reshow mainElement after cotui is finished rendering
 	setTimeout(function() {
-// 		$("#dateTimesContainer").css("display","block");
+		$("#dateTimesContainer").css("display","block");
 	},500);
-	
 }
 
 
