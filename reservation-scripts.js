@@ -226,7 +226,9 @@ visibleInputFields.each(function(index) {
 		var tempDivSectionChildren = tempDivSection.children().detach();
 		
 		tempDivSection.append(inputSectionContainerRow);
-		if((parseInt(index)+1) % 2 != 0) {
+		if((index+1) % 2 == 0) {
+			console.log("newrow");
+
 			inputSectionContainerRow.append(inputSectionContainerCol);
 			inputSectionContainerCol.append(tempDivSectionChildren);
 		} else {
