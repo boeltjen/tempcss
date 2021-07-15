@@ -257,7 +257,7 @@ if($("div.date.one-queue").length > 0) {
 			tempInnerDiv.append(
 			    $("<div/>")
 			    .addClass("text-danger")
-			    .attr("aria-describedby",tempDateTitleHeaderId);
+			    .attr("aria-describedby",tempDateTitleHeaderId)
 			    .text($(this).children(".title").eq(0).children().eq(0).siblings().text())
 			);
 		}
