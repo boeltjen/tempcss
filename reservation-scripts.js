@@ -4,103 +4,103 @@ if($("div.date.one-queue").length > 0)
 
 
 
-var cframeHeaderHtml = `									
-	<a id="skippy" class="sr-only sr-only-focusable" href="#main"><span>Skip to content</span></a>
-	<img class="visible-print-block" src="https://www.toronto.ca/wp-content/themes/cot/img/logo-print.svg" width="175" height="53" alt="City of Toronto">
-	<!-- <div id="global-alertbox" w3-include-html="https://www.toronto.ca/cot/globalalert/"></div> -->
-	<header id="header" role="banner">
-	<div class="container-fluid">
-	<div id="header-left">
-		<div id="logo">
-					<a href="https://www.toronto.ca/" data-wt_params="WT.z_click_from=header;;WT.z_cat=Home">
-			<img src="https://www.toronto.ca/wp-content/themes/cot/img/logo.svg" width="225" height="70" alt="City of Toronto">
-			</a>
-				</div>
-		<button id="want-to-mobile" class="btn btn-warning" data-target="#want-to-modal" data-toggle="modal">I want to...</button>
-		<button id="nav-trigger" class="btn btn-default visible-xs visible-sm" aria-expanded="false" aria-haspopup="true"><span>Navigation Menu</span></button>
-	</div>
-		<div id="header-right">
-			<div id="top-bar">
-<!--				<form id="siteSearch" class="form-inline" action="--><!--searchblox/servlet/SearchServlet" method="get" role="search" name="s">-->
-			  
-				<form id="siteSearch" class="form-inline" action="https://find.toronto.ca/searchblox/servlet/SearchServlet" method="get" role="search" name="s">
-					<div role="search" aria-label="site search">
-						<label class="sr-only" for="query">Search</label>
-						<input id="query" name="query" class="form-control" placeholder="Search" type="text">
-						<button id="query-search" type="submit" class="btn btn-default"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-search.svg" alt="Search"></button>
-						<input type="hidden" name="cname" value="www1">
-					</div>
-				</form>
-				<button id="text-increase" class="btn btn-default hidden-sm hidden-xs" title="Increase text size"><span class="sr-only">Increase text size</span><i id="i-text-increase" aria-hidden="true">A+</i></button>
-				<button id="text-decrease" class="btn btn-default hidden-sm hidden-xs" title="Decrease text size"><span class="sr-only">Decrease text size</span><i id="i-text-decrease" aria-hidden="true">A-</i></button>
-				<button id="want-to" class="btn btn-warning" data-target="#want-to-modal" data-toggle="modal">I want to...</button>
-			</div>
-			<div w3-include-html="https://boeltjen.github.io/tempcss/globalnav-header.html" id="main-nav-container"><a href="https://boeltjen.github.io/tempcss/globalnav-header.html"></a></div>
-		</div>
-	</div>
-<!--startindex-->
-<!--stopindex-->
-            <nav id="breadcrumbs" aria-label="breadcrumb">
-            <div class="container-fluid">
-                <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="https://www.toronto.ca/" itemscope itemtype="http://schema.org/Thing" itemprop="item" data-wt_params="WT.z_click_from=Breadcrumb;;WT.z_cat=Home"><i class="glyphicon glyphicon-home"></i><span itemprop="name" class="bc_home_link">City of Toronto</span></a></li>
-                    
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active"><span itemprop="name">Book an Appointment</span></li>
-                </ol>
-            </div>
-            </nav>
-        <!--startindex-->
-	</header>
-	
-	<!-- columned template -->
-	
-	<section id="main" class="content-page" role="main">
-		<div class="container-fluid">
-			<div id="cotHeaderTop" class="cotPlaceholder"></div>
-			<div class="page-header">
-			    <h1 id="torontopageheader">Book an Appointment</h1>
-			    <nav id="actions" aria-label="Page Actions">
-				<!--stopindex--> 
-				<div id="sharebutton">
-				    <button id="shareit" class="btn btn-default" aria-haspopup="true" aria-expanded="false" aria-controls="sharebox" aria-label="share this page">Share</button> 
-				    <div id="sharebox" class="sharebox" tabindex="-1" aria-labelledby="shareit">
-					<ul class="share-list">
-					    <li> <a target="shareit" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F" id="share-link-1"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_facebook.png" id="share-img-1" alt=""><span class="sr-only">Share to </span><span>Facebook</span></a> </li>
-					    <li> <a target="shareit" href="https://twitter.com/share?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;text=Step+1%3A+Apply+for+a+Marriage+Licence&amp;via=cityoftoronto" id="share-link-2"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_twitter.png" id="share-img-2" alt=""><span class="sr-only">Share to </span><span>Twitter</span></a> </li>
-					    <li> <a target="shareit" href="https://pinterest.com/pin/create/bookmarklet/?media=https://www.toronto.ca/wp-content/themes/cot/img/share_toronto_twitter.jpg&amp;url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;description=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-3"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_pinterest.png" id="share-img-4" alt=""><span class="sr-only">Share to </span><span>Pinterest</span></a> </li>
-					    <li> <a target="shareit" href="http://www.linkedin.com/shareArticle?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;title=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-4"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_linkedin.png" id="share-img-5" alt=""><span class="sr-only">Share to </span><span>LinkedIn</span></a> </li>
-					</ul>
-				    </div>
-				</div>
-				<button id="print" class="btn btn-default" onclick="window.print();">Print</button> <!--startindex--> 
-			    </nav>
-			</div>
-			<div id="cotHeaderBottom" class="cotPlaceholder"></div>
-			<div class="row">
-			    <div id="page-content" class="col-md-8 col-lg-9">
-				<div class="pagecontent" id="torontopagecontent">
-					<!-- insert booking content here -->
-				</div>
-			    </div>
-				<aside class="col-md-4 col-lg-3">
-				<div id="cotSidebarTop" class="cotPlaceholder"></div>
-				<div id="sidebar">
-					<!--stopindex--> 
-					<div id="sidebarContact" class="list-group no-border">
-					<h4 class="list-group-item">Contact Information</h4>
-					<div class="list-group-item">
-						<p class="contact-information"><strong>North York Civic Centre</strong><br> 5100 Yonge Street<br> (south entrance off of North York Blvd.)<br> <strong>Telephone:</strong> 416-392-7036<br> </p>
-						<p class="contact-information"><strong>Email:</strong> <a href="mailto:marriage@toronto.ca">marriage@toronto.ca</a><br> </p>
-					</div>
-					</div>
-					<!--startindex--> 
-				</div>
-				<div id="cotSidebarBottom" class="cotPlaceholder"></div>
-				</aside>
-			</div>
-		</div>
-	</section>
-`;
+var cframeHeaderHtml = 									
+'	<a id="skippy" class="sr-only sr-only-focusable" href="#main"><span>Skip to content</span></a>'
++'	<img class="visible-print-block" src="https://www.toronto.ca/wp-content/themes/cot/img/logo-print.svg" width="175" height="53" alt="City of Toronto">'
++'	<!-- <div id="global-alertbox" w3-include-html="https://www.toronto.ca/cot/globalalert/"></div> -->'
++'	<header id="header" role="banner">'
++'	<div class="container-fluid">'
++'	<div id="header-left">'
++'		<div id="logo">'
++'					<a href="https://www.toronto.ca/" data-wt_params="WT.z_click_from=header;;WT.z_cat=Home">'
++'			<img src="https://www.toronto.ca/wp-content/themes/cot/img/logo.svg" width="225" height="70" alt="City of Toronto">'
++'			</a>'
++'				</div>'
++'		<button id="want-to-mobile" class="btn btn-warning" data-target="#want-to-modal" data-toggle="modal">I want to...</button>'
++'		<button id="nav-trigger" class="btn btn-default visible-xs visible-sm" aria-expanded="false" aria-haspopup="true"><span>Navigation Menu</span></button>'
++'	</div>'
++'		<div id="header-right">'
++'			<div id="top-bar">'
++'<!--				<form id="siteSearch" class="form-inline" action="--><!--searchblox/servlet/SearchServlet" method="get" role="search" name="s">-->'
++'			  '
++'				<form id="siteSearch" class="form-inline" action="https://find.toronto.ca/searchblox/servlet/SearchServlet" method="get" role="search" name="s">'
++'					<div role="search" aria-label="site search">'
++'						<label class="sr-only" for="query">Search</label>'
++'						<input id="query" name="query" class="form-control" placeholder="Search" type="text">'
++'						<button id="query-search" type="submit" class="btn btn-default"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-search.svg" alt="Search"></button>'
++'						<input type="hidden" name="cname" value="www1">'
++'					</div>'
++'				</form>'
++'				<button id="text-increase" class="btn btn-default hidden-sm hidden-xs" title="Increase text size"><span class="sr-only">Increase text size</span><i id="i-text-increase" aria-hidden="true">A+</i></button>'
++'				<button id="text-decrease" class="btn btn-default hidden-sm hidden-xs" title="Decrease text size"><span class="sr-only">Decrease text size</span><i id="i-text-decrease" aria-hidden="true">A-</i></button>'
++'				<button id="want-to" class="btn btn-warning" data-target="#want-to-modal" data-toggle="modal">I want to...</button>'
++'			</div>'
++'			<div w3-include-html="https://boeltjen.github.io/tempcss/globalnav-header.html" id="main-nav-container"><a href="https://boeltjen.github.io/tempcss/globalnav-header.html"></a></div>'
++'		</div>'
++'	</div>'
++'<!--startindex-->'
++'<!--stopindex-->'
++'            <nav id="breadcrumbs" aria-label="breadcrumb">'
++'            <div class="container-fluid">'
++'                <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">'
++'                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="https://www.toronto.ca/" itemscope itemtype="http://schema.org/Thing" itemprop="item" data-wt_params="WT.z_click_from=Breadcrumb;;WT.z_cat=Home"><i class="glyphicon glyphicon-home"></i><span itemprop="name" class="bc_home_link">City of Toronto</span></a></li>'
++'                    '
++'                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active"><span itemprop="name">Book an Appointment</span></li>'
++'                </ol>'
++'            </div>'
++'            </nav>'
++'        <!--startindex-->'
++'	</header>'
++'	'
++'	<!-- columned template -->'
++'	'
++'	<section id="main" class="content-page" role="main">'
++'		<div class="container-fluid">'
++'			<div id="cotHeaderTop" class="cotPlaceholder"></div>'
++'			<div class="page-header">'
++'			    <h1 id="torontopageheader">Book an Appointment</h1>'
++'			    <nav id="actions" aria-label="Page Actions">'
++'				<!--stopindex--> '
++'				<div id="sharebutton">'
++'				    <button id="shareit" class="btn btn-default" aria-haspopup="true" aria-expanded="false" aria-controls="sharebox" aria-label="share this page">Share</button> '
++'				    <div id="sharebox" class="sharebox" tabindex="-1" aria-labelledby="shareit">'
++'					<ul class="share-list">'
++'					    <li> <a target="shareit" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F" id="share-link-1"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_facebook.png" id="share-img-1" alt=""><span class="sr-only">Share to </span><span>Facebook</span></a> </li>'
++'					    <li> <a target="shareit" href="https://twitter.com/share?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;text=Step+1%3A+Apply+for+a+Marriage+Licence&amp;via=cityoftoronto" id="share-link-2"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_twitter.png" id="share-img-2" alt=""><span class="sr-only">Share to </span><span>Twitter</span></a> </li>'
++'					    <li> <a target="shareit" href="https://pinterest.com/pin/create/bookmarklet/?media=https://www.toronto.ca/wp-content/themes/cot/img/share_toronto_twitter.jpg&amp;url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;description=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-3"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_pinterest.png" id="share-img-4" alt=""><span class="sr-only">Share to </span><span>Pinterest</span></a> </li>'
++'					    <li> <a target="shareit" href="http://www.linkedin.com/shareArticle?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;title=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-4"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_linkedin.png" id="share-img-5" alt=""><span class="sr-only">Share to </span><span>LinkedIn</span></a> </li>'
++'					</ul>'
++'				    </div>'
++'				</div>'
++'				<button id="print" class="btn btn-default" onclick="window.print();">Print</button> <!--startindex--> '
++'			    </nav>'
++'			</div>'
++'			<div id="cotHeaderBottom" class="cotPlaceholder"></div>'
++'			<div class="row">'
++'			    <div id="page-content" class="col-md-8 col-lg-9">'
++'				<div class="pagecontent" id="torontopagecontent">'
++'					<!-- insert booking content here -->'
++'				</div>'
++'			    </div>'
++'				<aside class="col-md-4 col-lg-3">'
++'				<div id="cotSidebarTop" class="cotPlaceholder"></div>'
++'				<div id="sidebar">'
++'					<!--stopindex--> '
++'					<div id="sidebarContact" class="list-group no-border">'
++'					<h4 class="list-group-item">Contact Information</h4>'
++'					<div class="list-group-item">'
++'						<p class="contact-information"><strong>North York Civic Centre</strong><br> 5100 Yonge Street<br> (south entrance off of North York Blvd.)<br> <strong>Telephone:</strong> 416-392-7036<br> </p>'
++'						<p class="contact-information"><strong>Email:</strong> <a href="mailto:marriage@toronto.ca">marriage@toronto.ca</a><br> </p>'
++'					</div>'
++'					</div>'
++'					<!--startindex--> '
++'				</div>'
++'				<div id="cotSidebarBottom" class="cotPlaceholder"></div>'
++'				</aside>'
++'			</div>'
++'		</div>'
++'	</section>'
+;
 
 
 var cframeFooterHtml = `
