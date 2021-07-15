@@ -1,4 +1,6 @@
-
+// hide appointment times before rewriting in <cotui-accordion> if timelist is present
+if($("div.date.one-queue").length > 0)
+	$("div.date.one-queue").css("display","none");
 
 
 
@@ -201,8 +203,6 @@ $(".button, .mdc-button").addClass("btn btn-primary");
 //convert to cotui-accordion
 
 if($("div.date.one-queue").length > 0) {
-	// hide appointment times before rewriting in <cotui-accordion>
-	$("div.date.one-queue").css("display","none");
 
 	var appointmentDateSections = [];
 	$("div.date.one-queue").each(function() {
