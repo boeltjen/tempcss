@@ -229,7 +229,7 @@ visibleInputFields.each(function(index) {
 			inputSectionContainerRow.append(inputSectionContainerCol);
 			inputSectionContainerCol.append(tempDivSectionChildren);
 		} else {
-			tempDivSection.prev("div.section").append(inputSectionContainerCol);
+			tempDivSection.prev("div.section").children("div.row").append(inputSectionContainerCol);
 			inputSectionContainerCol.append(tempDivSectionChildren);
 			tempDivSection.remove();
 		}
