@@ -132,7 +132,6 @@ var cframeFooterHtml =
 +'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/bootstrap.3.4.1.min.js"></script>'
 +'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/footer.js"></script>'
 +'	<script>'
-+'		//activate the w3-includes:'
 +'		setTimeout(function() {'
 +'			w3IncludeHTML(function () {'
 +'				var scriptTag = document.createElement("script"), // create a script tag'
