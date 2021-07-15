@@ -208,10 +208,11 @@ if($("div.date.one-queue").length > 0) {
 	$("div.date.one-queue").each(function() {
 		var timesListLi = $(this).find("ul.times-list li");
 		
+		//check for regular set of dates vs. full / closed dates
 		if(timesListLi.length > 0 ) {
 			var tempDateTitle = $(this).children(".title").eq(0).text().trim();
 		} else {
-			var tempDateTitle = $(this).children(".title").eq(0).children().eq(0).text().trim();
+			var tempDateTitle = $(this).children().eq(0).children().eq(0).text().trim();
 		}
 		
 		var tempDateTitleId = tempDateTitle.replace(/[^a-zA-Z0-9]/g, '');
@@ -258,7 +259,7 @@ if($("div.date.one-queue").length > 0) {
 			    $("<div/>")
 			    .addClass("text-danger")
 			    .attr("aria-describedby",tempDateTitleHeaderId)
-			    .text($(this).children(".title").eq(0).children().eq(0).siblings().text())
+			    .text($(this).children().eq(0).children().eq(0).siblings().text())
 			);
 		}
 		
