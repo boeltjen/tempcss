@@ -156,13 +156,6 @@ $('link[rel=stylesheet][href*="bundle.css"]').remove();
 $('link[rel=stylesheet][href*="stackpath.bootstrapcdn.com"]').remove();
 $('script[src*="stackpath.bootstrapcdn.com"]').remove();
 
-// if first element isn't the breadcrumb, move it to under the breadcrumb.
-// check if the first element is the breadcrumb (= 0 if not)
-/*var firstElement = $(".body-layout div:not([style*='display: none']").eq(0);
-if(firstElement.find("#breadcrumbs").length == 0) {
-	//first element isn't the breadcrumb.  move it to under the breadcrumb.
-	firstElement.insertAfter($("#breadcrumbs").parent());
-}*/
 
 
 //check if footer contains a ul with links.  If it does, save them for later moving to the breadcrumb
@@ -173,7 +166,8 @@ $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
 $("main").eq(0).appendTo("#torontopagecontent");
 
-// if footer contains a ul with links, and was saved, move them to the breadcrumb
+
+// if footer contains a ul with links, and was saved, move them to the breadcrumb.
 var lastBreadcrumb = $("#breadcrumbs").find("li").eq(-1);
 footerUlLinks.each(function() {
 	lastBreadcrumb.before('<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href="' + 
@@ -181,20 +175,23 @@ footerUlLinks.each(function() {
 			      $(this).text() + '</span></a></li>');
 });
 
-
 //check if on the sms validation page by find #code.  if not sms validation, find the first H1 header. else use default header "Book an Appointment" if no other H1 is present
 if($("#code").length > 0) {
 	var customPageHeaderH1 = $("<h1>Enter Verification Code</h1>");
 } else {
 	var customPageHeaderH1 = $("h1:not('#torontopageheader')").eq(0);
 }
-// move customPageHeaderH1 to the #torontopageheader, then add to the last breadcrumb
+
+// move customPageHeaderH1 to the #torontopageheader, then add to the last breadcrumb.  If the customPageHeaderH1 is the same as the last link, remove the li.
 if(customPageHeaderH1.length > 0) {
 	$("#torontopageheader").text(customPageHeaderH1.text());
 	$("#breadcrumbs").find("li").eq(-1).text(customPageHeaderH1.text());
-	customPageHeaderH1.remove();
-}
 
+	customPageHeaderH1.remove();
+	if($("#breadcrumbs").find("li").eq(-1).text().trim().toLowerCase() == $("#breadcrumbs").find("li").eq(-2).text().trim().toLowerCase()) { 
+		$("#breadcrumbs").find("li").eq(-2).remove();
+	}
+}
 
 //add bootstrap button classes to all button like links
 $(".button, .mdc-button").addClass("btn btn-primary");
