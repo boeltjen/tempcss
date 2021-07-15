@@ -193,6 +193,11 @@ if(customPageHeaderH1.length > 0) {
 	customPageHeaderH1.remove();
 }
 
+
+//add bootstrap button classes to all button like links
+$(".button, .mdc-button").addClass("btn btn-primary");
+
+
 //convert to cotui-accordion
 if($("div.date.one-queue").length > 0) {
 	// hide appointment times before rewriting in <cotui-accordion>
@@ -268,12 +273,6 @@ if($("div.date.one-queue").length > 0) {
 // 		$("#dateTimesContainer").css("display","block");
 	},500);
 }
-
-
-
-//add bootstrap button classes to all button like links
-$(".button, .mdc-button").addClass("btn btn-primary");
-
 
 
 
