@@ -252,7 +252,7 @@ if($("div.date.one-queue").length > 0) {
 			}
 		});
 		
-		if(timesListLiSiblings.length == 0 ) tempInnerDiv.append($(this).children(".title").eq(0).children().eq(0).siblings());
+		if(timesListLi.length == 0 ) tempInnerDiv.append($(this).children(".title").eq(0).children().eq(0).siblings());
 		
 		var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
 
