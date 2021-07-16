@@ -180,6 +180,15 @@ $("main").children("div.row").removeClass("row");
 //check if footer contains a ul with links.  If it does, save them for later moving to the breadcrumb
 var footerUlLinks = $("footer").eq(0).find("ul > li > a").clone();
 
+// Check if footer contains contact information by-way-of <p>'s following an h4-contact information -> until the next header, <ul> or end of the parent div.  
+// If it does, save it for later moving to the contact-information <p> of the cframe.
+$("footer").eq(0).find("h4").each(function() {
+	if($(this).text().toLowerCase().indexOf("contact information") > -1) {
+		var contactInformationElements = $(this).nextUntil("h4, ul");
+	}
+});
+
+
 //replace header and footer with cframe (through copied w3 pages to github for now)
 $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
@@ -193,6 +202,15 @@ footerUlLinks.each(function() {
 			      $(this).attr('href') + '"><span itemprop="name">' + 
 			      $(this).text() + '</span></a></li>');
 });
+
+// if footer contained contact information, replace the generic contact info with the one from the footer (contained in <p>'s)
+if (contactInformationElements != 'undefined') {
+	var cframeContactInfoContainer = $("aside p.contact-information").eq(0).parent();
+	cframeContactInfoContainer.empty();
+	contactInformationElements.children("p").each(function() {
+		cframeContactInfoContainer.append($(this).addClass("contact-information");
+	});
+}
 
 //check if on the sms validation page by find #code.  if not sms validation, find the first H1 header. else use default header "Book an Appointment" if no other H1 is present
 if($("#code").length > 0) {
