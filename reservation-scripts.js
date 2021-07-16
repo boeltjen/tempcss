@@ -208,7 +208,7 @@ if (contactInformationElements != 'undefined') {
 	var cframeContactInfoContainer = $("aside p.contact-information").eq(0).parent();
 	cframeContactInfoContainer.empty();
 	contactInformationElements.children("p").each(function() {
-		cframeContactInfoContainer.append($(this).addClass("contact-information");
+		cframeContactInfoContainer.append($(this).addClass("contact-information"));
 	});
 }
 
