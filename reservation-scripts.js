@@ -220,7 +220,7 @@ footerUlLinks.each(function() {
 if (contactInformationElements) {
 	var cframeContactInfoContainer = $("aside p.contact-information").eq(0).parent();
 	cframeContactInfoContainer.empty();
-	contactInformationElements.children("p").each(function() {
+	contactInformationElements.filter("p").each(function() {
 		cframeContactInfoContainer.append($(this).addClass("contact-information"));
 	});
 }
