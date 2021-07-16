@@ -182,9 +182,10 @@ var footerUlLinks = $("footer").eq(0).find("ul > li > a").clone();
 
 // Check if footer contains contact information by-way-of <p>'s following an h4-contact information -> until the next header, <ul> or end of the parent div.  
 // If it does, save it for later moving to the contact-information <p> of the cframe.
+var contactInformationElements;
 $("footer").eq(0).find("h4").each(function() {
 	if($(this).text().toLowerCase().indexOf("contact information") > -1) {
-		var contactInformationElements = $(this).nextUntil("h4, ul");
+		contactInformationElements = $(this).nextUntil("h4, ul");
 	}
 });
 
