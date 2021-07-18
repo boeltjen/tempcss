@@ -89,8 +89,20 @@ var cframeHeaderHtml =
 +'					<div id="sidebarContact" class="list-group no-border">'
 +'					<h4 class="list-group-item">Contact Information</h4>'
 +'					<div class="list-group-item">'
-+'						<p class="contact-information"><strong>North York Civic Centre</strong><br> 5100 Yonge Street<br> (south entrance off of North York Blvd.)<br> <strong>Telephone:</strong> 416-392-7036<br> </p>'
-+'						<p class="contact-information"><strong>Email:</strong> <a href="mailto:marriage@toronto.ca">marriage@toronto.ca</a><br> </p>'
++'				            <p class="contact-information">'
++'						<strong>City Hall</strong><br>'
++'						100 Queen St. W.<br>'
++'						Toronto, ON<br>'
++'						M5H 2N2<br>'
++'						<br>'
++'						<strong>Telephone:</strong> 311<br>'
++'						<strong>TTY:</strong> 416-338-0TTY (0889)<br>'
++'					     </p>'
++'					     <p class="contact-information">Outside city limits phone:<br>'
++'						416-392-CITY (2489)<br>'
++'						<strong>Fax:</strong> 416-338-0685<br>'
++'						<strong>Email:</strong> <a href="mailto:311@toronto.ca">311@toronto.ca</a><br>'
++'					     </p>'
 +'					</div>'
 +'					</div>'
 +'					<!--startindex--> '
@@ -180,6 +192,16 @@ $("main").children("div.row").removeClass("row");
 //check if footer contains a ul with links.  If it does, save them for later moving to the breadcrumb
 var footerUlLinks = $("footer").eq(0).find("ul > li > a").clone();
 
+// Check if footer contains contact information by-way-of <p>'s following an h4-contact information -> until the next header, <ul> or end of the parent div.  
+// If it does, save it for later moving to the contact-information <p> of the cframe.
+var contactInformationElements = false;
+$("footer").eq(0).find("h4").each(function() {
+	if($(this).text().toLowerCase().indexOf("contact information") > -1) {
+		contactInformationElements = $(this).nextUntil("h4, ul");
+	}
+});
+
+
 //replace header and footer with cframe (through copied w3 pages to github for now)
 $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
@@ -193,6 +215,15 @@ footerUlLinks.each(function() {
 			      $(this).attr('href') + '"><span itemprop="name">' + 
 			      $(this).text() + '</span></a></li>');
 });
+
+// if footer contained contact information, replace the generic contact info with the one from the footer (contained in <p>'s)
+if (contactInformationElements) {
+	var cframeContactInfoContainer = $("aside p.contact-information").eq(0).parent();
+	cframeContactInfoContainer.empty();
+	contactInformationElements.filter("p").each(function() {
+		cframeContactInfoContainer.append($(this).addClass("contact-information"));
+	});
+}
 
 //check if on the sms validation page by find #code.  if not sms validation, find the first H1 header. else use default header "Book an Appointment" if no other H1 is present
 if($("#code").length > 0) {
@@ -219,7 +250,21 @@ document.title = $("#torontopageheader").text() + " - City of Toronto";
 $(".button, .mdc-button, button.action").addClass("btn btn-primary");
 $("a.action").addClass("btn btn-default");
 
+//add styling for reservation delete options
+$(".existing-reservation-block").each(function() {
+	$(this).addClass("row").after("<br/>");
 
+	var reservationInfo = $(this).children("div:nth-child(1)");
+	reservationInfo.addClass("col-xs-12 col-sm-8 col-md-9");
+	var dateTimeEle = reservationInfo.children("div:last-child");
+	var ariaDescrId = (dateTimeEle.text().replace(/[^a-zA-Z0-9]/g, ''))+"-descr";
+	dateTimeEle.attr("id", ariaDescrId);
+	
+	var reservationDelButton = $(this).children("div:nth-child(2)");
+	reservationDelButton.addClass("col-xs-12 col-sm-4 col-md-3");
+	reservationDelButton.find("a, button").eq(0).attr("aria-describedby",ariaDescrId);
+});
+				      
 //convert any visible non-button input fields with cot styling
 var visibleInputFields = $("main").eq(0).find("form").eq(0).find("input:not([type='hidden']):not([type='button']):not([type='submit']):not([type='reset']):not([type='submit'])");
 visibleInputFields.each(function(index) {
@@ -407,4 +452,3 @@ var footerHtml =
 +'	</div>'
 +'    </footer>'
 ;
-
