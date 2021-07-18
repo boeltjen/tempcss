@@ -16,10 +16,12 @@
 
 div:not(.time) .button, div:not(.time) .mdc-button, a.action, button.action {
     margin-bottom: 10px;
+    white-space: normal;
 }
 
 div.time .btn {
-    margin: 5px; 
+    margin: 5px;
+    white-space: normal;
 }
 
 div.time {
