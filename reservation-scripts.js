@@ -134,7 +134,7 @@ var cframeFooterHtml =
 +'	    <!--startindex-->'
 +'	<div id="cotFooterBottom" class="cotPlaceholder"></div>'
 +'	</footer>'
-+'	<div id="want-to-modal" class="modal fade" tabindex="-1" role="dialog">'
++'	<div id="want-to-modal" class="modal fade in" tabindex="-1" role="dialog">'
 +'	    <div w3-include-html="https://boeltjen.github.io/tempcss/globalnav-iwantto.html">'
 +'		<a href="https://boeltjen.github.io/tempcss/globalnav-iwantto.html"></a></div>'
 +'	</div>'
