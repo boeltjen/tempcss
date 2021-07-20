@@ -139,7 +139,6 @@ var cframeFooterHtml =
 +'		<a href="https://boeltjen.github.io/tempcss/globalnav-iwantto.html"></a></div>'
 +'	</div>'
 +''
-+'	<script type="text/javascript" async="" src="https://www.toronto.ca/scripts/newtorontolinktrack.js"></script>'
 +'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/jquery-migrate-3.0.1.min.js"></script>'
 +'	<script src="https://www.toronto.ca/cot/jquery-additional-custom-js.js?ver=1.0.0"></script>'
 +'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/bootstrap.3.4.1.min.js"></script>'
