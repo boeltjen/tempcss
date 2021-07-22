@@ -407,11 +407,12 @@ if($("div.date.one-queue").length > 0) {
 	$("#dateTimesContainer").css("display","none").append(accordionEle);
 
 	console.log($("cotui-accordion"));
-	setTimeout(function() {
-		$("#dateTimesContainer").css("display","block");
-			console.log($("cotui-accordion"));
-
-	},500);
+	var cotuiAccAni = requestAnimationFrame(()=> {
+		setTimeout(()=>{
+			$("#dateTimesContainer").css("display","block");
+			cancelAnimationFrame(cotuiAccAni);
+		},0)
+	});
 }
 
 
