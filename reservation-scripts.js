@@ -151,7 +151,7 @@ var cframeFooterHtml =
 +'					firstScriptTag = document.getElementsByTagName("script")[0];'
 +'					scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";'
 +'					firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);'
-+'				}
++'				}'
 +'			});'
 +'		},200);'
 +'	</script>'
