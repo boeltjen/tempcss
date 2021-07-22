@@ -144,14 +144,16 @@ var cframeFooterHtml =
 +'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/bootstrap.3.4.1.min.js"></script>'
 +'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/footer.js"></script>'
 +'	<script>'
-+'		setTimeout(function() {'
-+'			w3IncludeHTML(function () {'
-+'				var scriptTag = document.createElement("script"),'
-+'				firstScriptTag = document.getElementsByTagName("script")[0];'
-+'				scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";'
-+'				firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);'
++'		var w3CallInt = setInterval(function() {'
++'				if(typeof w3IncludeHTML === "function") {'
++'					clearInterval(w3CallInt);'
++'					var scriptTag = document.createElement("script"),'
++'					firstScriptTag = document.getElementsByTagName("script")[0];'
++'					scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";'
++'					firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);'
++'				}
 +'			});'
-+'		},500);'
++'		},200);'
 +'	</script>'
 ;
 
