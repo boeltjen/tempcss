@@ -382,7 +382,7 @@ if($("div.date.one-queue").length > 0) {
 		
 		var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
 
-		appointmentDateSections.push(tempSectionEle);
+		appointmentDateSections.push(tempSectionEle.clone());
 
 
 	});
@@ -397,7 +397,7 @@ if($("div.date.one-queue").length > 0) {
 		  "data-button-collapse": "btn btn-link",
 		  "data-allow-multiple": true
 		}) // using .clone as previously detached from DOM
-		.append(appointmentDateSections.clone());
+		.append(appointmentDateSections);
 
 	$("div.date.one-queue").parent().after("<div id='dateTimesContainer'/>")
 	$("div.date.one-queue").parent().remove();
