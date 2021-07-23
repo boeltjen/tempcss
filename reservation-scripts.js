@@ -396,8 +396,8 @@ if($("div.date.one-queue").length > 0) {
 		  "data-button-expand": "btn btn-link",
 		  "data-button-collapse": "btn btn-link",
 		  "data-allow-multiple": true
-		})
-		.append(appointmentDateSections);
+		}) // using .clone as previously detached from DOM
+		.append(appointmentDateSections.clone());
 
 	$("div.date.one-queue").parent().after("<div id='dateTimesContainer'/>")
 	$("div.date.one-queue").parent().remove();
