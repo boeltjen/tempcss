@@ -407,14 +407,14 @@ if($("div.date.one-queue").length > 0) {
 	$("#dateTimesContainer").css("display","none").append(accordionEle);
 
 	if(typeof requestAnimationFrame === "function") {
-		var cotuiAccAni = requestAnimationFrame(()=> {
-			setTimeout(()=>{
+		var cotuiAccAni = requestAnimationFrame(function() {
+			setTimeout(function() {
 				$("#dateTimesContainer").css("display","block");
 				cancelAnimationFrame(cotuiAccAni);
 			},0);
 		});
 	} else {
-		setTimeout(()=>{
+		setTimeout(function() {
 			$("#dateTimesContainer").css("display","block");
 		},500);
 	}
