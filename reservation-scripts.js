@@ -321,7 +321,7 @@ visibleInputFields.each(function(index) {
 if($("div.date.one-queue").length > 0) {
 
 	var appointmentDateSections = [];
-	var divDateOneQueues = $("div.date.one-queue").detach();
+	var divDateOneQueues = $("div.date.one-queue");
 	divDateOneQueues.each(function() {
 		var timesListLi = $(this).find("ul.times-list li");
 		
