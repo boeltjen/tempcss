@@ -406,12 +406,18 @@ if($("div.date.one-queue").length > 0) {
 	// hide dateTimesContainer before appending <cotui-accordion>.  then unhide after 0.5 sec
 	$("#dateTimesContainer").css("display","none").append(accordionEle);
 
-	var cotuiAccAni = requestAnimationFrame(()=> {
+	if(typeof requestAnimationFrame === "function") {
+		var cotuiAccAni = requestAnimationFrame(()=> {
+			setTimeout(()=>{
+				$("#dateTimesContainer").css("display","block");
+				cancelAnimationFrame(cotuiAccAni);
+			},0);
+		});
+	} else {
 		setTimeout(()=>{
 			$("#dateTimesContainer").css("display","block");
-			cancelAnimationFrame(cotuiAccAni);
-		},0)
-	});
+		},500);
+	}
 }
 
 
