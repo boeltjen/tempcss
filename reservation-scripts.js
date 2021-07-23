@@ -411,8 +411,8 @@ if($("div.date.one-queue").length > 0) {
 	if(typeof requestAnimationFrame === "function") {
 		var cotuiAccAni = requestAnimationFrame(function() {
 			setTimeout(function() {
-				$("#dateTimesContainer").css("display","block");
 				cancelAnimationFrame(cotuiAccAni);
+				$("#dateTimesContainer").css("display","block");
 			},0);
 		});
 	} else {
