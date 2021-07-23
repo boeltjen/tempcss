@@ -382,8 +382,7 @@ if($("div.date.one-queue").length > 0) {
 		
 		var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
 
-		// adding to array with .clone as previously detached from DOM
-		appointmentDateSections.push(tempSectionEle.clone());
+		appointmentDateSections.push(tempSectionEle);
 
 
 	});
@@ -403,7 +402,7 @@ if($("div.date.one-queue").length > 0) {
 	$("div.date.one-queue").parent().after("<div id='dateTimesContainer'/>")
 	$("div.date.one-queue").parent().remove();
 
-	$("#dateTimesContainer").append(accordionEle);
+	//$("#dateTimesContainer").append(accordionEle);
 
 	// hide dateTimesContainer before appending <cotui-accordion>.  then unhide after 0.5 sec
 	$("#dateTimesContainer").css("display","none").append(accordionEle);
