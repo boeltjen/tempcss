@@ -206,9 +206,9 @@ $("footer").eq(0).find("h4").each(function() {
 
 
 //replace header and footer with cframe (through copied w3 pages to github for now)
-$("footer").eq(0).replaceWith(cframeFooterHtml);
-$("header").eq(0).replaceWith(cframeHeaderHtml);
-$("main").eq(0).appendTo("#torontopagecontent");
+//$("footer").eq(0).replaceWith(cframeFooterHtml);
+//$("header").eq(0).replaceWith(cframeHeaderHtml);
+//$("main").eq(0).appendTo("#torontopagecontent");
 
 
 // if footer contains a ul with links, and was saved, move them to the breadcrumb.
