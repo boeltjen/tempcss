@@ -413,7 +413,7 @@ if($("div.date.one-queue").length > 0) {
 			setTimeout(function() {
 				cancelAnimationFrame(cotuiAccAni);
 				$("#dateTimesContainer").css("display","block");
-			},0);
+			},100);
 		});
 	} else {
 		setTimeout(function() {
