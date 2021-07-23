@@ -1,6 +1,6 @@
 // hide appointment times before rewriting in <cotui-accordion> if timelist is present
 if($("div.date.one-queue").length > 0)
-	$("div.date.one-queue").css("display","none");
+	$("div.date.one-queue").parent().css("display","none");
 
 
 
@@ -317,7 +317,7 @@ visibleInputFields.each(function(index) {
 });
 
 
-//convert to cotui-accordio
+//convert to cotui-accordion if any appointment times are present
 if($("div.date.one-queue").length > 0) {
 
 	var appointmentDateSections = [];
@@ -398,14 +398,15 @@ if($("div.date.one-queue").length > 0) {
 		})
 		.append(appointmentDateSections);
 
-	$("div.date.one-queue").after("<div id='dateTimesContainer'/>")
-	$("div.date.one-queue").remove();
+	$("div.date.one-queue").parent().after("<div id='dateTimesContainer'/>")
+	$("div.date.one-queue").parent().remove();
 
 	$("#dateTimesContainer").append(accordionEle);
 
 	// hide dateTimesContainer before appending <cotui-accordion>.  then unhide after 0.5 sec
 	$("#dateTimesContainer").css("display","none").append(accordionEle);
 
+	//only unhide dateTimesContainer once cotui is done rendering.  non-requestAnimationFrame case is for IE11 compatibility
 	if(typeof requestAnimationFrame === "function") {
 		var cotuiAccAni = requestAnimationFrame(function() {
 			setTimeout(function() {
