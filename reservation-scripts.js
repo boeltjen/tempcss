@@ -321,7 +321,8 @@ visibleInputFields.each(function(index) {
 if($("div.date.one-queue").length > 0) {
 
 	var appointmentDateSections = [];
-	$("div.date.one-queue").each(function() {
+	var divDateOneQueues = $("div.date.one-queue").detach();
+	divDateOneQueues.each(function() {
 		var timesListLi = $(this).find("ul.times-list li");
 		
 		//check for regular set of dates vs. full / closed dates
