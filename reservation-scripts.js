@@ -321,7 +321,7 @@ visibleInputFields.each(function(index) {
 if($("div.date.one-queue").length > 0) {
 
 	var appointmentDateSections = [];
-	var divDateOneQueues = $("div.date.one-queue");//.detach();
+	var divDateOneQueues = $("div.date.one-queue").detach();
 	divDateOneQueues.each(function() {
 		var timesListLi = $(this).find("ul.times-list li");
 		
@@ -382,6 +382,7 @@ if($("div.date.one-queue").length > 0) {
 		
 		var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
 
+		// adding to array with .clone as previously detached from DOM
 		appointmentDateSections.push(tempSectionEle.clone());
 
 
@@ -396,7 +397,7 @@ if($("div.date.one-queue").length > 0) {
 		  "data-button-expand": "btn btn-link",
 		  "data-button-collapse": "btn btn-link",
 		  "data-allow-multiple": true
-		}) // using .clone as previously detached from DOM
+		})
 		.append(appointmentDateSections);
 
 	$("div.date.one-queue").parent().after("<div id='dateTimesContainer'/>")
