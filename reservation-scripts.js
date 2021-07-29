@@ -178,17 +178,19 @@ $('link[rel*="icon"').remove();
 $("head").eq(0).append(faviconsHtml);
 
 	
+var fronteskMainEle = $("main").eq(0);
+var newFrontdeskMainEle = $("<div class='frontdesk-main' />");
 
 //remove any empty h3s
-$("main").find("h3").each(function() {
+fronteskMainEle.find("h3").each(function() {
 	if($(this).html().trim().length == 0) $(this).remove();
 });
 
 //remove any main styling
-$("main").removeClass();
+fronteskMainEle.removeClass();
 
 //remove first div.row class
-$("main").children("div.row").removeClass("row");
+fronteskMainEle.children("div.row").removeClass("row");
 
 
 
@@ -208,8 +210,8 @@ $("footer").eq(0).find("h4").each(function() {
 //replace header and footer with cframe (through copied w3 pages to github for now)
 $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
-$("main").eq(0).appendTo("#torontopagecontent");
-
+newFrontdeskMainEle.append(fronteskMainEle.children().detach());
+newFrontdeskMainEle.appendTo("#torontopagecontent");
 
 // if footer contains a ul with links, and was saved, move them to the breadcrumb.
 var lastBreadcrumb = $("#breadcrumbs").find("li").eq(-1);
@@ -269,7 +271,7 @@ $(".existing-reservation-block").each(function() {
 });
 				      
 //convert any visible non-button input fields with cot styling
-var visibleInputFields = $("main").eq(0).find("form").eq(0).find("input:not([type='hidden']):not([type='button']):not([type='submit']):not([type='reset']):not([type='submit'])");
+var visibleInputFields = newFrontdeskMainEle.find("form").eq(0).find("input:not([type='hidden']):not([type='button']):not([type='submit']):not([type='reset']):not([type='submit'])");
 visibleInputFields.each(function(index) {
 	var inputSectionContainerRow = $('<div class="row" />');
 	var inputSectionContainerCol = $('<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 form-group form-group-vertical has-feedback" />');
