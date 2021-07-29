@@ -212,6 +212,7 @@ $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
 newFrontdeskMainEle.append(fronteskMainEle.children().detach());
 newFrontdeskMainEle.appendTo("#torontopagecontent");
+fronteskMainEle.remove();
 
 // if footer contains a ul with links, and was saved, move them to the breadcrumb.
 var lastBreadcrumb = $("#breadcrumbs").find("li").eq(-1);
