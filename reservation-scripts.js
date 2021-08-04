@@ -224,8 +224,9 @@ $("footer").eq(0).find("h4").each(function() {
 $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
 newFrontdeskMainEle.append(fronteskMainEle.children().detach());
-newFrontdeskMainEle.appendTo("#torontopagecontent");
 fronteskMainEle.remove();
+//reappend newFrontdeskMainEle to #torontopagecontent at end 
+
 
 // if footer contains a ul with links, and was saved, move them to the breadcrumb.
 var lastBreadcrumb = $("#breadcrumbs").find("li").eq(-1);
@@ -273,11 +274,11 @@ if(customPageHeaderH1.length > 0) {
 document.title = $("#torontopageheader").text() + " - City of Toronto";
 
 //add bootstrap button classes to all button like links
-$(".button, .mdc-button, button.action").addClass("btn btn-primary");
-$("a.action").addClass("btn btn-default");
+newFrontdeskMainEle.find(".button, .mdc-button, button.action").addClass("btn btn-primary");
+newFrontdeskMainEle.find("a.action").addClass("btn btn-default");
 
 //add styling for reservation delete options
-$(".existing-reservation-block").each(function() {
+newFrontdeskMainEle.find(".existing-reservation-block").each(function() {
 	$(this).addClass("row").after("<br/>");
 
 	var reservationInfo = $(this).children("div:nth-child(1)");
@@ -347,10 +348,10 @@ newFrontdeskMainEle.find('h3:contains("Time")').parent().remove();
 
 
 //convert to cotui-accordion if any appointment times are present
-if($("div.date.one-queue").length > 0) {
+if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 
 	var appointmentDateSections = [];
-	var divDateOneQueues = $("div.date.one-queue");
+	var divDateOneQueues = newFrontdeskMainEle.find("div.date.one-queue");
 	divDateOneQueues.each(function() {
 		var timesListLi = $(this).find("ul.times-list li");
 		
@@ -428,28 +429,33 @@ if($("div.date.one-queue").length > 0) {
 		})
 		.append(appointmentDateSections);
 
-	$("div.date.one-queue").parent().after("<div id='dateTimesContainer'/>")
-	$("div.date.one-queue").parent().remove();
+	newFrontdeskMainEle.find("div.date.one-queue").parent().after("<div id='dateTimesContainer'/>")
+	newFrontdeskMainEle.find("div.date.one-queue").parent().remove();
 
-	//$("#dateTimesContainer").append(accordionEle);
+	//$("#dateTimesContainer").appenewFrontdeskMainEle.findd(accordionEle);
 
 	// hide dateTimesContainer before appending <cotui-accordion>.  then unhide after 0.5 sec
-	$("#dateTimesContainer").css("display","none").append(accordionEle);
+	newFrontdeskMainEle.find("#dateTimesContainer").append(accordionEle);
 
 	//only unhide dateTimesContainer once cotui is done rendering.  non-requestAnimationFrame case is for IE11 compatibility
 	if(typeof requestAnimationFrame === "function") {
 		var cotuiAccAni = requestAnimationFrame(function() {
 			setTimeout(function() {
 				cancelAnimationFrame(cotuiAccAni);
-				$("#dateTimesContainer").css("display","block");
+				newFrontdeskMainEle.appendTo("#torontopagecontent");
 			},100);
 		});
 	} else {
 		setTimeout(function() {
-			$("#dateTimesContainer").css("display","block");
+			newFrontdeskMainEle.appendTo("#torontopagecontent");
 		},500);
 	}
+} else {
+	newFrontdeskMainEle.appendTo("#torontopagecontent");
 }
+
+
+
 
 
 
