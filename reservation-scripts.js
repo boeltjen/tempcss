@@ -445,6 +445,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 				newFrontdeskMainEle.appendTo("#torontopagecontent");
 			},100);
 		});
+		console.info("cotui rendered");
 	} else {
 		setTimeout(function() {
 			newFrontdeskMainEle.appendTo("#torontopagecontent");
