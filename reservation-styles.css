@@ -1,3 +1,7 @@
+div.date.one-queue {
+	display:none;
+}
+
 #print {
     background-image: url("https://www.toronto.ca/wp-content/themes/cot/img/icon-print.svg");
 }
