@@ -341,6 +341,9 @@ visibleInputFields.each(function(index) {
 	tempLabel.find('span[style*="color:red"]:contains("*")').remove();
 });
 
+//remove h3:contains("time") as interim fix of extra header
+newFrontdeskMainEle.find('h3:contains("time")').parent().remove();
+
 
 //convert to cotui-accordion if any appointment times are present
 if($("div.date.one-queue").length > 0) {
