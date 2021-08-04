@@ -342,7 +342,7 @@ visibleInputFields.each(function(index) {
 });
 
 //remove h3:contains("time") as interim fix of extra header
-newFrontdeskMainEle.find('h3:contains("time")').parent().remove();
+newFrontdeskMainEle.find('h3:contains("Time")').parent().remove();
 
 
 //convert to cotui-accordion if any appointment times are present
