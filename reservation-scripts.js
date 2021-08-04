@@ -442,7 +442,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 		var cotuiAccAni = requestAnimationFrame(function() {
 			setTimeout(function() {
 				cancelAnimationFrame(cotuiAccAni);
-				console.info("cotui rendered");
+				console.info("cotui-accordion rendered");
 				accordionEle.css("display","block");
 			},200);
 		});
@@ -451,7 +451,6 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			$("body").css("display","block");
 		},500);
 	}
-} else {
 }
 
 newFrontdeskMainEle.appendTo("#torontopagecontent");
