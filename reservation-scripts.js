@@ -1,10 +1,3 @@
-// hide appointment times before rewriting in <cotui-accordion> if timelist is present
-// moved this to reservation-scripts.css
-// if($("div.date.one-queue").length > 0)
-// 	$("div.date.one-queue").parent().css("display","none");
-
-
-
 var cframeHeaderHtml = 									
 '	<a id="skippy" class="sr-only sr-only-focusable" href="#main"><span>Skip to content</span></a>'
 +'	<img class="visible-print-block" src="https://www.toronto.ca/wp-content/themes/cot/img/logo-print.svg" width="175" height="53" alt="City of Toronto">'
@@ -349,8 +342,16 @@ newFrontdeskMainEle.find('h3:contains("Time")').parent().remove();
 //convert to cotui-accordion if any appointment times are present
 if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 
+	
 	var appointmentDateSections = [];
 	var divDateOneQueues = newFrontdeskMainEle.find("div.date.one-queue");
+	
+	//hide date-time selector and display rest of page while the new selector loads
+	divDateOneQueues.eq(0).parent().css("display","none");	
+	newFrontdeskMainEle.appendTo("#torontopagecontent");
+	$("body").css("display","block");
+	
+	//convert date-time selector to cotui
 	divDateOneQueues.each(function() {
 		var timesListLi = $(this).find("ul.times-list li");
 		
@@ -451,9 +452,11 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			$("body").css("display","block");
 		},500);
 	}
+} else {	
+	// if no appointment selector
+	newFrontdeskMainEle.appendTo("#torontopagecontent");
+	$("body").css("display","block");
 }
 
-newFrontdeskMainEle.appendTo("#torontopagecontent");
-$("body").css("display","block");
 
 
