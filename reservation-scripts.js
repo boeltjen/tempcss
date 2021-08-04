@@ -80,7 +80,6 @@ var cframeHeaderHtml =
 +'			<div class="row">'
 +'			    <div id="page-content" class="col-md-8 col-lg-9">'
 +'				<div class="pagecontent" id="torontopagecontent">'
-+'					<!-- insert booking content here -->'
 +'				</div>'
 +'			    </div>'
 +'				<aside class="col-md-4 col-lg-3">'
@@ -256,7 +255,7 @@ if (contactInformationElements) {
 if($("#code").length > 0) {
 	var customPageHeaderH1 = $("<h1>Enter Verification Code</h1>");
 } else {
-	var customPageHeaderH1 = $("h1:not('#torontopageheader')").eq(0);
+	var customPageHeaderH1 = newFrontdeskMainEle.find("h1").eq(0);
 }
 
 // move customPageHeaderH1 to the #torontopageheader, then add to the last breadcrumb.  If the customPageHeaderH1 is the same as the last link, remove the li.  
