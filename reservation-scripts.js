@@ -426,6 +426,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 		  "data-button-collapse": "btn btn-link",
 		  "data-allow-multiple": true
 		})
+		.css("display","none")
 		.append(appointmentDateSections);
 
 	newFrontdeskMainEle.find("div.date.one-queue").parent().after("<div id='dateTimesContainer'/>")
@@ -441,19 +442,19 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 		var cotuiAccAni = requestAnimationFrame(function() {
 			setTimeout(function() {
 				cancelAnimationFrame(cotuiAccAni);
-				$("body").css("display","block");
-			},100);
+				console.info("cotui rendered");
+				accordionEle.css("display","block");
+			},200);
 		});
-		console.info("cotui rendered");
 	} else {
 		setTimeout(function() {
 			$("body").css("display","block");
 		},500);
 	}
 } else {
-	$("body").css("display","block");
 }
 
 newFrontdeskMainEle.appendTo("#torontopagecontent");
+$("body").css("display","block");
 
 
