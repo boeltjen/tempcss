@@ -1,6 +1,7 @@
 // hide appointment times before rewriting in <cotui-accordion> if timelist is present
-if($("div.date.one-queue").length > 0)
-	$("div.date.one-queue").parent().css("display","none");
+// moved this to reservation-scripts.css
+// if($("div.date.one-queue").length > 0)
+// 	$("div.date.one-queue").parent().css("display","none");
 
 
 
