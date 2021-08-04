@@ -441,20 +441,19 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 		var cotuiAccAni = requestAnimationFrame(function() {
 			setTimeout(function() {
 				cancelAnimationFrame(cotuiAccAni);
-				newFrontdeskMainEle.appendTo("#torontopagecontent");
 				$("body").css("display","block");
-
 			},100);
 		});
 		console.info("cotui rendered");
 	} else {
 		setTimeout(function() {
-			newFrontdeskMainEle.appendTo("#torontopagecontent");
 			$("body").css("display","block");
 		},500);
 	}
 } else {
-	newFrontdeskMainEle.appendTo("#torontopagecontent");
 	$("body").css("display","block");
 }
+
+newFrontdeskMainEle.appendTo("#torontopagecontent");
+
 
