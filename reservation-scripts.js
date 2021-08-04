@@ -338,7 +338,7 @@ visibleInputFields.each(function(index) {
 	inputSectionContainerCol.find("br").remove();
 	
 	//remove any mandarory asterisk (manually configure 'optional' on optional fields instead)
-	tempLabel.find('span[style*="color:red"]').contains("*").remove();
+	tempLabel.find('span[style*="color:red"]:contains("*")').remove();
 });
 
 
