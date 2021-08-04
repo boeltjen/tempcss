@@ -197,6 +197,18 @@ fronteskMainEle.children("div.row").removeClass("row");
 //check if footer contains a ul with links.  If it does, save them for later moving to the breadcrumb
 var footerUlLinks = $("footer").eq(0).find("ul > li > a").clone();
 
+//check if page contains a frontdesk breadcrumb.  If so, save links text and href to later append to #breadcrumbs, and then remove
+var frontDeskBreadcrumbLinks = [];
+$("#breadcrumb").find("a").each(function() {
+	if($(this).text()) {
+		frontDeskBreadcrumbLinks.push({
+			"href": $(this).attr("href"),
+			"text": $(this).text()
+		});
+	}
+});
+$("#breadcrumb").parent().remove();
+
 // Check if footer contains contact information by-way-of <p>'s following an h4-contact information -> until the next header, <ul> or end of the parent div.  
 // If it does, save it for later moving to the contact-information <p> of the cframe.
 var contactInformationElements = false;
@@ -220,6 +232,13 @@ footerUlLinks.each(function() {
 	lastBreadcrumb.before('<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href="' + 
 			      $(this).attr('href') + '"><span itemprop="name">' + 
 			      $(this).text() + '</span></a></li>');
+});
+
+//additionally append any extra frontdesk breadcrump to the main #breadcrumps
+frontDeskBreadcrumbLinks.forEach(function(fdBreadcrumbLink) {
+	lastBreadcrumb.before('<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href="' + 
+			     fdBreadcrumbLink.href + '"><span itemprop="name">' + 
+			      fdBreadcrumbLink.text + '</span></a></li>');
 });
 
 // if footer contained contact information, replace the generic contact info with the one from the footer (contained in <p>'s)
