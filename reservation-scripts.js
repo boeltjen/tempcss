@@ -336,6 +336,9 @@ visibleInputFields.each(function(index) {
 	
 	//remove extra br whitespaces
 	inputSectionContainerCol.find("br").remove();
+	
+	//remove any mandarory asterisk (manually configure 'optional' on optional fields instead)
+	tempLabel.find('span[style*="color:red"]').contains("*").remove();
 });
 
 
