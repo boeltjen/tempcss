@@ -439,34 +439,12 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 	newFrontdeskMainEle.find("#dateTimesContainer").append(accordionEle);
 
 	//only unhide dateTimesContainer once cotui is done rendering.
-// 	var cotuiAccAni = setInterval(function() {
-// 		if($("head > style:contains('.accordion__button')").length > 0) {
-// 			clearInterval(cotuiAccAni);
-// 			console.info("cotui-accordion rendered");
-// 			accordionEle.css("display","block");
-// 		}
-// 	},200);
-	
 	accordionEle.on('ready',event=>{
 		console.info("cotui-accordion rendered");
 		accordionEle.css("display","block");
 	})
-}	
-// 	if(typeof requestAnimationFrame === "function") {
-// 		var cotuiAccAni = requestAnimationFrame(function() {
-// 			setTimeout(function() {
-// 				cancelAnimationFrame(cotuiAccAni);
-// 				console.info("cotui-accordion rendered");
-// 				accordionEle.css("display","block");
-// 			},200);
-// 		});
-// 	} else {
-// 		setTimeout(function() {
-// 			$("body").css("display","block");
-// 		},500);
-// 	}
-else {	
-	// if no appointment selector
+} else {	
+	// if no appointment selector is present
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
 	$("body").css("display","block");
 }
