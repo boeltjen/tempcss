@@ -390,7 +390,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 
 		timesListLi.each(function() {
 			if($(this).hasClass("hour-line")) {
-				tempInnerDiv.append("<br/>");
+				tempInnerDiv.append("<hr/>");
 			} else {
 				var tempLink = $(this).children("a, button");
 				tempLink.attr("aria-describedby",tempDateTitleHeaderId).removeClass("btn-primary").addClass("btn-default");
