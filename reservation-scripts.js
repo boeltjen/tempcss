@@ -393,7 +393,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 				tempInnerDiv.append("<br/>");
 			} else {
 				var tempLink = $(this).children("a, button");
-				tempLink.attr("aria-describedby",tempDateTitleHeaderId);
+				tempLink.attr("aria-describedby",tempDateTitleHeaderId).removeClass("btn-primary").addClass("btn-default");
 				tempInnerDiv.append(
 					$("<div/>").addClass("time ampm-format").append(tempLink)
 				);
