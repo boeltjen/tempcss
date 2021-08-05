@@ -438,14 +438,19 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 	// hide dateTimesContainer before appending <cotui-accordion>.  then unhide after 0.5 sec
 	newFrontdeskMainEle.find("#dateTimesContainer").append(accordionEle);
 
-	//only unhide dateTimesContainer once cotui is done rendering.  non-requestAnimationFrame case is for IE11 compatibility
-	var cotuiAccAni = setInterval(function() {
-		if($("head > style:contains('.accordion__button')").length > 0) {
-			clearInterval(cotuiAccAni);
-			console.info("cotui-accordion rendered");
-			accordionEle.css("display","block");
-		}
-	},200);
+	//only unhide dateTimesContainer once cotui is done rendering.
+// 	var cotuiAccAni = setInterval(function() {
+// 		if($("head > style:contains('.accordion__button')").length > 0) {
+// 			clearInterval(cotuiAccAni);
+// 			console.info("cotui-accordion rendered");
+// 			accordionEle.css("display","block");
+// 		}
+// 	},200);
+	
+	accordionEle.on('ready',event=>{
+		console.info("cotui-accordion rendered");
+		accordionEle.css("display","block");
+	})
 }	
 // 	if(typeof requestAnimationFrame === "function") {
 // 		var cotuiAccAni = requestAnimationFrame(function() {
