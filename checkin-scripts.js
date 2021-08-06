@@ -408,47 +408,60 @@ if($("div.date.one-queue").length > 0) {
 	},500);
 }
 
+// TEMP FIX - switch check-in page auto-reload, to auto-content update for Accessibility reasons
+	
+	// stop default autoload
+	var i = setTimeout(function(){}); while(i--) {clearTimeout(i);}
 
+	//read and parse existing reloadPage function
+	var scriptHtmlMin = $("script:contains('reloadPage')").html().replace(/\s/g, '').replace(/'/g,'"').replace('CheckInId','"CheckInId"').replace('QueueEntryId','"QueueEntryId"');
+	var ajaxDataStr = scriptHtmlMin.substring(scriptHtmlMin.indexOf('data:{')+5,scriptHtmlMin.indexOf('}',scriptHtmlMin.indexOf('data:{')+5)+1);
+	var ajaxDataObj = JSON.parse(ajaxDataStr);
+	
+	
+	//replace autoload function with one that only replaces main content w/o reloading on success
+	function updatePage(delay) {
+		setInterval(function () {
+			$.ajax({
+				type: "POST",
+				url: '/CheckedIn',
+				data: {
+					CheckInId: ajaxDataObj.CheckInId,
+					QueueEntryId: ajaxDataObj.QueueEntryId
+				},
+				success: function(htmlData) { 
+					updateLiveCheckinPageContent(htmlData);
+				}
+			});
+		}, delay);
+	}
+	
+	var updateLiveCheckinPageContent = function(newContent) {
+		var newContentMain = $(newContent).find("main").eq(0);
+		var newContentPageHeader = newContentMain.find("h1").eq(0);
+		
+		// move newContentPageHeader to the #torontopageheader, then add to the last breadcrumb.  If the newContentPageHeader is the same as the last link, remove the li.  
+		if(newContentPageHeader.length > 0) {
+			$("#torontopageheader").text(newContentPageHeader.text()).attr("aria-live","assertive");
+			$("#breadcrumbs").find("li").eq(-1).text(newContentPageHeader.text());
+			newContentPageHeader.remove();
 
+			// update the document.title for wcag
+			document.title = $("#torontopageheader").text() + " - City of Toronto";
+		}
+		
+		//re-add bootstrap button classes to all button like links
+		$(".button, .mdc-button, button.action").addClass("btn btn-primary");
+		$("a.action").addClass("btn btn-default");
+		
+		//update the page contents without reloading
+		$("#torontopagecontent").empty().append(newContentMain);
+		
+		console.log("page contents updated");
+	}
+	
+	//restart autoloading of content only
+	updatePage(5000);
 
-var footerHtml = 
-' <footer id="footer" role="contentinfo">'
-+'	<div>'
-+'		<div class="container-fluid">'
-+'			<div class="row">'
-+'				<div class="col-sm-8 col-md-9 col-lg-8">'
-+'					<nav id="footer-nav" aria-label="Page Footer">'
-+'						<a href="https://www.toronto.ca/home/jobs/" data-wt_params="WT.z_click_from=footer;;WT.cat=Internal"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-group.svg" alt="">Jobs at the City</a>'
-+'						&nbsp;<a href="https://www.toronto.ca/home/media-room/" data-wt_params="WT.z_click_from=footer;;WT.cat=Internal"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-chat.svg" alt="">Media Room</a>'
-+'						&nbsp;<a href="https://www.toronto.ca/home/contact-us/" data-wt_params="WT.z_click_from=footer;;WT.cat=Internal"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-mobile.svg" alt="">Contact Us</a>'
-+'						&nbsp;<a href="https://www.toronto.ca/home/311-toronto-at-your-service/" data-wt_params="WT.z_click_from=footer;;WT.cat=Internal"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-311.svg" alt="3-1-1 Toronto"></a>'
-+'						&nbsp;<a href="https://www.toronto.ca/home/translate/" data-wt_params="WT.z_click_from=footer;;WT.cat=Internal"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-flag.svg" alt="">Translate</a>'
-+'					</nav>'
-+'				</div>'
-+'				<div class="col-sm-4 col-md-3 col-lg-4">'
-+'					<nav id="social-nav">'
-+'						<div id="f-connect" class="col-lg-4 col-md-6">Connect:</div>'
-+'						<div id="f-icons-1" class="col-lg-4 col-md-6">'
-+'							<a href="https://twitter.com/cityoftoronto" data-wt_params="WT.z_click_from=footer;;WT.cat=Social Media"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-twitter.svg" alt="Twitter"></a>'
-+'							&nbsp;<a href="https://www.facebook.com/cityofto/" data-wt_params="WT.z_click_from=footer;;WT.cat=Social Media"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-facebook.svg" alt="Facebook"></a>'
-+'							&nbsp;<a href="https://www.instagram.com/cityofto/" data-wt_params="WT.z_click_from=footer;;WT.cat=Social Media"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-instagram.svg" alt="Instagram"></a>'
-+'						</div>'
-+'						<div id="f-icons-2" class="col-lg-4 col-lg-offset-0 col-md-6 col-md-offset-6">'
-+'							<a href="https://youtube.com/thecityoftoronto" data-wt_params="WT.z_click_from=footer;;WT.cat=Social Media"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-youtube.svg" alt="Youtube"></a>'
-+'							<a href="https://www.linkedin.com/company/city-of-toronto" data-wt_params="WT.z_click_from=footer;;WT.cat=Social Media"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-linkedin.svg" alt="LinkedIn"></a>'
-+'							<a href="https://www.toronto.ca/home/social-media/" data-wt_params="WT.z_click_from=footer;;WT.cat=Social Media"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-blank.svg" alt=""></a>'
-+'							<div id="view-all-icon-text">VIEW ALL<span class="sr-only">TORONTO.CA SOCIAL MEDIA ACCOUNTS</span></div>'
-+'						</div>'
-+'					</nav>'
-+'				</div>'
-+'			</div>'
-+'			<hr>'
-+'			<p>'
-+'				<a href="https://www.toronto.ca/home/copyright-information/" data-wt_params="WT.z_click_from=footer;;WT.cat=Internal">© City of Toronto 1998 - 2021</a>'
-+'				&nbsp;<span class="separator">|</span>&nbsp;<a href="https://www.toronto.ca/home/privacy/" data-wt_params="WT.z_click_from=footer;;WT.cat=Internal">Privacy</a>'
-+'				&nbsp;<span class="separator">|</span>&nbsp;<a href="https://www.toronto.ca/city-government/accessibility-human-rights/accessibility-at-the-city-of-toronto/" data-wt_params="WT.z_click_from=footer;;WT.cat=Internal">Accessibility at the City of Toronto</a>'
-+'			</p>'
-+'		</div>'
-+'	</div>'
-+'    </footer>'
-;
+// End of Temp Fix for Auto-load
+
