@@ -1,9 +1,3 @@
-// hide appointment times before rewriting in <cotui-accordion> if timelist is present
-if($("div.date.one-queue").length > 0)
-	$("div.date.one-queue").css("display","none");
-
-
-
 var cframeHeaderHtml = 									
 '	<a id="skippy" class="sr-only sr-only-focusable" href="#main"><span>Skip to content</span></a>'
 +'	<img class="visible-print-block" src="https://www.toronto.ca/wp-content/themes/cot/img/logo-print.svg" width="175" height="53" alt="City of Toronto">'
@@ -79,7 +73,6 @@ var cframeHeaderHtml =
 +'			<div class="row">'
 +'			    <div id="page-content" class="col-md-8 col-lg-9">'
 +'				<div class="pagecontent" id="torontopagecontent">'
-+'					<!-- insert booking content here -->'
 +'				</div>'
 +'			    </div>'
 +'				<aside class="col-md-4 col-lg-3">'
@@ -144,14 +137,17 @@ var cframeFooterHtml =
 +'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/bootstrap.3.4.1.min.js"></script>'
 +'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/footer.js"></script>'
 +'	<script>'
-+'		setTimeout(function() {'
-+'			w3IncludeHTML(function () {'
-+'				var scriptTag = document.createElement("script"),'
-+'				firstScriptTag = document.getElementsByTagName("script")[0];'
-+'				scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";'
-+'				firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);'
-+'			});'
-+'		},500);'
++'		var w3CallInt = setInterval(function() {'
++'			if(typeof w3IncludeHTML === "function") {'
++'				clearInterval(w3CallInt);'
++'				w3IncludeHTML(function () {'
++'					var scriptTag = document.createElement("script"),'
++'					firstScriptTag = document.getElementsByTagName("script")[0];'
++'					scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";'
++'					firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);'
++'				});'
++'			}'
++'		},200);'
 +'	</script>'
 ;
 
@@ -175,22 +171,36 @@ $('link[rel*="icon"').remove();
 $("head").eq(0).append(faviconsHtml);
 
 	
+var fronteskMainEle = $("main").eq(0);
+var newFrontdeskMainEle = $("<div class='frontdesk-main' />");
 
 //remove any empty h3s
-$("main").find("h3").each(function() {
+fronteskMainEle.find("h3").each(function() {
 	if($(this).html().trim().length == 0) $(this).remove();
 });
 
 //remove any main styling
-$("main").removeClass();
+fronteskMainEle.removeClass();
 
 //remove first div.row class
-$("main").children("div.row").removeClass("row");
+fronteskMainEle.children("div.row").removeClass("row");
 
 
 
 //check if footer contains a ul with links.  If it does, save them for later moving to the breadcrumb
 var footerUlLinks = $("footer").eq(0).find("ul > li > a").clone();
+
+//check if page contains a frontdesk breadcrumb.  If so, save links text and href to later append to #breadcrumbs, and then remove
+var frontDeskBreadcrumbLinks = [];
+$("#breadcrumb").find("a").each(function() {
+	if($(this).text()) {
+		frontDeskBreadcrumbLinks.push({
+			"href": $(this).attr("href"),
+			"text": $(this).text()
+		});
+	}
+});
+$("#breadcrumb").parent().remove();
 
 // Check if footer contains contact information by-way-of <p>'s following an h4-contact information -> until the next header, <ul> or end of the parent div.  
 // If it does, save it for later moving to the contact-information <p> of the cframe.
@@ -205,7 +215,9 @@ $("footer").eq(0).find("h4").each(function() {
 //replace header and footer with cframe (through copied w3 pages to github for now)
 $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
-$("main").eq(0).appendTo("#torontopagecontent");
+newFrontdeskMainEle.append(fronteskMainEle.children().detach());
+fronteskMainEle.remove();
+//reappend newFrontdeskMainEle to #torontopagecontent at end 
 
 
 // if footer contains a ul with links, and was saved, move them to the breadcrumb.
@@ -214,6 +226,13 @@ footerUlLinks.each(function() {
 	lastBreadcrumb.before('<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href="' + 
 			      $(this).attr('href') + '"><span itemprop="name">' + 
 			      $(this).text() + '</span></a></li>');
+});
+
+//additionally append any extra frontdesk breadcrump to the main #breadcrumps
+frontDeskBreadcrumbLinks.forEach(function(fdBreadcrumbLink) {
+	lastBreadcrumb.before('<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" href="' + 
+			     fdBreadcrumbLink.href + '"><span itemprop="name">' + 
+			      fdBreadcrumbLink.text + '</span></a></li>');
 });
 
 // if footer contained contact information, replace the generic contact info with the one from the footer (contained in <p>'s)
@@ -229,7 +248,7 @@ if (contactInformationElements) {
 if($("#code").length > 0) {
 	var customPageHeaderH1 = $("<h1>Enter Verification Code</h1>");
 } else {
-	var customPageHeaderH1 = $("h1:not('#torontopageheader')").eq(0);
+	var customPageHeaderH1 = newFrontdeskMainEle.find("h1").eq(0);
 }
 
 // move customPageHeaderH1 to the #torontopageheader, then add to the last breadcrumb.  If the customPageHeaderH1 is the same as the last link, remove the li.  
@@ -247,11 +266,11 @@ if(customPageHeaderH1.length > 0) {
 document.title = $("#torontopageheader").text() + " - City of Toronto";
 
 //add bootstrap button classes to all button like links
-$(".button, .mdc-button, button.action").addClass("btn btn-primary");
-$("a.action").addClass("btn btn-default");
+newFrontdeskMainEle.find(".button, .mdc-button, button.action").addClass("btn btn-primary");
+newFrontdeskMainEle.find("a.action").addClass("btn btn-default");
 
 //add styling for reservation delete options
-$(".existing-reservation-block").each(function() {
+newFrontdeskMainEle.find(".existing-reservation-block").each(function() {
 	$(this).addClass("row").after("<br/>");
 
 	var reservationInfo = $(this).children("div:nth-child(1)");
@@ -266,7 +285,7 @@ $(".existing-reservation-block").each(function() {
 });
 				      
 //convert any visible non-button input fields with cot styling
-var visibleInputFields = $("main").eq(0).find("form").eq(0).find("input:not([type='hidden']):not([type='button']):not([type='submit']):not([type='reset']):not([type='submit'])");
+var visibleInputFields = newFrontdeskMainEle.find("form").eq(0).find("input:not([type='hidden']):not([type='button']):not([type='submit']):not([type='reset']):not([type='submit'])");
 visibleInputFields.each(function(index) {
 	var inputSectionContainerRow = $('<div class="row" />');
 	var inputSectionContainerCol = $('<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 form-group form-group-vertical has-feedback" />');
@@ -311,14 +330,29 @@ visibleInputFields.each(function(index) {
 	
 	//remove extra br whitespaces
 	inputSectionContainerCol.find("br").remove();
+	
+	//remove any mandarory asterisk (manually configure 'optional' on optional fields instead)
+	tempLabel.find('span[style*="color:red"]:contains("*")').remove();
 });
 
+//remove h3:contains("time") as interim fix of extra header
+newFrontdeskMainEle.find('h3:contains("Time")').parent().remove();
 
-//convert to cotui-accordio
-if($("div.date.one-queue").length > 0) {
 
+//convert to cotui-accordion if any appointment times are present
+if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
+
+	
 	var appointmentDateSections = [];
-	$("div.date.one-queue").each(function() {
+	var divDateOneQueues = newFrontdeskMainEle.find("div.date.one-queue");
+	
+	//hide date-time selector and display rest of page while the new selector loads
+	divDateOneQueues.eq(0).parent().css("display","none");	
+	newFrontdeskMainEle.appendTo("#torontopagecontent");
+	$("body").css("display","block");
+	
+	//convert date-time selector to cotui
+	divDateOneQueues.each(function() {
 		var timesListLi = $(this).find("ul.times-list li");
 		
 		//check for regular set of dates vs. full / closed dates
@@ -356,10 +390,10 @@ if($("div.date.one-queue").length > 0) {
 
 		timesListLi.each(function() {
 			if($(this).hasClass("hour-line")) {
-				tempInnerDiv.append("<br/>");
+				tempInnerDiv.append("<hr/>");
 			} else {
 				var tempLink = $(this).children("a, button");
-				tempLink.attr("aria-describedby",tempDateTitleHeaderId);
+				tempLink.attr("aria-describedby",tempDateTitleHeaderId).removeClass("btn-primary").addClass("btn-default");
 				tempInnerDiv.append(
 					$("<div/>").addClass("time ampm-format").append(tempLink)
 				);
@@ -393,19 +427,26 @@ if($("div.date.one-queue").length > 0) {
 		  "data-button-collapse": "btn btn-link",
 		  "data-allow-multiple": true
 		})
+		.css("display","none")
 		.append(appointmentDateSections);
 
-	$("div.date.one-queue").after("<div id='dateTimesContainer'/>")
-	$("div.date.one-queue").remove();
+	newFrontdeskMainEle.find("div.date.one-queue").parent().after("<div id='dateTimesContainer'/>")
+	newFrontdeskMainEle.find("div.date.one-queue").parent().remove();
 
-	$("#dateTimesContainer").append(accordionEle);
+	//$("#dateTimesContainer").appenewFrontdeskMainEle.findd(accordionEle);
 
 	// hide dateTimesContainer before appending <cotui-accordion>.  then unhide after 0.5 sec
-	$("#dateTimesContainer").css("display","none").append(accordionEle);
+	newFrontdeskMainEle.find("#dateTimesContainer").append(accordionEle);
 
-	setTimeout(function() {
-		$("#dateTimesContainer").css("display","block");
-	},500);
+	//only unhide dateTimesContainer once cotui is done rendering.
+	accordionEle.on('ready',event=>{
+		console.info("cotui-accordion rendered");
+		accordionEle.css("display","block");
+	})
+} else {	
+	// if no appointment selector is present
+	newFrontdeskMainEle.appendTo("#torontopagecontent");
+	$("body").css("display","block");
 }
 
 // TEMP FIX - switch check-in page auto-reload, to auto-content update for Accessibility reasons
