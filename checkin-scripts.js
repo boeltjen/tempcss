@@ -481,9 +481,9 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 		function updatePage(delay) {
 			setInterval(function () {
 				$.ajax({
-					type: ajaxType,
-					url: ajaxUrl,
-					data: ajaxDataStr,
+					type: updatePageParams.ajaxType,
+					url: updatePageParams.ajaxUrl,
+					data: updatePageParams.ajaxDataStr,
 					success: function(htmlData) { 
 						reloadContent(htmlData);
 					}
