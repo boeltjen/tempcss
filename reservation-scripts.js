@@ -338,6 +338,32 @@ visibleInputFields.each(function(index) {
 //remove h3:contains("time") as interim fix of extra header
 newFrontdeskMainEle.find('h3:contains("Time")').parent().remove();
 
+// check for 'shortcodes' of "[[[ XXX ]]]"
+var shortCodeRegEx = "/\[\[\[[^\[^\]]*\]\]\]/g";
+var divs_w_shortcodes = newFrontdeskMainEle.find("div").filter(function () {
+    return shortCodeRegEx.test($(this).text()); 
+});
+
+divs_w_shortcodes.each(function() {
+	
+	//find all shortcodes in the div
+	var shortCodesInDiv = $(this).text().match(shortCodeRegEx);
+	var classStrToAdd = "";
+	var isPageAlertBox = false;
+	
+	// for each shortcode found, convert as follows:
+	shortCodesInDiv.forEach(function() {
+		classStrToAdd += $(this).substring( $(this).indexOf("addClass=")+10, $(this).indexOf("]]]")-1 );
+		 isPageAlertBox = ($(this).indexOf('page-alert-box') > 0);
+	});
+	
+	// append any classes using '[[[addClass="class1 class2"]]]'
+	
+
+	// replace any pre-existing id="page-alert-box" with the newest one tagged by '[[[id="page-alert-box"]]]'
+
+});
+
 
 //convert to cotui-accordion if any appointment times are present
 if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
