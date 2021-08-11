@@ -466,7 +466,8 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			updatePageParams.ajaxDataStr = "";
 			updatePageParams.ajaxType = "GET"
 			updatePageParams.ajaxUrl = window.location.href;
-			updatePageParams.reloadInterval = 5000; 
+			updatePageParams.reloadInterval = 60000;
+			// note ideally add a role="timer" and an aria-live to the countdown timer
 
 		} else {
 			// user has already logged in -> replace with dynamic reloadContent function
