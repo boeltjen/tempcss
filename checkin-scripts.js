@@ -478,22 +478,29 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			updatePageParams.reloadInterval = 5000;
 		}		
 
+		// remove existing script tag with reloadPage function
+		scriptTag_w_reloadPage.remove();
+		
 		//replace autoload function with one that only replaces main content w/o reloading on success
-		function updatePage() {
+		function updatePage(params) {
 			setInterval(function () {
 				$.ajax({
-					type: updatePageParams.ajaxType,
-					url: updatePageParams.ajaxUrl,
-					data: updatePageParams.ajaxDataStr,
+					type: params.ajaxType,
+					url: params.ajaxUrl,
+					data: params.ajaxDataStr,
 					success: function(htmlData) { 
 						reloadContent(htmlData);
 					}
 				});
-			}, updatePageParams.reloadInterval);
+			}, params.reloadInterval);
 		}
 
 		var reloadContent = function(newContent) {
 			var newContentMain = $(newContent).find("main").eq(0);
+			
+			//checkfor and remove for reloadPage function script
+			newContentMain.find("script:contains('reloadPage')").remove();		
+			
 			var newContentPageHeader = newContentMain.find("h1").eq(0);
 
 			// move newContentPageHeader to the #torontopageheader, then add to the last breadcrumb.  If the newContentPageHeader is the same as the last link, remove the li.  
@@ -515,11 +522,9 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 
 			console.log("page contents updated");
 		}
-		// remove existing script tag with reloadPage function
-		scriptTag_w_reloadPage.remove();
 
 		//restart autoloading of content only
-		updatePage();
+		updatePage(updatePageParams);
 	}	
 // End of Temp Fix for Auto-load
 
