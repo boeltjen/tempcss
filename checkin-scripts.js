@@ -472,7 +472,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 		} else {
 			// user has already logged in -> replace with dynamic reloadContent function
 			var scriptHtmlMin = scriptTag_w_reloadPage.html().replace(/\s/g, '').replace(/'/g,'"').replace('CheckInId','"CheckInId"').replace('QueueEntryId','"QueueEntryId"');
-			updatePageParams.ajaxDataStr = scriptHtmlMin.substring(scriptHtmlMin.indexOf('data:{')+5,scriptHtmlMin.indexOf('}',scriptHtmlMin.indexOf('data:{')+5)+1);
+			updatePageParams.ajaxDataStr = JSON.parse(scriptHtmlMin.substring(scriptHtmlMin.indexOf('data:{')+5,scriptHtmlMin.indexOf('}',scriptHtmlMin.indexOf('data:{')+5)+1));
 			updatePageParams.ajaxType = "POST"
 			updatePageParams.ajaxUrl = "/CheckedIn";
 			updatePageParams.reloadInterval = 5000;
