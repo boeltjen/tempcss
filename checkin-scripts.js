@@ -455,32 +455,42 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 	var i = setTimeout(function(){}); while(i--) {clearTimeout(i);}
 
 	//read and parse existing reloadPage function
-	var scriptHtmlMin = $("script:contains('reloadPage')").html().replace(/\s/g, '').replace(/'/g,'"').replace('CheckInId','"CheckInId"').replace('QueueEntryId','"QueueEntryId"');
-	var ajaxDataStr = scriptHtmlMin.substring(scriptHtmlMin.indexOf('data:{')+5,scriptHtmlMin.indexOf('}',scriptHtmlMin.indexOf('data:{')+5)+1);
-	var ajaxDataObj = JSON.parse(ajaxDataStr);
+	var scriptTag_w_reloadPage = $("script:contains('reloadPage')");
+	var updatePageParams = { ajaxDataStr:false, ajaxType:false, ajaxUrl:false, reloadInterval: 0 };
+	if(scriptTag_w_reloadPage.html().indexOf('CheckInId') < 0) {
+		// user not yet logged in -> replace with static reloadContent function
+		updatePageParams.ajaxDataStr = "";
+		updatePageParams.ajaxType = "GET"
+		updatePageParams.ajaxUrl = window.location.href;
+		updatePageParams.reloadInterval = 60000; 
 	
-	
+	} else {
+		// user has already logged in -> replace with dynamic reloadContent function
+		var scriptHtmlMin = scriptTag_w_reloadPage.html().replace(/\s/g, '').replace(/'/g,'"').replace('CheckInId','"CheckInId"').replace('QueueEntryId','"QueueEntryId"');
+		updatePageParams.ajaxDataStr = scriptHtmlMin.substring(scriptHtmlMin.indexOf('data:{')+5,scriptHtmlMin.indexOf('}',scriptHtmlMin.indexOf('data:{')+5)+1);
+		updatePageParams.ajaxType = "POST"
+		updatePageParams.ajaxUrl = "/CheckedIn";
+		updatePageParams.reloadInterval = 5000;
+	}		
+		
 	//replace autoload function with one that only replaces main content w/o reloading on success
 	function updatePage(delay) {
 		setInterval(function () {
 			$.ajax({
-				type: "POST",
-				url: '/CheckedIn',
-				data: {
-					CheckInId: ajaxDataObj.CheckInId,
-					QueueEntryId: ajaxDataObj.QueueEntryId
-				},
+				type: ajaxType,
+				url: ajaxUrl,
+				data: ajaxDataStr,
 				success: function(htmlData) { 
-					updateLiveCheckinPageContent(htmlData);
+					reloadContent(htmlData);
 				}
 			});
 		}, delay);
 	}
-	
-	var updateLiveCheckinPageContent = function(newContent) {
+
+	var reloadContent = function(newContent) {
 		var newContentMain = $(newContent).find("main").eq(0);
 		var newContentPageHeader = newContentMain.find("h1").eq(0);
-		
+
 		// move newContentPageHeader to the #torontopageheader, then add to the last breadcrumb.  If the newContentPageHeader is the same as the last link, remove the li.  
 		if(newContentPageHeader.length > 0) {
 			$("#torontopageheader").text(newContentPageHeader.text()).attr("aria-live","assertive");
@@ -490,19 +500,21 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			// update the document.title for wcag
 			document.title = $("#torontopageheader").text() + " - City of Toronto";
 		}
-		
+
 		//re-add bootstrap button classes to all button like links
 		$(".button, .mdc-button, button.action").addClass("btn btn-primary");
 		$("a.action").addClass("btn btn-default");
-		
+
 		//update the page contents without reloading
 		$("#torontopagecontent").empty().append(newContentMain);
-		
+
 		console.log("page contents updated");
 	}
-	
-	//restart autoloading of content only
-	updatePage(5000);
+	// remove existing script tag with reloadPage function
+	scriptTag_w_reloadPage.remove();
 
+	//restart autoloading of content only
+	updatePage(updatePageParams.reloadInterval);
+	
 // End of Temp Fix for Auto-load
 
