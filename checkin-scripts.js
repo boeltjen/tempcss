@@ -456,6 +456,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 	
 	// if tag exists, continue
 	if(scriptTag_w_reloadPage.length > 0) {
+		
 		// stop default autoload
 		var i = setTimeout(function(){}); while(i--) {console.log('clearfirst',i); clearTimeout(i);}
 
@@ -523,11 +524,13 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			console.log("page contents updated");
 		}
 
-		// stop default autoload
-		var j = setTimeout(function(){}); while(j--) {console.log('clearsecond',j); clearTimeout(j);}
-		
-		//restart autoloading of content only
-// 		updatePage(updatePageParams);
+		$(document).ready(() => {
+			// stop default autoload
+			var j = setTimeout(function(){}); while(j--) {console.log('clearsecond',j); clearTimeout(j);}
+
+			//restart autoloading of content only
+			updatePage(updatePageParams);
+		});
 	}	
 // End of Temp Fix for Auto-load
 
