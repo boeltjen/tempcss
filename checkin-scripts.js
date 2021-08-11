@@ -495,10 +495,6 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 
 		var reloadContent = function(newContent) {
 			var newContentMain = $(newContent).find("main").eq(0);
-			
-			//checkfor and remove for reloadPage function script
-			newContentMain.find("script:contains('reloadPage')").remove();		
-			
 			var newContentPageHeader = newContentMain.find("h1").eq(0);
 
 			// move newContentPageHeader to the #torontopageheader, then add to the last breadcrumb.  If the newContentPageHeader is the same as the last link, remove the li.  
