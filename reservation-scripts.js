@@ -339,7 +339,7 @@ visibleInputFields.each(function(index) {
 newFrontdeskMainEle.find('h3:contains("Time")').parent().remove();
 
 // check for 'shortcodes' of "[[[ XXX ]]]"
-var shortCodeRegEx = "/\[\[\[[^\[^\]]*\]\]\]/g";
+var shortCodeRegEx = new RegExp("/\[\[\[[^\[^\]]*\]\]\]/g");
 var divs_w_shortcodes = newFrontdeskMainEle.find("div").filter(function () {
     return shortCodeRegEx.test($(this).text()); 
 });
