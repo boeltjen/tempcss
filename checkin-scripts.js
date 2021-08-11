@@ -527,7 +527,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 		var j = setTimeout(function(){}); while(j--) {console.log('clearsecond',j); clearTimeout(j);}
 		
 		//restart autoloading of content only
-		updatePage(updatePageParams);
+// 		updatePage(updatePageParams);
 	}	
 // End of Temp Fix for Auto-load
 
