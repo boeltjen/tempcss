@@ -479,7 +479,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 		}		
 
 		//replace autoload function with one that only replaces main content w/o reloading on success
-		function updatePage(delay) {
+		function updatePage() {
 			setInterval(function () {
 				$.ajax({
 					type: updatePageParams.ajaxType,
@@ -489,7 +489,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 						reloadContent(htmlData);
 					}
 				});
-			}, delay);
+			}, updatePageParams.reloadInterval);
 		}
 
 		var reloadContent = function(newContent) {
@@ -519,7 +519,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 		scriptTag_w_reloadPage.remove();
 
 		//restart autoloading of content only
-		updatePage(updatePageParams.reloadInterval);
+		updatePage();
 	}	
 // End of Temp Fix for Auto-load
 
