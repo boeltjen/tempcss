@@ -245,7 +245,7 @@ if (contactInformationElements) {
 }
 
 //check if on the sms validation page by find #code.  if not sms validation, find the first H1 header. else use default header "Book an Appointment" if no other H1 is present
-if($("#code").length > 0) {
+if(newFrontdeskMainEle.find("#code").length > 0) {
 	var customPageHeaderH1 = $("<h1>Enter Verification Code</h1>");
 } else {
 	var customPageHeaderH1 = newFrontdeskMainEle.find("h1").eq(0);
