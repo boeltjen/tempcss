@@ -524,7 +524,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 		}
 
 		//restart autoloading of content only
-		updatePage(updatePageParams);
+// 		updatePage(updatePageParams);
 	}	
 // End of Temp Fix for Auto-load
 
