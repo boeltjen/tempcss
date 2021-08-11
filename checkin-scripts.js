@@ -466,7 +466,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			updatePageParams.ajaxDataStr = "";
 			updatePageParams.ajaxType = "GET"
 			updatePageParams.ajaxUrl = window.location.href;
-			updatePageParams.reloadInterval = 60000; 
+			updatePageParams.reloadInterval = 5000; 
 
 		} else {
 			// user has already logged in -> replace with dynamic reloadContent function
