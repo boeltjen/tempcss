@@ -369,7 +369,7 @@ divs_w_shortcodes.each(function() {
 	}
 	
 	//remove any shortcode text
-	$(this).text().replace(shortCodeRegEx,'');
+	$(this).html($(this).html().replace(shortCodeRegEx,''));
 
 	
 });
