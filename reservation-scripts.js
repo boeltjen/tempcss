@@ -375,7 +375,7 @@ divs_w_shortcodes.each(function() {
 	}
 	
 	//add any added roles
-	if(rolesToAdd) $(this).attr("role",$(this).attr("role"), + " " +rolesToAdd);
+	if(rolesToAdd) $(this).attr("role",$(this).attr("role") + " " + rolesToAdd);
 
 	
 	//add/update any added aria
