@@ -346,10 +346,10 @@ var divs_w_shortcodes = newFrontdeskMainEle.find("div.section").filter(function 
 	
 });
 
-divs_w_shortcodes.each(function() {
+divs_w_shortcodes.each(function(singleDiv_wShortcode) {
 	
 	//find all shortcodes in the div
-	var shortCodesInDiv = $(this).text().match(shortCodeRegEx);
+	var shortCodesInDiv = singleDiv_wShortcode.text().match(shortCodeRegEx);
 	var classStrToAdd = "";
 	var isPageAlertBox = false;
 	var rolesToAdd = "";
@@ -366,25 +366,26 @@ divs_w_shortcodes.each(function() {
 	});
 	
 	// append (if) any classes using '[[[addClass="class1 class2"]]]' -> ex. 'calltoaction', 'highlight', etc
-	if(classStrToAdd) $(this).addClass(classStrToAdd);
+	if(classStrToAdd) singleDiv_wShortcode.addClass(classStrToAdd);
 	
 	// replace any pre-existing id="page-alert-box" with the newest one tagged by '[[[id="page-alert-box"]]]'
 	if(isPageAlertBox) {
 		newFrontdeskMainEle.find("#page-alert-box").attr("id","").addClass("inactive-page-alert-box");
-		$(this).attr("id","page-alert-box");
+		singleDiv_wShortcode.attr("id","page-alert-box");
 	}
 	
 	//add any added roles
-	if(rolesToAdd) $(this).attr($(this).attr("role") + " " +rolesToAdd);
+	if(rolesToAdd) singleDiv_wShortcode.attr(singleDiv_wShortcode.attr("role") + " " +rolesToAdd);
 
 	
 	//add/update any added aria
 	ariaToAdd.forEach(function(ariaPair) {
-		$(this).attr(ariaPair.ariaAttr,ariaPair.ariaVal);
+		console.log(ariaPair.ariaAttr,ariaPair.ariaVal);
+		singleDiv_wShortcode.attr(ariaPair.ariaAttr,ariaPair.ariaVal);
 	});
 	
 	//remove any shortcode text
-	$(this).html($(this).html().replace(shortCodeRegEx,''));
+	singleDiv_wShortcode.html(singleDiv_wShortcode.html().replace(shortCodeRegEx,''));
 
 	
 });
