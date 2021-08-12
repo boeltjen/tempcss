@@ -352,11 +352,17 @@ divs_w_shortcodes.each(function() {
 	var shortCodesInDiv = $(this).text().match(shortCodeRegEx);
 	var classStrToAdd = "";
 	var isPageAlertBox = false;
+	var rolesToAdd = "";
+	var ariaToAdd = [];
+
 	
 	// for each shortcode found, convert as follows:
 	shortCodesInDiv.forEach(function(shortcode) {
 		classStrToAdd += (shortcode.indexOf("addClass=") > 0) ? shortcode.substring( shortcode.indexOf("addClass=")+10, shortcode.indexOf("]]]")-1 ) + " " : ""; 
 		isPageAlertBox = (shortcode.indexOf('page-alert-box') > 0);
+		rolesToAdd += (shortcode.indexOf("role=") > 0) ? shortcode.substring( shortcode.indexOf("role=")+5, shortcode.indexOf("]]]")-1 ) + " " : "";
+		var tempAriaToAddPair = (shortcode.indexOf("aria-") > 0) ? (shortcode.substring( shortcode.indexOf("aria-"), shortcode.indexOf("]]]") )).split("=") : "";
+		ariaToAdd.push(tempAriaToAddPair.length ? { "ariaAttr" : tempAriaToAddPair[0], "ariaVal" : tempAriaToAddPair[1] });
 	});
 	
 	// append (if) any classes using '[[[addClass="class1 class2"]]]' -> ex. 'calltoaction', 'highlight', etc
@@ -367,6 +373,15 @@ divs_w_shortcodes.each(function() {
 		newFrontdeskMainEle.find("#page-alert-box").attr("id","").addClass("inactive-page-alert-box");
 		$(this).attr("id","page-alert-box");
 	}
+	
+	//add any added roles
+	if(rolesToAdd) $(this).attr($(this).attr("role") + " " +rolesToAdd);
+
+	
+	//add/update any added aria
+	ariaToAdd.forEach(function(ariaPair) {
+		$(this).attr(ariaPair.ariaAttr,ariaPair.ariaVal);
+	});
 	
 	//remove any shortcode text
 	$(this).html($(this).html().replace(shortCodeRegEx,''));
