@@ -359,13 +359,15 @@ divs_w_shortcodes.each(function() {
 		isPageAlertBox = (shortcode.indexOf('page-alert-box') > 0);
 	});
 	
+	// append (if) any classes using '[[[addClass="class1 class2"]]]'
+	if(classStrToAdd) $(this).addClass(classStrToAdd);
 	
-	// append any classes using '[[[addClass="class1 class2"]]]'
-	console.log("adding the following classes: '" + (classStrToAdd ? classStrToAdd : "none") +"'");
-
 	// replace any pre-existing id="page-alert-box" with the newest one tagged by '[[[id="page-alert-box"]]]'
-	console.log("adding a page alert?",isPageAlertBox);
-
+	if(isPageAlertBox) {
+		newFrontdeskMainEle.find("#page-alert-box").attr("id","").addClass("inactive-page-alert-box");
+		$(this).attr("id","page-alert-box");
+	}
+	
 });
 
 
