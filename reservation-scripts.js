@@ -355,7 +355,7 @@ divs_w_shortcodes.each(function() {
 	
 	// for each shortcode found, convert as follows:
 	shortCodesInDiv.forEach(function(shortcode) {
-		classStrToAdd += shortcode.substring( shortcode.indexOf("addClass=")+10, shortcode.indexOf("]]]")-1 );
+		classStrToAdd += (shortcode.indexOf("addClass=") > 0) ? shortcode.substring( shortcode.indexOf("addClass=")+10, shortcode.indexOf("]]]")-1 ) + " " : ""; 
 		isPageAlertBox = (shortcode.indexOf('page-alert-box') > 0);
 	});
 	
