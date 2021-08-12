@@ -361,7 +361,7 @@ divs_w_shortcodes.each(function() {
 	
 	
 	// append any classes using '[[[addClass="class1 class2"]]]'
-	console.log("adding the following classes: '"+classStrToAdd+"'");
+	console.log("adding the following classes: '" + (classStrToAdd ? classStrToAdd : "none") +"'");
 
 	// replace any pre-existing id="page-alert-box" with the newest one tagged by '[[[id="page-alert-box"]]]'
 	console.log("adding a page alert?",isPageAlertBox);
