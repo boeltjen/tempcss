@@ -359,7 +359,7 @@ divs_w_shortcodes.each(function() {
 		isPageAlertBox = (shortcode.indexOf('page-alert-box') > 0);
 	});
 	
-	// append (if) any classes using '[[[addClass="class1 class2"]]]'
+	// append (if) any classes using '[[[addClass="class1 class2"]]]' -> ex. 'calltoaction', 'highlight', etc
 	if(classStrToAdd) $(this).addClass(classStrToAdd);
 	
 	// replace any pre-existing id="page-alert-box" with the newest one tagged by '[[[id="page-alert-box"]]]'
@@ -367,6 +367,10 @@ divs_w_shortcodes.each(function() {
 		newFrontdeskMainEle.find("#page-alert-box").attr("id","").addClass("inactive-page-alert-box");
 		$(this).attr("id","page-alert-box");
 	}
+	
+	//remove any shortcode text
+	$(this).text().replace(shortCodeRegEx,'');
+
 	
 });
 
