@@ -346,7 +346,7 @@ var divs_w_shortcodes = newFrontdeskMainEle.find("div.section").filter(function 
 	
 });
 
-divs_w_shortcodes.each(function(singleDiv_wShortcode) {
+divs_w_shortcodes.each(function() {
 	
 	//find all shortcodes in the div
 	var shortCodesInDiv = $(this).text().match(shortCodeRegEx);
@@ -375,13 +375,14 @@ divs_w_shortcodes.each(function(singleDiv_wShortcode) {
 	}
 	
 	//add any added roles
-	if(rolesToAdd) $(this).attr(singleDiv_wShortcode.attr("role") + " " +rolesToAdd);
+	if(rolesToAdd) $(this).attr($(this).attr("role") + " " +rolesToAdd);
 
 	
 	//add/update any added aria
+	let tempDivWithShortcode = $(this);
 	ariaToAdd.forEach(function(ariaPair) {
 		console.log(ariaPair.ariaAttr,ariaPair.ariaVal);
-		$(singleDiv_wShortcode).attr(ariaPair.ariaAttr,ariaPair.ariaVal);
+		tempDivWithShortcode.attr(ariaPair.ariaAttr,ariaPair.ariaVal);
 	});
 	
 	//remove any shortcode text
