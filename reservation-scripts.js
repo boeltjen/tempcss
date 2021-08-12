@@ -360,7 +360,7 @@ divs_w_shortcodes.each(function() {
 	shortCodesInDiv.forEach(function(shortcode) {
 		classStrToAdd += (shortcode.indexOf("addClass=") > 0) ? shortcode.substring( shortcode.indexOf("addClass=")+10, shortcode.indexOf("]]]")-1 ) + " " : ""; 
 		isPageAlertBox = (shortcode.indexOf('page-alert-box') > 0);
-		rolesToAdd += (shortcode.indexOf("role=") > 0) ? shortcode.substring( shortcode.indexOf("role=")+5, shortcode.indexOf("]]]")-1 ) + " " : "";
+		rolesToAdd += (shortcode.indexOf("role=") > 0) ? shortcode.substring( shortcode.indexOf("role=")+6, shortcode.indexOf("]]]")-1 ) + " " : "";
 		var tempAriaToAddPair = (shortcode.indexOf("aria-") > 0) ? (shortcode.substring( shortcode.indexOf("aria-"), shortcode.indexOf("]]]") )).split("=") : "";
 		if(tempAriaToAddPair.length) ariaToAdd.push({ "ariaAttr" : tempAriaToAddPair[0], "ariaVal" : tempAriaToAddPair[1].slice(1,-1) });
 	});
@@ -381,7 +381,6 @@ divs_w_shortcodes.each(function() {
 	//add/update any added aria
 	let tempDivWithShortcode = $(this);
 	ariaToAdd.forEach(function(ariaPair) {
-		console.log(ariaPair.ariaAttr,ariaPair.ariaVal);
 		tempDivWithShortcode.attr(ariaPair.ariaAttr,ariaPair.ariaVal);
 	});
 	
