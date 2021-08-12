@@ -362,7 +362,7 @@ divs_w_shortcodes.each(function() {
 		isPageAlertBox = (shortcode.indexOf('page-alert-box') > 0);
 		rolesToAdd += (shortcode.indexOf("role=") > 0) ? shortcode.substring( shortcode.indexOf("role=")+5, shortcode.indexOf("]]]")-1 ) + " " : "";
 		var tempAriaToAddPair = (shortcode.indexOf("aria-") > 0) ? (shortcode.substring( shortcode.indexOf("aria-"), shortcode.indexOf("]]]") )).split("=") : "";
-		ariaToAdd.push(tempAriaToAddPair.length ? { "ariaAttr" : tempAriaToAddPair[0], "ariaVal" : tempAriaToAddPair[1] });
+		if(tempAriaToAddPair.length) ariaToAdd.push({ "ariaAttr" : tempAriaToAddPair[0], "ariaVal" : tempAriaToAddPair[1] });
 	});
 	
 	// append (if) any classes using '[[[addClass="class1 class2"]]]' -> ex. 'calltoaction', 'highlight', etc
