@@ -354,9 +354,9 @@ divs_w_shortcodes.each(function() {
 	var isPageAlertBox = false;
 	
 	// for each shortcode found, convert as follows:
-	shortCodesInDiv.forEach(function() {
-		classStrToAdd += $(this).substring( $(this).indexOf("addClass=")+10, $(this).indexOf("]]]")-1 );
-		isPageAlertBox = ($(this).indexOf('page-alert-box') > 0);
+	shortCodesInDiv.forEach(function(shortcode) {
+		classStrToAdd += shortcode.substring( shortcode.indexOf("addClass=")+10, shortcode.indexOf("]]]")-1 );
+		isPageAlertBox = (shortcode.indexOf('page-alert-box') > 0);
 	});
 	
 	
