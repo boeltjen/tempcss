@@ -52,7 +52,7 @@ var cframeHeaderHtml =
 +'		<div class="container-fluid">'
 +'			<div id="cotHeaderTop" class="cotPlaceholder"></div>'
 +'			<div class="page-header">'
-+'			    <h1 id="torontopageheader">Book an Appointment</h1>'
++'			    <h1 id="torontopageheader" tabindex="-1">Book an Appointment</h1>'
 +'			    <nav id="actions" aria-label="Page Actions">'
 +'				<!--stopindex--> '
 +'				<div id="sharebutton">'
@@ -494,13 +494,13 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 	accordionEle.on('ready',event=>{
 		console.info("cotui-accordion rendered");
 		accordionEle.css("display","block");
-		setTimeout(()=> $("#torontopageheader").focus(),1);
+		$("#torontopageheader").focus();
 	})
 } else {	
 	// if no appointment selector is present
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
 	$("body").css("display","block");
-	setTimeout(()=> $("#torontopageheader").focus(),1);
+	$("#torontopageheader").focus();
 }
 
 
