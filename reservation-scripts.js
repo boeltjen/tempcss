@@ -494,13 +494,13 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 	accordionEle.on('ready',event=>{
 		console.info("cotui-accordion rendered");
 		accordionEle.css("display","block");
-		$("#torontopageheader").focus();
+// 		$("#torontopageheader").focus();
 	})
 } else {	
 	// if no appointment selector is present
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
 	$("body").css("display","block");
-	$("#torontopageheader").focus();
+// 	$("#torontopageheader").focus();
 }
 
 
