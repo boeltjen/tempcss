@@ -149,6 +149,18 @@ var cframeFooterHtml =
 +'			}'
 +'		},200);'
 +'	</script>'
++''
++'	<script type="text/javascript">'
++'		var meta=document.createElement("meta");'
++'		meta.name="DCSext.dcsid";'
++'		meta.setAttribute("content", "dcs222ldvxk938tpne9uk1e3u_1c4g");'
++'		document.getElementsByTagName("head")[0].appendChild(meta);'
++'		file_var = "https://c.oracleinfinity.io/acs/account/97j62divdr/js/main/odc.js?_ora.context=analytics:development";'
++'		var myscript=document.createElement("script");'
++'		myscript.src=file_var;'
++'		myscript.type="text/javascript";'
++'		document.getElementsByTagName("head")[0].appendChild(myscript);'
++'	</script>'
 ;
 
 //remove stock stylesheets
