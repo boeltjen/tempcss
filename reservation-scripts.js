@@ -283,10 +283,10 @@ newFrontdeskMainEle.find("a.action").addClass("btn btn-default");
 
 // check for buttons with pseudo-tags '<= ' or '=>' and update button class appropriately
 var backButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains('<= '),a.btn:contains('<= ')").removeClass("btn-primary").addClass("btn-default");
-//backButtonLinkElements.html(backButtonLinkElements.html().replace("<= ",""));
+if(backButtonLinkElements.length) backButtonLinkElements.html(backButtonLinkElements.html().replace("<= ",""));
 
 var forwardButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains(' =>'),a.btn:contains(' =>')").removeClass("btn-primary").addClass("btn-success");
-//forwardButtonLinkElements.html(forwardButtonLinkElements.html().replace(" =>",""));
+if(forwardButtonLinkElements.length) forwardButtonLinkElements.html(forwardButtonLinkElements.html().replace(" =>",""));
 
 
 
