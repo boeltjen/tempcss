@@ -281,6 +281,15 @@ document.title = $("#torontopageheader").text() + " - City of Toronto";
 newFrontdeskMainEle.find(".button, .mdc-button, button.action").addClass("btn btn-primary");
 newFrontdeskMainEle.find("a.action").addClass("btn btn-default");
 
+// check for buttons with pseudo-tags '<= ' or '=>' and update button class appropriately
+var backButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains('<= '),a.btn:contains('<= ')").removeClass("btn-primary").addClass("btn-default");
+backButtonLinkElements.html(backButtonLinkElements.html().replace("<= ",""));
+
+var forwardButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains(' =>'),a.btn:contains(' =>')").removeClass("btn-primary").addClass("btn-success");
+forwardButtonLinkElements.html(forwardButtonLinkElements.html().replace(" =>",""));
+
+
+
 //add styling for reservation delete options
 newFrontdeskMainEle.find(".existing-reservation-block").each(function() {
 	$(this).addClass("row").after("<br/>");
