@@ -528,5 +528,83 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 // 	$("#torontopageheader").focus();
 }
 
+// TEMP FIX - switch check-in page auto-reload, to auto-content update for Accessibility reasons
+	
+	// check for reloadPage function
+	var scriptTag_w_reloadPage = $("script:contains('reloadPage')");
+	
+	// if tag exists, continue
+	if(scriptTag_w_reloadPage.length > 0) {
+		
+		//read and parse existing reloadPage function
+		var updatePageParams = { ajaxDataStr:false, ajaxType:false, ajaxUrl:false, reloadInterval: 0 };
+		if(scriptTag_w_reloadPage.html().indexOf('CheckInId') < 0) {
+			// user not yet logged in -> replace with static reloadContent function
+			updatePageParams.ajaxDataStr = "";
+			updatePageParams.ajaxType = "GET"
+			updatePageParams.ajaxUrl = window.location.href;
+			updatePageParams.reloadInterval = 60000;
+			// note ideally add a role="timer" and an aria-live to the countdown timer
+
+		} else {
+			// user has already logged in -> replace with dynamic reloadContent function
+			var scriptHtmlMin = scriptTag_w_reloadPage.html().replace(/\s/g, '').replace(/'/g,'"').replace('CheckInId','"CheckInId"').replace('QueueEntryId','"QueueEntryId"');
+			updatePageParams.ajaxDataStr = JSON.parse(scriptHtmlMin.substring(scriptHtmlMin.indexOf('data:{')+5,scriptHtmlMin.indexOf('}',scriptHtmlMin.indexOf('data:{')+5)+1));
+			updatePageParams.ajaxType = "POST"
+			updatePageParams.ajaxUrl = "/CheckedIn";
+			updatePageParams.reloadInterval = 5000;
+		}		
+
+		// remove existing script tag with reloadPage function
+		scriptTag_w_reloadPage.remove();
+		
+		//replace autoload function with one that only replaces main content w/o reloading on success
+		function updatePage(params) {
+			setInterval(function () {
+				$.ajax({
+					type: params.ajaxType,
+					url: params.ajaxUrl,
+					data: params.ajaxDataStr,
+					success: function(htmlData) { 
+						reloadContent(htmlData);
+					}
+				});
+			}, params.reloadInterval);
+		}
+
+		var reloadContent = function(newContent) {
+			var newContentMain = $(newContent).find("main").eq(0);
+			var newContentPageHeader = newContentMain.find("h1").eq(0);
+
+			// move newContentPageHeader to the #torontopageheader, then add to the last breadcrumb.  If the newContentPageHeader is the same as the last link, remove the li.  
+			if(newContentPageHeader.length > 0) {
+				$("#torontopageheader").text(newContentPageHeader.text()).attr("aria-live","assertive");
+				$("#breadcrumbs").find("li").eq(-1).text(newContentPageHeader.text());
+				newContentPageHeader.remove();
+
+				// update the document.title for wcag
+				document.title = $("#torontopageheader").text() + " - City of Toronto";
+			}
+
+			//re-add bootstrap button classes to all button like links
+			$(".button, .mdc-button, button.action").addClass("btn btn-primary");
+			$("a.action").addClass("btn btn-default");
+
+			//update the page contents without reloading
+			$("#torontopagecontent").empty().append(newContentMain);
+
+			console.log("page contents updated");
+		}
+
+		$(document).ready(() => {
+			// stop default autoload
+			var i = setTimeout(function(){}); while(i--) {clearTimeout(i);}
+
+			//restart autoloading of content only
+			updatePage(updatePageParams);
+		});
+	}	
+// End of Temp Fix for Auto-load
+
 
 
