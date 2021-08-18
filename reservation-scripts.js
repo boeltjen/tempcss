@@ -512,7 +512,7 @@ if(datelistElement.length > 0) {
 	datelistElement.remove();
 
 	// hide dateTimesContainer before appending <cotui-accordion>.  then unhide after 0.5 sec
-	datelistElement.find("#dateTimesContainer").append(accordionEle);
+	newFrontdeskMainEle.find("#dateTimesContainer").append(accordionEle);
 
 	//only unhide dateTimesContainer once cotui is done rendering.
 	accordionEle.on('ready',event=>{
