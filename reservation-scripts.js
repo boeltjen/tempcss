@@ -417,11 +417,12 @@ divs_w_shortcodes.each(function() {
 
 
 //convert to cotui-accordion if any appointment times are present
-if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
+var datelistElement = newFrontdeskMainEle.find("div.section.date-list").eq(0);
+if(datelistElement.length > 0) {
 
 	
 	var appointmentDateSections = [];
-	var divDateOneQueues = newFrontdeskMainEle.find("div.date.one-queue");
+	var divDateOneQueues = datelistElement.find("div.date");
 	
 	//hide date-time selector and display rest of page while the new selector loads
 	divDateOneQueues.eq(0).parent().css("display","none");	
@@ -507,25 +508,23 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 		.css("display","none")
 		.append(appointmentDateSections);
 
-	newFrontdeskMainEle.find("div.date.one-queue").parent().after("<div id='dateTimesContainer'/>")
-	newFrontdeskMainEle.find("div.date.one-queue").parent().remove();
-
-	//$("#dateTimesContainer").appenewFrontdeskMainEle.findd(accordionEle);
+	datelistElement.after("<div id='dateTimesContainer'/>")
+	datelistElement.remove();
 
 	// hide dateTimesContainer before appending <cotui-accordion>.  then unhide after 0.5 sec
-	newFrontdeskMainEle.find("#dateTimesContainer").append(accordionEle);
+	datelistElement.find("#dateTimesContainer").append(accordionEle);
 
 	//only unhide dateTimesContainer once cotui is done rendering.
 	accordionEle.on('ready',event=>{
 		console.info("cotui-accordion rendered");
 		accordionEle.css("display","block");
-// 		$("#torontopageheader").focus();
+ 		// $("#torontopageheader").focus();
 	})
 } else {	
 	// if no appointment selector is present
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
 	$("body").css("display","block");
-// 	$("#torontopageheader").focus();
+	// $("#torontopageheader").focus();
 }
 
 // TEMP FIX - switch check-in page auto-reload, to auto-content update for Accessibility reasons
