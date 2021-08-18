@@ -52,7 +52,7 @@ var cframeHeaderHtml =
 +'		<div class="container-fluid">'
 +'			<div id="cotHeaderTop" class="cotPlaceholder"></div>'
 +'			<div class="page-header">'
-+'			    <h1 id="torontopageheader">Book an Appointment</h1>'
++'			    <h1 id="torontopageheader" tabindex="-1">Book an Appointment</h1>'
 +'			    <nav id="actions" aria-label="Page Actions">'
 +'				<!--stopindex--> '
 +'				<div id="sharebutton">'
@@ -148,6 +148,22 @@ var cframeFooterHtml =
 +'				});'
 +'			}'
 +'		},200);'
++'	</script>'
++''
++'	<script>'
++'		var meta=document.createElement("meta");'
++'		meta.name="DCSext.dcsid";'
++'		meta.setAttribute("content", "dcs222ldvxk938tpne9uk1e3u_1c4g");'
++'		document.getElementsByTagName("head")[0].appendChild(meta);'
++'		//second element'
++'		var meta2=document.createElement("meta");'
++'		meta2.name="WT.sp";'
++'		meta2.setAttribute("content", "FrontDesk");'
++'		file_var = "https://c.oracleinfinity.io/acs/account/97j62divdr/js/main/odc.js?_ora.context=analytics:development";'
++'		var myscript=document.createElement("script");'
++'		myscript.src=file_var;'
++'		myscript.type="text/javascript";'
++'		document.getElementsByTagName("head")[0].appendChild(myscript);'
 +'	</script>'
 ;
 
@@ -269,6 +285,15 @@ document.title = $("#torontopageheader").text() + " - City of Toronto";
 newFrontdeskMainEle.find(".button, .mdc-button, button.action").addClass("btn btn-primary");
 newFrontdeskMainEle.find("a.action").addClass("btn btn-default");
 
+// check for buttons with pseudo-tags '<= ' or '=>' and update button class appropriately
+var backButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains('<= '),a.btn:contains('<= ')").removeClass("btn-primary").addClass("btn-default");
+if(backButtonLinkElements.length) backButtonLinkElements.html(backButtonLinkElements.html().replace("<= ","").replace("&lt;= ",""));
+
+var forwardButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains(' =>'),a.btn:contains(' =>')").removeClass("btn-primary").addClass("btn-success");
+if(forwardButtonLinkElements.length) forwardButtonLinkElements.html(forwardButtonLinkElements.html().replace(" =>","").replace(" =&gt;",""));
+
+
+
 //add styling for reservation delete options
 newFrontdeskMainEle.find(".existing-reservation-block").each(function() {
 	$(this).addClass("row").after("<br/>");
@@ -337,6 +362,58 @@ visibleInputFields.each(function(index) {
 
 //remove h3:contains("time") as interim fix of extra header
 newFrontdeskMainEle.find('h3:contains("Time")').parent().remove();
+
+// check for 'shortcodes' of "[[[ XXX ]]]"
+var shortCodeRegEx = /\[\[\[[^\[^\]]*\]\]\]/g;
+var divs_w_shortcodes = newFrontdeskMainEle.find("div.section").filter(function () {
+    // console.log($(this).text());
+    return ($(this).text().search(shortCodeRegEx) > 0);
+	
+});
+
+divs_w_shortcodes.each(function() {
+	
+	//find all shortcodes in the div
+	var shortCodesInDiv = $(this).text().match(shortCodeRegEx);
+	var classStrToAdd = "";
+	var isPageAlertBox = false;
+	var rolesToAdd = "";
+	var ariaToAdd = [];
+
+	
+	// for each shortcode found, convert as follows:
+	shortCodesInDiv.forEach(function(shortcode) {
+		classStrToAdd += (shortcode.indexOf("addClass=") > 0) ? shortcode.substring( shortcode.indexOf("addClass=")+10, shortcode.indexOf("]]]")-1 ) + " " : ""; 
+		isPageAlertBox = (shortcode.indexOf('page-alert-box') > 0);
+		rolesToAdd += (shortcode.indexOf("role=") > 0) ? shortcode.substring( shortcode.indexOf("role=")+6, shortcode.indexOf("]]]")-1 ) + " " : "";
+		var tempAriaToAddPair = (shortcode.indexOf("aria-") > 0) ? (shortcode.substring( shortcode.indexOf("aria-"), shortcode.indexOf("]]]") )).split("=") : "";
+		if(tempAriaToAddPair.length) ariaToAdd.push({ "ariaAttr" : tempAriaToAddPair[0], "ariaVal" : tempAriaToAddPair[1].slice(1,-1) });
+	});
+	
+	// append (if) any classes using '[[[addClass="class1 class2"]]]' -> ex. 'calltoaction', 'highlight', etc
+	if(classStrToAdd) $(this).addClass(classStrToAdd);
+	
+	// replace any pre-existing id="page-alert-box" with the newest one tagged by '[[[id="page-alert-box"]]]'
+	if(isPageAlertBox) {
+		newFrontdeskMainEle.find("#page-alert-box").attr("id","").addClass("inactive-page-alert-box");
+		$(this).attr("id","page-alert-box");
+	}
+	
+	//add any added roles
+	if(rolesToAdd) $(this).attr("role",(($(this).attr("role") || "") ? $(this).attr("role") + " " : "") + rolesToAdd.trim());
+
+	
+	//add/update any added aria
+	let tempDivWithShortcode = $(this);
+	ariaToAdd.forEach(function(ariaPair) {
+		tempDivWithShortcode.attr(ariaPair.ariaAttr,ariaPair.ariaVal);
+	});
+	
+	//remove any shortcode text
+	$(this).html($(this).html().replace(shortCodeRegEx,''));
+
+	
+});
 
 
 //convert to cotui-accordion if any appointment times are present
@@ -442,11 +519,13 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 	accordionEle.on('ready',event=>{
 		console.info("cotui-accordion rendered");
 		accordionEle.css("display","block");
+// 		$("#torontopageheader").focus();
 	})
 } else {	
 	// if no appointment selector is present
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
 	$("body").css("display","block");
+// 	$("#torontopageheader").focus();
 }
 
 // TEMP FIX - switch check-in page auto-reload, to auto-content update for Accessibility reasons
