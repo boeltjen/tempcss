@@ -155,7 +155,6 @@ var cframeFooterHtml =
 +'		meta.name="DCSext.dcsid";'
 +'		meta.setAttribute("content", "dcs222ldvxk938tpne9uk1e3u_1c4g");'
 +'		document.getElementsByTagName("head")[0].appendChild(meta);'
-+'		<!-- //second element -->'
 +'		var meta2=document.createElement("meta");'
 +'		meta2.name="WT.sp";'
 +'		meta2.setAttribute("content", "FrontDesk");'
