@@ -287,6 +287,13 @@ document.title = $("#torontopageheader").text() + " - City of Toronto";
 newFrontdeskMainEle.find(".button, .mdc-button, button.action").addClass("btn btn-primary");
 newFrontdeskMainEle.find("a.action").addClass("btn btn-default");
 
+//remove bootstrap p padding from buttons
+$("a > p, button > p").addClass("no-margin");
+
+//remove font awesome icons from inside buttons
+$("a > i.fas, button > i.fas").remove()
+
+
 // check for buttons with pseudo-tags '<= ' or '=>' and update button class appropriately
 var backButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains('<= '),a.btn:contains('<= ')").removeClass("btn-primary").addClass("btn-default");
 if(backButtonLinkElements.length) backButtonLinkElements.html(backButtonLinkElements.html().replace("<= ","").replace("&lt;= ",""));
@@ -591,6 +598,13 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			//re-add bootstrap button classes to all button like links
 			$(".button, .mdc-button, button.action").addClass("btn btn-primary");
 			$("a.action").addClass("btn btn-default");
+			
+			//re-remove bootstrap p padding from buttons
+			$("a > p, button > p").addClass("no-margin");
+
+			//re-remove font awesome icons from inside buttons
+			$("a > i.fas, button > i.fas").remove()
+			
 
 			//update the page contents without reloading
 			$("#torontopagecontent").empty().append(newContentMain);
