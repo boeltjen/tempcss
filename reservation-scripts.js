@@ -418,6 +418,18 @@ divs_w_shortcodes.each(function() {
 });
 
 
+var refreshAlertElements = function(refreshPeriod) {
+	//refresh alert elements since not ajax to trigger sr-alerts
+	var alertElements = $("[role='alert']");
+	alertElements.each(function(alertEle) {
+		let tempAlertEleHtml = $(alertEle).html();
+		$(alertEle).html("");
+		setTimeout(function() {
+			$(alertEle).html(tempAlertEleHtml);
+		},refreshPeriod);
+	});
+};
+
 //convert to cotui-accordion if any appointment times are present
 var datelistElement = newFrontdeskMainEle.find("div.section.date-list").eq(0);
 if(datelistElement.length > 0) {
@@ -431,6 +443,9 @@ if(datelistElement.length > 0) {
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
 	$("body").css("display","block");
 	
+	//refresh alert elements since not ajax to trigger sr-alerts
+	refreshAlertElements(100);
+
 	//convert date-time selector to cotui
 	divDateOneQueues.each(function() {
 		var timesListLi = $(this).find("ul.times-list li");
@@ -527,6 +542,10 @@ if(datelistElement.length > 0) {
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
 	$("body").css("display","block");
 	// $("#torontopageheader").focus();
+	
+	//refresh alert elements since not ajax to trigger sr-alerts
+	refreshAlertElements(100);
+		
 }
 
 // TEMP FIX - switch check-in page auto-reload, to auto-content update for Accessibility reasons
