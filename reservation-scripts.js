@@ -444,7 +444,7 @@ if(datelistElement.length > 0) {
 	$("body").css("display","block");
 	
 	//refresh alert elements since not ajax to trigger sr-alerts
-	refreshAlertElements(100);
+	refreshAlertElements(500);
 
 	//convert date-time selector to cotui
 	divDateOneQueues.each(function() {
@@ -544,7 +544,7 @@ if(datelistElement.length > 0) {
 	// $("#torontopageheader").focus();
 	
 	//refresh alert elements since not ajax to trigger sr-alerts
-	refreshAlertElements(100);
+	refreshAlertElements(500);
 		
 }
 
