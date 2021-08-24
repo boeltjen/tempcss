@@ -288,10 +288,10 @@ newFrontdeskMainEle.find(".button, .mdc-button, button.action").addClass("btn bt
 newFrontdeskMainEle.find("a.action").addClass("btn btn-default");
 
 //remove bootstrap p padding from buttons
-$("a > p, button > p").addClass("no-margin");
+newFrontdeskMainEle.find("a > p, button > p").addClass("no-margin");
 
 //remove font awesome icons from inside buttons
-$("a > i.fas, button > i.fas").remove()
+newFrontdeskMainEle.find("a > i.fas, button > i.fas").remove()
 
 
 // check for buttons with pseudo-tags '<= ' or '=>' and update button class appropriately
