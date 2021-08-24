@@ -421,7 +421,7 @@ divs_w_shortcodes.each(function() {
 var refreshAlertElements = function(refreshPeriod) {
 	//refresh alert elements since not ajax to trigger sr-alerts
 	var alertElements = $("[role='alert']");
-	alertElements.each(function(alertEle) {
+	alertElements.each(function(index,alertEle) {
 		let tempAlertEleHtml = $(alertEle).html();
 		$(alertEle).html("");
 		setTimeout(function() {
