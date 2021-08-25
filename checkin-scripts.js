@@ -295,7 +295,7 @@ newFrontdeskMainEle.find("a > p, button > p").addClass("no-margin");
 newFrontdeskMainEle.find("a > i.fas, button > i.fas").remove()
 
 // add highlight to ticket class
-newContentMain.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
+newFrontdeskMainEle.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
 
 
 // check for buttons with pseudo-tags '<= ' or '=>' and update button class appropriately
