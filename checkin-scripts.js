@@ -595,6 +595,10 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 				document.title = $("#torontopageheader").text() + " - City of Toronto";
 			}
 
+			
+			//remove any main styling
+			newContentMain.removeClass();
+			
 			//re-add bootstrap button classes to all button like links
 			newContentMain.find(".button, .mdc-button, button.action").addClass("btn btn-primary");
 			newContentMain.find("a.action").addClass("btn btn-default");
