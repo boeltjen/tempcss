@@ -294,6 +294,9 @@ newFrontdeskMainEle.find("a > p, button > p").addClass("no-margin");
 //remove font awesome icons from inside buttons
 newFrontdeskMainEle.find("a > i.fas, button > i.fas").remove()
 
+// add highlight to ticket class
+newContentMain.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
+
 
 // check for buttons with pseudo-tags '<= ' or '=>' and update button class appropriately
 var backButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains('<= '),a.btn:contains('<= ')").removeClass("btn-primary").addClass("btn-default");
@@ -614,7 +617,9 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			newContentMain.children("div.row").removeClass("row");
 			newContentMain.children("div.content").children("div.row").removeClass("row");
 
-
+			// add highlight to ticket class
+			newContentMain.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
+			
 			//update the page contents without reloading
 			$("#torontopagecontent").empty().append(newContentMain);
 
