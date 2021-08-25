@@ -605,6 +605,9 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			//re-remove font awesome icons from inside buttons
 			newContentMain.find("a > i.fas, button > i.fas").remove()
 			
+			//remove first div.row class
+			newContentMain.children("div.row").removeClass("row");
+			
 
 			//update the page contents without reloading
 			$("#torontopagecontent").empty().append(newContentMain);
