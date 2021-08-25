@@ -200,8 +200,9 @@ fronteskMainEle.find("h3").each(function() {
 //remove any main styling
 fronteskMainEle.removeClass();
 
-//remove first div.row class
+//remove div.row class under main or under div.content
 fronteskMainEle.children("div.row").removeClass("row");
+fronteskMainEle.children("div.content").children("div.row").removeClass("row");
 
 
 
@@ -609,9 +610,10 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			//re-remove font awesome icons from inside buttons
 			newContentMain.find("a > i.fas, button > i.fas").remove()
 			
-			//remove first div.row class
+			//remove div.row class under main or under div.content
 			newContentMain.children("div.row").removeClass("row");
-			
+			newContentMain.children("div.content").children("div.row").removeClass("row");
+
 
 			//update the page contents without reloading
 			$("#torontopagecontent").empty().append(newContentMain);
