@@ -596,14 +596,14 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			}
 
 			//re-add bootstrap button classes to all button like links
-			$(".button, .mdc-button, button.action").addClass("btn btn-primary");
-			$("a.action").addClass("btn btn-default");
+			newContentMain.find(".button, .mdc-button, button.action").addClass("btn btn-primary");
+			newContentMain.find("a.action").addClass("btn btn-default");
 			
 			//re-remove bootstrap p padding from buttons
-			$("a > p, button > p").addClass("no-margin");
+			newContentMain.find("a > p, button > p").addClass("no-margin");
 
 			//re-remove font awesome icons from inside buttons
-			$("a > i.fas, button > i.fas").remove()
+			newContentMain.find("a > i.fas, button > i.fas").remove()
 			
 
 			//update the page contents without reloading
