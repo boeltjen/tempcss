@@ -620,8 +620,20 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			newContentMain.children("div.row").removeClass("row");
 			newContentMain.children("div.content").children("div.row").removeClass("row");
 
+			// grab first h2 section html until next h2 (if present)
+			var firstH2EleContent = newContentMain.find("h2:first-of-type").nextUntil("h2");
+			if(firstH2EleContent.length > 1) {
+				let firstH2EleContentHtml = firstH2EleContent.html();
+				firstH2EleContent.remove();
+				newContentMain.find("h2:first-of-type").prepend(
+					$("<div/>")
+						.addClass("highlightedcontent").attr("role","mark")
+						.html(firstH2EleContentHtml);
+				);
+			}
+			
 			// add highlight to ticket class
-			newContentMain.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
+// 			newContentMain.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
 			
 			//update the page contents without reloading
 			$("#torontopagecontent").empty().append(newContentMain);
