@@ -642,7 +642,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			newContentMain.children("div.content").children("div.row").removeClass("row");
 
 			// grab first h2 section html until next h2 (if present)
-			setFirstH2ToAriaLive(newFrontdeskMainEle);
+			setFirstH2ToAriaLive(newContentMain);
 			
 			// add highlight to ticket class
 // 			newContentMain.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
