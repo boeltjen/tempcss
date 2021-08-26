@@ -628,7 +628,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 				newContentMain.find("h2:first-of-type").prepend(
 					$("<div/>")
 						.addClass("highlightedcontent").attr("role","mark")
-						.html(firstH2EleContentHtml);
+						.html(firstH2EleContentHtml)
 				);
 			}
 			
