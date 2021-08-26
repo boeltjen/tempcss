@@ -594,13 +594,16 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			var newContentPageHeader = newContentMain.find("h1").eq(0);
 			var currentPageHeaderText = $("#torontopageheader").text();
 			// move newContentPageHeader to the #torontopageheader, then add to the last breadcrumb.  If the newContentPageHeader is the same as the last link, remove the li.  
-			if(newContentPageHeader.length > 0 && (currentPageHeaderText != newContentPageHeader.text())) {
-				$("#torontopageheader").text(newContentPageHeader.text());
-				$("#breadcrumbs").find("li").eq(-1).text(newContentPageHeader.text());
-				newContentPageHeader.remove();
+			if(newContentPageHeader.length > 0) {
+				if(currentPageHeaderText != newContentPageHeader.text()) {
+					console.log("different");
+					$("#torontopageheader").text(newContentPageHeader.text());
+					$("#breadcrumbs").find("li").eq(-1).text(newContentPageHeader.text());
+					newContentPageHeader.remove();
 
-				// update the document.title for wcag
-				document.title = $("#torontopageheader").text() + " - City of Toronto";
+					// update the document.title for wcag
+					document.title = $("#torontopageheader").text() + " - City of Toronto";
+				}
 			}
 
 			
