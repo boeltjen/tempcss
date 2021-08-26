@@ -295,7 +295,28 @@ newFrontdeskMainEle.find("a > p, button > p").addClass("no-margin");
 newFrontdeskMainEle.find("a > i.fas, button > i.fas").remove()
 
 // add highlight to ticket class
-newFrontdeskMainEle.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
+// newFrontdeskMainEle.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
+
+//set first H2 content to highlighted aria-live
+var setFirstH2ToAriaLive = function(contentElementToUpdate) {
+	var firstH2EleContent = contentElementToUpdate.find("h2:first-of-type").nextUntil("h2");
+	if(firstH2EleContent.length > 1) {
+		let firstH2EleContentHtml = firstH2EleContent.html();
+		firstH2EleContent.remove();
+		contentElementToUpdate.find("h2:first-of-type").after(
+			$("<div/>")
+				.addClass("highlightedcontent").attr("role","mark")
+				.html(firstH2EleContentHtml)
+		);
+	}
+	return contentElementToUpdate;
+}
+
+// if check-in page, then grab first h2 section html until next h2 (if present), and apply formating and aria-live
+if(window.location.origin.toLowerCase().indexOf("checkin")>0) {
+	setFirstH2ToAriaLive(newFrontdeskMainEle);
+}
+
 
 
 // check for buttons with pseudo-tags '<= ' or '=>' and update button class appropriately
@@ -621,16 +642,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			newContentMain.children("div.content").children("div.row").removeClass("row");
 
 			// grab first h2 section html until next h2 (if present)
-			var firstH2EleContent = newContentMain.find("h2:first-of-type").nextUntil("h2");
-			if(firstH2EleContent.length > 1) {
-				let firstH2EleContentHtml = firstH2EleContent.html();
-				firstH2EleContent.remove();
-				newContentMain.find("h2:first-of-type").prepend(
-					$("<div/>")
-						.addClass("highlightedcontent").attr("role","mark")
-						.html(firstH2EleContentHtml)
-				);
-			}
+			setFirstH2ToAriaLive(newFrontdeskMainEle);
 			
 			// add highlight to ticket class
 // 			newContentMain.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
