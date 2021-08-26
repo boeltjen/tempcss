@@ -307,7 +307,7 @@ var setFirstH2ToAriaLive = function(contentElementToUpdate) {
 			$("<p/>")
 				.addClass("highlightedcontent").attr("role","mark")
 				.html(firstH2EleContentHtml)
-				.attr("aria-live","assertive");
+				.attr("aria-live","assertive")
 		);
 	}
 	return contentElementToUpdate;
