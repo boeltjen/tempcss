@@ -304,9 +304,10 @@ var setFirstH2ToAriaLive = function(contentElementToUpdate) {
 		let firstH2EleContentHtml = firstH2EleContent.html();
 		firstH2EleContent.remove();
 		contentElementToUpdate.find("h2:first-of-type").after(
-			$("<div/>")
+			$("<p/>")
 				.addClass("highlightedcontent").attr("role","mark")
 				.html(firstH2EleContentHtml)
+				.attr("aria-live","assertive");
 		);
 	}
 	return contentElementToUpdate;
@@ -586,10 +587,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			updatePageParams.ajaxDataStr = JSON.parse(scriptHtmlMin.substring(scriptHtmlMin.indexOf('data:{')+5,scriptHtmlMin.indexOf('}',scriptHtmlMin.indexOf('data:{')+5)+1));
 			updatePageParams.ajaxType = "POST"
 			updatePageParams.ajaxUrl = "/CheckedIn";
-			updatePageParams.reloadInterval = 5000;
-			
-			//update H1 to be aria-live
-			$("#torontopageheader").attr("aria-live","assertive");
+			updatePageParams.reloadInterval = 5000;		
 
 		}		
 
