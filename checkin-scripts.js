@@ -301,7 +301,7 @@ newFrontdeskMainEle.find("a > i.fas, button > i.fas").remove()
 var setFirstH2ToAriaLive = function(contentElementToUpdate) {
 	var firstH2Element = contentElementToUpdate.find("h2").eq(0);
 	var firstH2EleContent = firstH2Element.nextUntil("div");
-	if(firstH2EleContent.length > 1) {
+	if(firstH2EleContent.length > 0) {
 		let firstH2EleContentHtml = firstH2EleContent.html();
 		firstH2EleContent.remove();
 		firstH2Element.after(
