@@ -299,12 +299,12 @@ newFrontdeskMainEle.find("a > i.fas, button > i.fas").remove()
 
 //set first H2 content to highlighted aria-live
 var setFirstH2ToAriaLive = function(contentElementToUpdate) {
-	var firstH2EleContent = contentElementToUpdate.find("h2:first-of-type").nextUntil("h2");
+	var firstH2EleContent = contentElementToUpdate.find("h2:first-of-type").nextUntil("div");
 	if(firstH2EleContent.length > 1) {
 		let firstH2EleContentHtml = firstH2EleContent.html();
 		firstH2EleContent.remove();
 		contentElementToUpdate.find("h2:first-of-type").after(
-			$("<div/>")
+			$("<p/>")
 				.addClass("highlightedcontent")
 				.html(firstH2EleContentHtml)
 				.attr("aria-live","assertive")
