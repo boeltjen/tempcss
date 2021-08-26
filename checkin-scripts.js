@@ -297,13 +297,14 @@ newFrontdeskMainEle.find("a > i.fas, button > i.fas").remove()
 // add highlight to ticket class
 // newFrontdeskMainEle.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
 
-//set first H2 content to highlighted aria-live
+//set first H2 content (until first div) to highlighted aria-live
 var setFirstH2ToAriaLive = function(contentElementToUpdate) {
-	var firstH2EleContent = contentElementToUpdate.find("h2:first-of-type").nextUntil("div");
+	var firstH2Element = contentElementToUpdate.find("h2").eq(0);
+	var firstH2EleContent = firstH2Element.nextUntil("div");
 	if(firstH2EleContent.length > 1) {
 		let firstH2EleContentHtml = firstH2EleContent.html();
 		firstH2EleContent.remove();
-		contentElementToUpdate.find("h2:first-of-type").after(
+		firstH2Element.after(
 			$("<p/>")
 				.addClass("highlightedcontent")
 				.html(firstH2EleContentHtml)
