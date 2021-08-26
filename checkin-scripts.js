@@ -304,8 +304,8 @@ var setFirstH2ToAriaLive = function(contentElementToUpdate) {
 		let firstH2EleContentHtml = firstH2EleContent.html();
 		firstH2EleContent.remove();
 		contentElementToUpdate.find("h2:first-of-type").after(
-			$("<p/>")
-				.addClass("highlightedcontent").attr("role","mark")
+			$("<div/>")
+				.addClass("highlightedcontent")
 				.html(firstH2EleContentHtml)
 				.attr("aria-live","assertive")
 		);
