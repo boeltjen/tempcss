@@ -342,7 +342,6 @@ var updateActiveContentWithAriaLive = function(newContentElement,activeElementTo
 		activeElementToUpdate.replaceWith(newContentElement);	
 	}
 
-	return contentElementToUpdate;
 }
 
 // if check-in page, then updateActiveContentWithAriaLive
@@ -671,14 +670,14 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			newContentMain.children("div.row").removeClass("row");
 			newContentMain.children("div.content").children("div.row").removeClass("row");
 
-			// grab first h2 section html until next h2 (if present)
-			setFirstH2ToAriaLive(newContentMain);
+			// updateContent without reloading, adding / updating aria-live if status-h2
+			updateActiveContentWithAriaLive(newContentMain,$("div.frontdesk-main").eq(0));
 			
 			// add highlight to ticket class
-// 			newContentMain.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
+			// newContentMain.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
 			
 			//update the page contents without reloading
-			$("#torontopagecontent").empty().append(newContentMain);
+			// $("#torontopagecontent").empty().append(newContentMain);
 
 			console.log("page contents updated");
 		}
