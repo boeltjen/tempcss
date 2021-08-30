@@ -298,9 +298,15 @@ newFrontdeskMainEle.find("a > i.fas, button > i.fas").remove()
 // newFrontdeskMainEle.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
 
 //function to set first H2 "status" content (until first div, h2 or end) to highlighted and aria-live.
-var updateActiveContentWithAriaLive = function(newContentElement,activeElementToUpdate) {
-	
-	activeElementToUpdate = activeElementToUpdate || $("<div></div>"); 
+var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContentElement) {
+		
+	var newContentProvided =
+	if(newContentElement || false) {
+		var newConentProvided = true;	
+	} else {
+		var newConentProvided = false;
+		newContentElement = activeElementToUpdate;
+	}		
 	
 	var firstH2EleHtml = "";
 	var firstH2NewElement = newContentElement.find("h2").eq(0) || $("<div></div>");
@@ -321,27 +327,30 @@ var updateActiveContentWithAriaLive = function(newContentElement,activeElementTo
 
 	}
 	
-	//if active page is a status page AND the new page also has a "status" h2, then update only the html of the status section, and replace the rest of the content
-	if(activeElementToUpdate.find("p.livestatus").length > 0 && firstH2EleHtml.length > 0) {
-		var firstH2ActiveElement = activeElementToUpdate.find("h2").eq(0);	
-		
-		//update first h2 html and remove the element from the newContent
-		firstH2ActiveElement.html(firstH2EleHtml);
-		firstH2NewElement.remove();
-		
-		//update livestatus section html and remove the element from the newContent
-		firstH2ActiveElement.next("p.livestatus").eq(0).html(firstH2NewEleContent.find("p.livestatus").html());
-		firstH2NewEleContent.remove();
-
-		//replace the rest of the activeElement with the rest of the newContentElement
-		activeElementToUpdate.find("p.livestatus").nextAll().replaceWith(newContentElement);
-		
+	// if newContent was provided then transform the newContent and then update the ActiveConent
+	if(newConentProvided) {
 	
-	} else {
-	//if active page is not a status page OR the new page is not "status"-h2 page, then simply update the whole activeContent with the new Content
-		activeElementToUpdate.replaceWith(newContentElement);	
-	}
+		//if active page is a status page AND the new page also has a "status" h2, then update only the html of the status section, and replace the rest of the content
+		if(activeElementToUpdate.find("p.livestatus").length > 0 && firstH2EleHtml.length > 0) {
+			var firstH2ActiveElement = activeElementToUpdate.find("h2").eq(0);	
 
+			//update first h2 html and remove the element from the newContent
+			firstH2ActiveElement.html(firstH2EleHtml);
+			firstH2NewElement.remove();
+
+			//update livestatus section html and remove the element from the newContent
+			firstH2ActiveElement.next("p.livestatus").eq(0).html(firstH2NewEleContent.find("p.livestatus").html());
+			firstH2NewEleContent.remove();
+
+			//replace the rest of the activeElement with the rest of the newContentElement
+			activeElementToUpdate.find("p.livestatus").nextAll().replaceWith(newContentElement);
+
+
+		} else {
+		//if active page is not a status page OR the new page is not "status"-h2 page, then simply update the whole activeContent with the new Content
+			activeElementToUpdate.replaceWith(newContentElement);	
+		}
+	}
 }
 
 // if check-in page, then updateActiveContentWithAriaLive
@@ -671,7 +680,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			newContentMain.children("div.content").children("div.row").removeClass("row");
 
 			// updateContent without reloading, adding / updating aria-live if status-h2
-			updateActiveContentWithAriaLive(newContentMain,$("div.frontdesk-main").eq(0));
+			updateActiveContentWithAriaLive($("div.frontdesk-main").eq(0),newContentMain);
 			
 			// add highlight to ticket class
 			// newContentMain.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
