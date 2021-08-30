@@ -322,7 +322,6 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 				.html(firstH2NewEleContent.html())
 				.attr("aria-live","assertive")
 			);
-			firstH2NewElement.remove();
 		}
 
 	}
