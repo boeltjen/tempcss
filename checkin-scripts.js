@@ -323,6 +323,7 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 				.attr("aria-live","assertive")
 			);
 		}
+		firstH2NewEleContent.remove();
 
 	}
 	
@@ -338,7 +339,7 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 			firstH2NewElement.remove();
 
 			//update livestatus section html and remove the element from the newContent
-			let liveStatusNewEleContent = firstH2NewEleContent.find("p.livestatus");
+			let liveStatusNewEleContent = newContentElement.find("p.livestatus");
 			firstH2ActiveElement.next("p.livestatus").eq(0).html(liveStatusNewEleContent.html());
 			liveStatusNewEleContent.remove();
 
