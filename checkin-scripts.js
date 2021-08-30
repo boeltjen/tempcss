@@ -338,8 +338,9 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 			firstH2NewElement.remove();
 
 			//update livestatus section html and remove the element from the newContent
-			firstH2ActiveElement.next("p.livestatus").eq(0).html(firstH2NewEleContent.find("p.livestatus").html());
-			firstH2NewEleContent.remove();
+			let liveStatusNewEleContent = firstH2NewEleContent.find("p.livestatus");
+			firstH2ActiveElement.next("p.livestatus").eq(0).html(liveStatusNewEleContent.html());
+			liveStatusNewEleContent.remove();
 
 			//replace the rest of the activeElement with the rest of the newContentElement
 			activeElementToUpdate.find("p.livestatus").nextAll().replaceWith(newContentElement);
