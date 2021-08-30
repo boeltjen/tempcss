@@ -297,26 +297,57 @@ newFrontdeskMainEle.find("a > i.fas, button > i.fas").remove()
 // add highlight to ticket class
 // newFrontdeskMainEle.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
 
-//set first H2 content (until first div) to highlighted aria-live
-var setFirstH2ToAriaLive = function(contentElementToUpdate) {
-	var firstH2Element = contentElementToUpdate.find("h2").eq(0);
-	var firstH2EleContent = firstH2Element.nextUntil("div,h2");
-	if(firstH2EleContent.length > 0) {
-		let firstH2EleContentHtml = firstH2EleContent.html();
-		firstH2EleContent.remove();
-		firstH2Element.after(
-			$("<p/>")
-				.addClass("highlightedcontent")
-				.html(firstH2EleContentHtml)
+//function to set first H2 "status" content (until first div, h2 or end) to highlighted and aria-live.
+var updateActiveContentWithAriaLive = function(newContentElement,activeElementToUpdate) {
+	
+	activeElementToUpdate = activeElementToUpdate || $("<div></div>"); 
+	
+	var firstH2EleHtml = "";
+	var firstH2NewElement = newContentElement.find("h2").eq(0) || $("<div></div>");
+	
+	// check if the new content's first H2 contains "status".  If so, assume the following content until the first div, h2 or end requires highlighting / aria-live 
+	if(firstH2NewElement.text().toLowerCase().indexOf("status") > 0) {
+		var firstH2NewEleContent = firstH2NewElement.nextUntil("div,h2");
+		if(firstH2NewEleContent.length > 0) {
+			firstH2EleHtml = firstH2NewElement.html();
+			firstH2NewElement.after(
+				$("<p/>")
+				.addClass("highlightedcontent livestatus")
+				.html(firstH2NewEleContent.html();)
 				.attr("aria-live","assertive")
-		);
+			);
+			firstH2NewElement.remove();
+		}
+
 	}
+	
+	//if active page is a status page AND the new page also has a "status" h2, then update only the html of the status section, and replace the rest of the content
+	if(activeElementToUpdate.find("p.livestatus").length > 0 && firstH2EleHtml.length > 0) {
+		var firstH2ActiveElement = activeElementToUpdate.find("h2").eq(0);	
+		
+		//update first h2 html and remove the element from the newContent
+		firstH2ActiveElement.html(firstH2EleHtml);
+		firstH2NewElement.remove();
+		
+		//update livestatus section html and remove the element from the newContent
+		firstH2ActiveElement.next("p.livestatus").eq(0).html(firstH2NewEleContent.find("p.livestatus").html());
+		firstH2NewEleContent.remove();
+
+		//replace the rest of the activeElement with the rest of the newContentElement
+		activeElementToUpdate.find("p.livestatus").nextAll().replaceWith(newContentElement);
+		
+	
+	} else {
+	//if active page is not a status page OR the new page is not "status"-h2 page, then simply update the whole activeContent with the new Content
+		activeElementToUpdate.replaceWith(newContentElement);	
+	}
+
 	return contentElementToUpdate;
 }
 
-// if check-in page, then grab first h2 section html until next h2 (if present), and apply formating and aria-live
+// if check-in page, then updateActiveContentWithAriaLive
 if(window.location.origin.toLowerCase().indexOf("checkin")>0) {
-	setFirstH2ToAriaLive(newFrontdeskMainEle);
+	updateActiveContentWithAriaLive(newFrontdeskMainEle);
 }
 
 
