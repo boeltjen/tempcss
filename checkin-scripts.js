@@ -300,11 +300,11 @@ newFrontdeskMainEle.find("a > i.fas, button > i.fas").remove()
 //function to set first H2 "status" content (until first div, h2 or end) to highlighted and aria-live.
 var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContentElement) {
 		
-	var newContentProvided =
+	var newContentProvided = false
 	if(newContentElement || false) {
-		var newConentProvided = true;	
+		newContentProvided = true;	
 	} else {
-		var newConentProvided = false;
+		newContentProvided = false;
 		newContentElement = activeElementToUpdate;
 	}		
 	
@@ -328,7 +328,7 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 	}
 	
 	// if newContent was provided then transform the newContent and then update the ActiveConent
-	if(newConentProvided) {
+	if(newContentProvided) {
 	
 		//if active page is a status page AND the new page also has a "status" h2, then update only the html of the status section, and replace the rest of the content
 		if(activeElementToUpdate.find("p.livestatus").length > 0 && firstH2EleHtml.length > 0) {
