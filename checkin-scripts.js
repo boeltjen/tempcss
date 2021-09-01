@@ -342,7 +342,10 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 			var newLiveStatusContent = newContentElement.find("p.livestatus");
 			
 			//update livestatus section html and remove the element from the newContent
-			activeLiveStatusElement.html(newLiveStatusContent.html());
+			//only update if html has changed in order not to trigger the aria-live unnecessarily
+			if(activeLiveStatusElement.html() != newLiveStatusContent.html()) {
+				activeLiveStatusElement.html(newLiveStatusContent.html());
+			}
 			newLiveStatusContent.remove();
 
 			//replace the rest of the activeElement with the rest of the newContentElement
