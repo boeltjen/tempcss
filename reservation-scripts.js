@@ -287,6 +287,13 @@ document.title = $("#torontopageheader").text() + " - City of Toronto";
 newFrontdeskMainEle.find(".button, .mdc-button, button.action").addClass("btn btn-primary");
 newFrontdeskMainEle.find("a.action").addClass("btn btn-default");
 
+//add cancel class to all "delete reservation" buttons (interim fix)
+newFrontdeskMainEle.find("a.btn, button.btn")
+	.filter(function() {
+		return ($(this).text().trim().toLowerCase() == "delete reservation");
+	})
+	.removeClass("btn-primary").removeClass("btn-default").addClass("btn-cancel");
+
 
 // check for buttons with pseudo-tags '<= ' or '=>' or '=!' and update button class appropriately
 var backButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains('<= '),a.btn:contains('<= ')").removeClass("btn-primary").addClass("btn-default");
