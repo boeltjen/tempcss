@@ -287,10 +287,10 @@ document.title = $("#torontopageheader").text() + " - City of Toronto";
 newFrontdeskMainEle.find(".button, .mdc-button, button.action").addClass("btn btn-primary");
 newFrontdeskMainEle.find("a.action").addClass("btn btn-default");
 
-//add cancel class to all "delete reservation" buttons (interim fix)
+//add cancel class to all "delete reservation" and "cancel appointment" buttons (interim fix)
 newFrontdeskMainEle.find("a.btn, button.btn")
 	.filter(function() {
-		return ($(this).text().trim().toLowerCase() == "delete reservation");
+		return ($(this).text().trim().toLowerCase() == "delete reservation" || $(this).text().trim().toLowerCase() == "cancel appointment");
 	})
 	.removeClass("btn-primary").removeClass("btn-default").addClass("btn-cancel");
 
