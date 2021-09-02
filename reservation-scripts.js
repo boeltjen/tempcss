@@ -262,9 +262,12 @@ if (contactInformationElements) {
 	});
 }
 
-//check if on the sms validation page by find #code.  if not sms validation, find the first H1 header. else use default header "Book an Appointment" if no other H1 is present
+//check if on the sms validation page by find #code. Or if on an error page containing a single div.alert role alert with no H1;  if not sms validation, find the first H1 header. else use default header "Book an Appointment" if no other H1 is present
 if(newFrontdeskMainEle.find("#code").length > 0) {
 	var customPageHeaderH1 = $("<h1>Enter Verification Code</h1>");
+} else if(newFrontdeskMainEle.find("div.alert").filter('[role="presentation"]').length == 1 && newFrontdeskMainEle.find("h1").length == 0) {
+	var customPageHeaderH1 = $("<h1>Oops! Something went wrong.</h1>");
+	newFrontdeskMainEle.find("div.alert").filter('[role="presentation"]').after("<p>Please try again. If it still doesn't work, please contact us for further assistance</p>");
 } else {
 	var customPageHeaderH1 = newFrontdeskMainEle.find("h1").eq(0);
 }
