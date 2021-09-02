@@ -620,6 +620,9 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 		
 		//read and parse existing reloadPage function parameters
 		var getReloadPageParams = function(temp_scriptTag_w_reloadPage) {
+			if(temp_scriptTag_w_reloadPage.length == 0) {
+				temp_scriptTag_w_reloadPage = $("<script/>");
+			}
 			var tempUpdatePageParams = { ajaxDataStr:false, ajaxType:false, ajaxUrl:false, reloadInterval: 0 };
 			if(temp_scriptTag_w_reloadPage.html().indexOf('CheckInId') < 0) {
 				// user not yet logged in -> replace with static reloadContent function
