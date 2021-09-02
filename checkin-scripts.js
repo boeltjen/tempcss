@@ -702,10 +702,10 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			// newContentMain.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
 			
 			//update the page contents without reloading
-			// $("#torontopagecontent").empty().append(newContentMain);x
+			// $("#torontopagecontent").empty().append(newContentMain);
 			
 			//reset autoloading of content only - update ajax reload params
-			updatePage(getReloadPageParams($(newContentHtml));
+			updatePage(getReloadPageParams($(newContentHtml)));
 
 
 			console.log("page contents updated");
