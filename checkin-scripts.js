@@ -375,7 +375,7 @@ var forwardButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains(' 
 if(forwardButtonLinkElements.length) forwardButtonLinkElements.html(forwardButtonLinkElements.html().replace(" =>","").replace(" =&gt;",""));
 
 var cancelButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains(' =>'),a.btn:contains(' =!')").removeClass("btn-primary").addClass("btn-cancel");
-if(cancelButtonLinkElements.length) forwardButtonLinkElements.html(cancelButtonLinkElements.html().replace(" =!","").replace(" =&#33;",""));
+if(cancelButtonLinkElements.length) cancelButtonLinkElements.html(cancelButtonLinkElements.html().replace(" =!","").replace(" =&#33;",""));
 
 
 //add styling for reservation delete options
