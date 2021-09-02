@@ -288,11 +288,38 @@ document.title = $("#torontopageheader").text() + " - City of Toronto";
 newFrontdeskMainEle.find(".button, .mdc-button, button.action").addClass("btn btn-primary");
 newFrontdeskMainEle.find("a.action").addClass("btn btn-default");
 
+//add cancel class to all "delete reservation" buttons (interim fix)
+newFrontdeskMainEle.find("a.btn, button.btn")
+	.filter(function() {
+		return ($(this).text().trim().toLowerCase() == "delete reservation");
+	})
+	.removeClass("btn-primary").removeClass("btn-default").addClass("btn-cancel");
+
+
 //remove bootstrap p padding from buttons
 newFrontdeskMainEle.find("a > p, button > p").addClass("no-margin");
 
 //remove font awesome icons from inside buttons
 newFrontdeskMainEle.find("a > i.fas, button > i.fas").remove()
+
+
+// function for converting pseudo-tags for buttons '<= ' or '=>' or '=!' and update button class appropriately
+var convertButtonPseudoTags = function(mainElementToUpdate) {
+	// check for buttons with pseudo-tags '<= ' or '=>' or '=!' and update button class appropriately
+	var backButtonLinkElements = mainElementToUpdate.find("button.btn:contains('<= '),a.btn:contains('<= ')").removeClass("btn-primary").addClass("btn-default");
+	if(backButtonLinkElements.length) backButtonLinkElements.html(backButtonLinkElements.html().replace("<= ","").replace("&lt;= ",""));
+
+	var forwardButtonLinkElements = mainElementToUpdate.find("button.btn:contains(' =>'),a.btn:contains(' =>')").removeClass("btn-primary").addClass("btn-success");
+	if(forwardButtonLinkElements.length) forwardButtonLinkElements.html(forwardButtonLinkElements.html().replace(" =>","").replace(" =&gt;",""));
+
+	var cancelButtonLinkElements = mainElementToUpdate.find("button.btn:contains(' =!'),a.btn:contains(' =!')").removeClass("btn-primary").addClass("btn-cancel");
+	if(cancelButtonLinkElements.length) cancelButtonLinkElements.html(cancelButtonLinkElements.html().replace(" =!","").replace(" =&#33;",""));
+}
+
+// check for buttons with pseudo-tags '<= ' or '=>' or '=!' and update button class appropriately
+convertButtonPseudoTags(newFrontdeskMainEle);
+
+
 
 // add highlight to ticket class
 // newFrontdeskMainEle.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
@@ -365,17 +392,6 @@ if(window.location.origin.toLowerCase().indexOf("checkin")>0) {
 	updateActiveContentWithAriaLive(newFrontdeskMainEle);
 }
 
-
-
-// check for buttons with pseudo-tags '<= ' or '=>' or '=!' and update button class appropriately
-var backButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains('<= '),a.btn:contains('<= ')").removeClass("btn-primary").addClass("btn-default");
-if(backButtonLinkElements.length) backButtonLinkElements.html(backButtonLinkElements.html().replace("<= ","").replace("&lt;= ",""));
-
-var forwardButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains(' =>'),a.btn:contains(' =>')").removeClass("btn-primary").addClass("btn-success");
-if(forwardButtonLinkElements.length) forwardButtonLinkElements.html(forwardButtonLinkElements.html().replace(" =>","").replace(" =&gt;",""));
-
-var cancelButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains(' =>'),a.btn:contains(' =!')").removeClass("btn-primary").addClass("btn-cancel");
-if(cancelButtonLinkElements.length) cancelButtonLinkElements.html(cancelButtonLinkElements.html().replace(" =!","").replace(" =&#33;",""));
 
 
 //add styling for reservation delete options
@@ -689,6 +705,9 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			//re-add bootstrap button classes to all button like links
 			newContentMain.find(".button, .mdc-button, button.action").addClass("btn btn-primary");
 			newContentMain.find("a.action").addClass("btn btn-default");
+			
+			// check for buttons with pseudo-tags '<= ' or '=>' or '=!' and update button class appropriately
+			convertButtonPseudoTags(newContentMain);
 			
 			//re-remove bootstrap p padding from buttons
 			newContentMain.find("a > p, button > p").addClass("no-margin");
