@@ -705,7 +705,7 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			// $("#torontopagecontent").empty().append(newContentMain);
 			
 			//reset autoloading of content only - update ajax reload params
-			updatePage(getReloadPageParams($(newContentHtml)));
+			updatePage(getReloadPageParams($(newContentHtml).find("script:contains('reloadPage')")));
 
 
 			console.log("page contents updated");
