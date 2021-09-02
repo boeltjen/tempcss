@@ -302,7 +302,7 @@ if(backButtonLinkElements.length) backButtonLinkElements.html(backButtonLinkElem
 var forwardButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains(' =>'),a.btn:contains(' =>')").removeClass("btn-primary").addClass("btn-success");
 if(forwardButtonLinkElements.length) forwardButtonLinkElements.html(forwardButtonLinkElements.html().replace(" =>","").replace(" =&gt;",""));
 
-var cancelButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains(' =>'),a.btn:contains(' =!')").removeClass("btn-primary").addClass("btn-cancel");
+var cancelButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains(' =!'),a.btn:contains(' =!')").removeClass("btn-primary").addClass("btn-cancel");
 if(cancelButtonLinkElements.length) cancelButtonLinkElements.html(cancelButtonLinkElements.html().replace(" =!","").replace(" =&#33;",""));
 
 
