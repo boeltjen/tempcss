@@ -267,7 +267,7 @@ if(newFrontdeskMainEle.find("#code").length > 0) {
 	var customPageHeaderH1 = $("<h1>Enter Verification Code</h1>");
 } else if(newFrontdeskMainEle.find("div.alert").filter('[role="presentation"]').length == 1 && newFrontdeskMainEle.find("h1").length == 0) {
 	var customPageHeaderH1 = $("<h1>Oops! Something went wrong.</h1>");
-	newFrontdeskMainEle.find("div.alert").filter('[role="presentation"]').after("<p>Please try again. If it still doesn't work, please contact us for further assistance</p>");
+	newFrontdeskMainEle.find("div.alert").filter('[role="alert"]').after("<p>Please try again. If it still doesn't work, please contact us for further assistance</p>");
 } else {
 	var customPageHeaderH1 = newFrontdeskMainEle.find("h1").eq(0);
 }
