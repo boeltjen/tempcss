@@ -618,32 +618,40 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 	// if tag exists, continue
 	if(scriptTag_w_reloadPage.length > 0) {
 		
-		//read and parse existing reloadPage function
-		var updatePageParams = { ajaxDataStr:false, ajaxType:false, ajaxUrl:false, reloadInterval: 0 };
-		if(scriptTag_w_reloadPage.html().indexOf('CheckInId') < 0) {
-			// user not yet logged in -> replace with static reloadContent function
-			updatePageParams.ajaxDataStr = "";
-			updatePageParams.ajaxType = "GET"
-			updatePageParams.ajaxUrl = window.location.href;
-			updatePageParams.reloadInterval = 60000;
-			// note ideally add a role="timer" and an aria-live to the countdown timer
+		//read and parse existing reloadPage function parameters
+		var getReloadPageParams = function(temp_scriptTag_w_reloadPage) {
+			var tempUpdatePageParams = { ajaxDataStr:false, ajaxType:false, ajaxUrl:false, reloadInterval: 0 };
+			if(temp_scriptTag_w_reloadPage.html().indexOf('CheckInId') < 0) {
+				// user not yet logged in -> replace with static reloadContent function
+				tempUpdatePageParams.ajaxDataStr = "";
+				tempUpdatePageParams.ajaxType = "GET"
+				tempUpdatePageParams.ajaxUrl = window.location.href;
+				tempUpdatePageParams.reloadInterval = 60000;
+				// note ideally add a role="timer" and an aria-live to the countdown timer
 
-		} else {
-			// user has already logged in -> replace with dynamic reloadContent function
-			var scriptHtmlMin = scriptTag_w_reloadPage.html().replace(/\s/g, '').replace(/'/g,'"').replace('CheckInId','"CheckInId"').replace('QueueEntryId','"QueueEntryId"');
-			updatePageParams.ajaxDataStr = JSON.parse(scriptHtmlMin.substring(scriptHtmlMin.indexOf('data:{')+5,scriptHtmlMin.indexOf('}',scriptHtmlMin.indexOf('data:{')+5)+1));
-			updatePageParams.ajaxType = "POST"
-			updatePageParams.ajaxUrl = "/CheckedIn";
-			updatePageParams.reloadInterval = 5000;		
+			} else {
+				// user has already logged in -> replace with dynamic reloadContent function
+				var scriptHtmlMin = temp_scriptTag_w_reloadPage.html().replace(/\s/g, '').replace(/'/g,'"').replace('CheckInId','"CheckInId"').replace('QueueEntryId','"QueueEntryId"');
+				tempUpdatePageParams.ajaxDataStr = JSON.parse(scriptHtmlMin.substring(scriptHtmlMin.indexOf('data:{')+5,scriptHtmlMin.indexOf('}',scriptHtmlMin.indexOf('data:{')+5)+1));
+				tempUpdatePageParams.ajaxType = "POST"
+				tempUpdatePageParams.ajaxUrl = "/CheckedIn";
+				tempUpdatePageParams.reloadInterval = 5000;		
 
-		}		
+			}		
 
-		// remove existing script tag with reloadPage function
-		scriptTag_w_reloadPage.remove();
+			// remove existing script tag with reloadPage function
+			temp_scriptTag_w_reloadPage.remove();
+			
+			return tempUpdatePageParams;
+		}
 		
 		//replace autoload function with one that only replaces main content w/o reloading on success
 		function updatePage(params) {
-			setInterval(function () {
+
+			//clear any previous setTimeouts
+			var i = setTimeout(function(){}); while(i--) {clearTimeout(i);}
+			
+			setTimeout(function () {
 				$.ajax({
 					type: params.ajaxType,
 					url: params.ajaxUrl,
@@ -655,8 +663,9 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			}, params.reloadInterval);
 		}
 
-		var reloadContent = function(newContent) {
-			var newContentMain = $(newContent).find("main").eq(0);
+		var reloadContent = function(newContentHtml) {
+				
+			var newContentMain = $(newContentHtml).find("main").eq(0);
 			var newContentPageHeader = newContentMain.find("h1").eq(0);
 			// move newContentPageHeader to the #torontopageheader, then add to the last breadcrumb.  If the newContentPageHeader is the same as the last link, remove the li.  
 			if(newContentPageHeader.length > 0) {
@@ -693,17 +702,18 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 			// newContentMain.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
 			
 			//update the page contents without reloading
-			// $("#torontopagecontent").empty().append(newContentMain);
+			// $("#torontopagecontent").empty().append(newContentMain);x
+			
+			//reset autoloading of content only - update ajax reload params
+			updatePage(getReloadPageParams($(newContentHtml));
+
 
 			console.log("page contents updated");
 		}
 
 		$(document).ready(() => {
-			// stop default autoload
-			var i = setTimeout(function(){}); while(i--) {clearTimeout(i);}
-
-			//restart autoloading of content only
-			updatePage(updatePageParams);
+			//reset autoloading of content only - update ajax reload params
+			updatePage(getReloadPageParams(scriptTag_w_reloadPage));
 		});
 	}	
 // End of Temp Fix for Auto-load
