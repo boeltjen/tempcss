@@ -1,13 +1,13 @@
 var cframeHeaderHtml = 									
 '	<a id="skippy" class="sr-only sr-only-focusable" href="#main"><span>Skip to content</span></a>'
-+'	<img class="visible-print-block" src="https://www.toronto.ca/wp-content/themes/cot/img/logo-print.svg" width="175" height="53" alt="City of Toronto">'
-+'	<!-- <div id="global-alertbox" w3-include-html="https://www.toronto.ca/cot/globalalert/"></div> -->'
++'	<img class="visible-print-block" src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/logo-print.svg" width="175" height="53" alt="City of Toronto">'
++'	<!-- <div id="global-alertbox" w3-include-html="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/components/globalalert/"></div> -->'
 +'	<header id="header" role="banner">'
 +'	<div class="container-fluid">'
 +'	<div id="header-left">'
 +'		<div id="logo">'
 +'					<a href="https://www.toronto.ca/" data-wt_params="WT.z_click_from=header;;WT.z_cat=Home">'
-+'			<img src="https://www.toronto.ca/wp-content/themes/cot/img/logo.svg" width="225" height="70" alt="City of Toronto">'
++'			<img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/logo.svg" width="225" height="70" alt="City of Toronto">'
 +'			</a>'
 +'				</div>'
 +'		<button id="want-to-mobile" class="btn btn-warning" data-target="#want-to-modal" data-toggle="modal">I want to...</button>'
@@ -21,7 +21,7 @@ var cframeHeaderHtml =
 +'					<div role="search" aria-label="site search">'
 +'						<label class="sr-only" for="query">Search</label>'
 +'						<input id="query" name="query" class="form-control" placeholder="Search" type="text">'
-+'						<button id="query-search" type="submit" class="btn btn-default"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-search.svg" alt="Search"></button>'
++'						<button id="query-search" type="submit" class="btn btn-default"><img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/icon-search.svg" alt="Search"></button>'
 +'						<input type="hidden" name="cname" value="www1">'
 +'					</div>'
 +'				</form>'
@@ -59,10 +59,10 @@ var cframeHeaderHtml =
 +'				    <button id="shareit" class="btn btn-default" aria-haspopup="true" aria-expanded="false" aria-controls="sharebox" aria-label="share this page">Share</button> '
 +'				    <div id="sharebox" class="sharebox" tabindex="-1" aria-labelledby="shareit">'
 +'					<ul class="share-list">'
-+'					    <li> <a target="shareit" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F" id="share-link-1"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_facebook.png" id="share-img-1" alt=""><span class="sr-only">Share to </span><span>Facebook</span></a> </li>'
-+'					    <li> <a target="shareit" href="https://twitter.com/share?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;text=Step+1%3A+Apply+for+a+Marriage+Licence&amp;via=cityoftoronto" id="share-link-2"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_twitter.png" id="share-img-2" alt=""><span class="sr-only">Share to </span><span>Twitter</span></a> </li>'
-+'					    <li> <a target="shareit" href="https://pinterest.com/pin/create/bookmarklet/?media=https://www.toronto.ca/wp-content/themes/cot/img/share_toronto_twitter.jpg&amp;url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;description=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-3"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_pinterest.png" id="share-img-4" alt=""><span class="sr-only">Share to </span><span>Pinterest</span></a> </li>'
-+'					    <li> <a target="shareit" href="http://www.linkedin.com/shareArticle?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;title=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-4"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_linkedin.png" id="share-img-5" alt=""><span class="sr-only">Share to </span><span>LinkedIn</span></a> </li>'
++'					    <li> <a target="shareit" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F" id="share-link-1"><img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/social_facebook.png" id="share-img-1" alt=""><span class="sr-only">Share to </span><span>Facebook</span></a> </li>'
++'					    <li> <a target="shareit" href="https://twitter.com/share?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;text=Step+1%3A+Apply+for+a+Marriage+Licence&amp;via=cityoftoronto" id="share-link-2"><img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/social_twitter.png" id="share-img-2" alt=""><span class="sr-only">Share to </span><span>Twitter</span></a> </li>'
++'					    <li> <a target="shareit" href="https://pinterest.com/pin/create/bookmarklet/?media=https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/share_toronto_twitter.jpg&amp;url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;description=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-3"><img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/social_pinterest.png" id="share-img-4" alt=""><span class="sr-only">Share to </span><span>Pinterest</span></a> </li>'
++'					    <li> <a target="shareit" href="http://www.linkedin.com/shareArticle?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;title=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-4"><img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/social_linkedin.png" id="share-img-5" alt=""><span class="sr-only">Share to </span><span>LinkedIn</span></a> </li>'
 +'					</ul>'
 +'				    </div>'
 +'				</div>'
@@ -121,7 +121,7 @@ var cframeFooterHtml =
 +''
 +'	    <!--stopindex-->'
 +'	    <a href="#header" id="return-to-top">'
-+'				<img src="https://www.toronto.ca/wp-content/themes/cot/img/back-to-top-arrow.png" alt=""/>'
++'				<img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/back-to-top-arrow.png" alt=""/>'
 +'				<span class="return-to-top-tip">Back to Top</span>'
 +'			</a>'
 +'	    <!--startindex-->'
@@ -132,10 +132,10 @@ var cframeFooterHtml =
 +'		<a href="https://boeltjen.github.io/tempcss/globalnav-iwantto.html"></a></div>'
 +'	</div>'
 +''
-+'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/jquery-migrate-3.0.1.min.js"></script>'
-+'	<script src="https://www.toronto.ca/cot/jquery-additional-custom-js.js?ver=1.0.0"></script>'
-+'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/bootstrap.3.4.1.min.js"></script>'
-+'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/footer.js"></script>'
++'	<script src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/jquery-migrate-3.0.1.min.js"></script>'
++'	<script src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/jquery-additional-custom-js.js?ver=1.0.0"></script>'
++'	<script src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/bootstrap.3.4.1.min.js"></script>'
++'	<script src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/footer.js"></script>'
 +'	<script>'
 +'		var w3CallInt = setInterval(function() {'
 +'			if(typeof w3IncludeHTML === "function") {'
@@ -143,7 +143,7 @@ var cframeFooterHtml =
 +'				w3IncludeHTML(function () {'
 +'					var scriptTag = document.createElement("script"),'
 +'					firstScriptTag = document.getElementsByTagName("script")[0];'
-+'					scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";'
++'					scriptTag.src = "https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/scripts.js";'
 +'					firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);'
 +'				});'
 +'			}'
@@ -179,10 +179,10 @@ $('script[src*="stackpath.bootstrapcdn.com"]').remove();
 //remove and replace favicons
 faviconsHtml = 
 '	<!-- Favicons -->'
-+'	<link rel="apple-touch-icon" sizes="180x180" href="https://www.toronto.ca/wp-content/themes/cot/img/apple-touch-icon.png">'
-+'	<link rel="icon" type="image/png" href="https://www.toronto.ca/wp-content/themes/cot/img/favicon-32x32.png" sizes="32x32">'
-+'	<link rel="icon" type="image/png" href="https://www.toronto.ca/wp-content/themes/cot/img/favicon-16x16.png" sizes="16x16">'
-+'	<link rel="mask-icon" href="https://www.toronto.ca/wp-content/themes/cot/img/safari-pinned-tab.svg" color="#165788">'
++'	<link rel="apple-touch-icon" sizes="180x180" href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/apple-touch-icon.png">'
++'	<link rel="icon" type="image/png" href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/favicon-32x32.png" sizes="32x32">'
++'	<link rel="icon" type="image/png" href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/favicon-16x16.png" sizes="16x16">'
++'	<link rel="mask-icon" href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/safari-pinned-tab.svg" color="#165788">'
 ;
 
 $('link[rel*="icon"').remove();
@@ -396,7 +396,6 @@ if(window.location.origin.toLowerCase().indexOf("checkin")>0) {
 }
 
 
-
 //add styling for reservation delete options
 newFrontdeskMainEle.find(".existing-reservation-block").each(function() {
 	$(this).addClass("row").after("<br/>");
@@ -519,18 +518,34 @@ divs_w_shortcodes.each(function() {
 });
 
 
+var refreshAlertElements = function(refreshPeriod) {
+	//refresh alert elements since not ajax to trigger sr-alerts
+	var alertElements = $("[role='alert']");
+	alertElements.each(function(index,alertEle) {
+		let tempAlertEleHtml = $(alertEle).html();
+		$(alertEle).html("");
+		setTimeout(function() {
+			$(alertEle).html(tempAlertEleHtml);
+		},refreshPeriod);
+	});
+};
+
 //convert to cotui-accordion if any appointment times are present
-if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
+var datelistElement = newFrontdeskMainEle.find("div.section.date-list").eq(0);
+if(datelistElement.length > 0) {
 
 	
 	var appointmentDateSections = [];
-	var divDateOneQueues = newFrontdeskMainEle.find("div.date.one-queue");
+	var divDateOneQueues = datelistElement.find("div.date");
 	
 	//hide date-time selector and display rest of page while the new selector loads
 	divDateOneQueues.eq(0).parent().css("display","none");	
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
 	$("body").css("display","block");
 	
+	//refresh alert elements since not ajax to trigger sr-alerts
+	refreshAlertElements(100);
+
 	//convert date-time selector to cotui
 	divDateOneQueues.each(function() {
 		var timesListLi = $(this).find("ul.times-list li");
@@ -610,10 +625,8 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 		.css("display","none")
 		.append(appointmentDateSections);
 
-	newFrontdeskMainEle.find("div.date.one-queue").parent().after("<div id='dateTimesContainer'/>")
-	newFrontdeskMainEle.find("div.date.one-queue").parent().remove();
-
-	//$("#dateTimesContainer").appenewFrontdeskMainEle.findd(accordionEle);
+	datelistElement.after("<div id='dateTimesContainer'/>")
+	datelistElement.remove();
 
 	// hide dateTimesContainer before appending <cotui-accordion>.  then unhide after 0.5 sec
 	newFrontdeskMainEle.find("#dateTimesContainer").append(accordionEle);
@@ -622,13 +635,17 @@ if(newFrontdeskMainEle.find("div.date.one-queue").length > 0) {
 	accordionEle.on('ready',event=>{
 		console.info("cotui-accordion rendered");
 		accordionEle.css("display","block");
-// 		$("#torontopageheader").focus();
+ 		// $("#torontopageheader").focus();
 	})
 } else {	
 	// if no appointment selector is present
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
 	$("body").css("display","block");
-// 	$("#torontopageheader").focus();
+	// $("#torontopageheader").focus();
+	
+	//refresh alert elements since not ajax to trigger sr-alerts
+	refreshAlertElements(100);
+		
 }
 
 // TEMP FIX - switch check-in page auto-reload, to auto-content update for Accessibility reasons

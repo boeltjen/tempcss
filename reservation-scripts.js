@@ -1,13 +1,13 @@
 var cframeHeaderHtml = 									
 '	<a id="skippy" class="sr-only sr-only-focusable" href="#main"><span>Skip to content</span></a>'
-+'	<img class="visible-print-block" src="https://www.toronto.ca/wp-content/themes/cot/img/logo-print.svg" width="175" height="53" alt="City of Toronto">'
-+'	<!-- <div id="global-alertbox" w3-include-html="https://www.toronto.ca/cot/globalalert/"></div> -->'
++'	<img class="visible-print-block" src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/logo-print.svg" width="175" height="53" alt="City of Toronto">'
++'	<!-- <div id="global-alertbox" w3-include-html="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/components/globalalert/"></div> -->'
 +'	<header id="header" role="banner">'
 +'	<div class="container-fluid">'
 +'	<div id="header-left">'
 +'		<div id="logo">'
 +'					<a href="https://www.toronto.ca/" data-wt_params="WT.z_click_from=header;;WT.z_cat=Home">'
-+'			<img src="https://www.toronto.ca/wp-content/themes/cot/img/logo.svg" width="225" height="70" alt="City of Toronto">'
++'			<img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/logo.svg" width="225" height="70" alt="City of Toronto">'
 +'			</a>'
 +'				</div>'
 +'		<button id="want-to-mobile" class="btn btn-warning" data-target="#want-to-modal" data-toggle="modal">I want to...</button>'
@@ -21,7 +21,7 @@ var cframeHeaderHtml =
 +'					<div role="search" aria-label="site search">'
 +'						<label class="sr-only" for="query">Search</label>'
 +'						<input id="query" name="query" class="form-control" placeholder="Search" type="text">'
-+'						<button id="query-search" type="submit" class="btn btn-default"><img src="https://www.toronto.ca/wp-content/themes/cot/img/icon-search.svg" alt="Search"></button>'
++'						<button id="query-search" type="submit" class="btn btn-default"><img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/icon-search.svg" alt="Search"></button>'
 +'						<input type="hidden" name="cname" value="www1">'
 +'					</div>'
 +'				</form>'
@@ -59,10 +59,10 @@ var cframeHeaderHtml =
 +'				    <button id="shareit" class="btn btn-default" aria-haspopup="true" aria-expanded="false" aria-controls="sharebox" aria-label="share this page">Share</button> '
 +'				    <div id="sharebox" class="sharebox" tabindex="-1" aria-labelledby="shareit">'
 +'					<ul class="share-list">'
-+'					    <li> <a target="shareit" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F" id="share-link-1"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_facebook.png" id="share-img-1" alt=""><span class="sr-only">Share to </span><span>Facebook</span></a> </li>'
-+'					    <li> <a target="shareit" href="https://twitter.com/share?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;text=Step+1%3A+Apply+for+a+Marriage+Licence&amp;via=cityoftoronto" id="share-link-2"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_twitter.png" id="share-img-2" alt=""><span class="sr-only">Share to </span><span>Twitter</span></a> </li>'
-+'					    <li> <a target="shareit" href="https://pinterest.com/pin/create/bookmarklet/?media=https://www.toronto.ca/wp-content/themes/cot/img/share_toronto_twitter.jpg&amp;url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;description=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-3"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_pinterest.png" id="share-img-4" alt=""><span class="sr-only">Share to </span><span>Pinterest</span></a> </li>'
-+'					    <li> <a target="shareit" href="http://www.linkedin.com/shareArticle?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;title=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-4"><img src="https://www.toronto.ca/wp-content/themes/cot/img/social_linkedin.png" id="share-img-5" alt=""><span class="sr-only">Share to </span><span>LinkedIn</span></a> </li>'
++'					    <li> <a target="shareit" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F" id="share-link-1"><img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/social_facebook.png" id="share-img-1" alt=""><span class="sr-only">Share to </span><span>Facebook</span></a> </li>'
++'					    <li> <a target="shareit" href="https://twitter.com/share?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;text=Step+1%3A+Apply+for+a+Marriage+Licence&amp;via=cityoftoronto" id="share-link-2"><img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/social_twitter.png" id="share-img-2" alt=""><span class="sr-only">Share to </span><span>Twitter</span></a> </li>'
++'					    <li> <a target="shareit" href="https://pinterest.com/pin/create/bookmarklet/?media=https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/share_toronto_twitter.jpg&amp;url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;description=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-3"><img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/social_pinterest.png" id="share-img-4" alt=""><span class="sr-only">Share to </span><span>Pinterest</span></a> </li>'
++'					    <li> <a target="shareit" href="http://www.linkedin.com/shareArticle?url=https%3A%2F%2Fwww.toronto.ca%2Fservices-payments%2Fvenues-facilities-bookings%2Fgetting-married%2Fstep-1-applying-for-a-marriage-licence%2F&amp;title=Step+1%3A+Apply+for+a+Marriage+Licence" id="share-link-4"><img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/social_linkedin.png" id="share-img-5" alt=""><span class="sr-only">Share to </span><span>LinkedIn</span></a> </li>'
 +'					</ul>'
 +'				    </div>'
 +'				</div>'
@@ -121,7 +121,7 @@ var cframeFooterHtml =
 +''
 +'	    <!--stopindex-->'
 +'	    <a href="#header" id="return-to-top">'
-+'				<img src="https://www.toronto.ca/wp-content/themes/cot/img/back-to-top-arrow.png" alt=""/>'
++'				<img src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/back-to-top-arrow.png" alt=""/>'
 +'				<span class="return-to-top-tip">Back to Top</span>'
 +'			</a>'
 +'	    <!--startindex-->'
@@ -132,10 +132,10 @@ var cframeFooterHtml =
 +'		<a href="https://boeltjen.github.io/tempcss/globalnav-iwantto.html"></a></div>'
 +'	</div>'
 +''
-+'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/jquery-migrate-3.0.1.min.js"></script>'
-+'	<script src="https://www.toronto.ca/cot/jquery-additional-custom-js.js?ver=1.0.0"></script>'
-+'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/bootstrap.3.4.1.min.js"></script>'
-+'	<script src="https://www.toronto.ca/wp-content/themes/cot/js/footer.js"></script>'
++'	<script src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/jquery-migrate-3.0.1.min.js"></script>'
++'	<script src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/jquery-additional-custom-js.js?ver=1.0.0"></script>'
++'	<script src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/bootstrap.3.4.1.min.js"></script>'
++'	<script src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/footer.js"></script>'
 +'	<script>'
 +'		var w3CallInt = setInterval(function() {'
 +'			if(typeof w3IncludeHTML === "function") {'
@@ -143,7 +143,7 @@ var cframeFooterHtml =
 +'				w3IncludeHTML(function () {'
 +'					var scriptTag = document.createElement("script"),'
 +'					firstScriptTag = document.getElementsByTagName("script")[0];'
-+'					scriptTag.src = "https://www.toronto.ca/wp-content/themes/cot/js/scripts.js";'
++'					scriptTag.src = "https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/scripts.js";'
 +'					firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);'
 +'				});'
 +'			}'
@@ -179,10 +179,10 @@ $('script[src*="stackpath.bootstrapcdn.com"]').remove();
 //remove and replace favicons
 faviconsHtml = 
 '	<!-- Favicons -->'
-+'	<link rel="apple-touch-icon" sizes="180x180" href="https://www.toronto.ca/wp-content/themes/cot/img/apple-touch-icon.png">'
-+'	<link rel="icon" type="image/png" href="https://www.toronto.ca/wp-content/themes/cot/img/favicon-32x32.png" sizes="32x32">'
-+'	<link rel="icon" type="image/png" href="https://www.toronto.ca/wp-content/themes/cot/img/favicon-16x16.png" sizes="16x16">'
-+'	<link rel="mask-icon" href="https://www.toronto.ca/wp-content/themes/cot/img/safari-pinned-tab.svg" color="#165788">'
++'	<link rel="apple-touch-icon" sizes="180x180" href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/apple-touch-icon.png">'
++'	<link rel="icon" type="image/png" href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/favicon-32x32.png" sizes="32x32">'
++'	<link rel="icon" type="image/png" href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/favicon-16x16.png" sizes="16x16">'
++'	<link rel="mask-icon" href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/safari-pinned-tab.svg" color="#165788">'
 ;
 
 $('link[rel*="icon"').remove();
@@ -200,8 +200,9 @@ fronteskMainEle.find("h3").each(function() {
 //remove any main styling
 fronteskMainEle.removeClass();
 
-//remove first div.row class
+//remove div.row class under main or under div.content
 fronteskMainEle.children("div.row").removeClass("row");
+fronteskMainEle.children("div.content").children("div.row").removeClass("row");
 
 
 
@@ -298,16 +299,101 @@ newFrontdeskMainEle.find("a.btn, button.btn")
 	.removeClass("btn-primary").removeClass("btn-default").addClass("btn-cancel");
 
 
+//remove bootstrap p padding from buttons
+newFrontdeskMainEle.find("a > p, button > p").addClass("no-margin");
+
+//remove font awesome icons from inside buttons
+newFrontdeskMainEle.find("a > i.fas, button > i.fas").remove()
+
+
+// function for converting pseudo-tags for buttons '<= ' or '=>' or '=!' and update button class appropriately
+var convertButtonPseudoTags = function(mainElementToUpdate) {
+	// check for buttons with pseudo-tags '<= ' or '=>' or '=!' and update button class appropriately
+	var backButtonLinkElements = mainElementToUpdate.find("button.btn:contains('<= '),a.btn:contains('<= ')").removeClass("btn-primary").addClass("btn-default");
+	if(backButtonLinkElements.length) backButtonLinkElements.html(backButtonLinkElements.html().replace("<= ","").replace("&lt;= ",""));
+
+	var forwardButtonLinkElements = mainElementToUpdate.find("button.btn:contains(' =>'),a.btn:contains(' =>')").removeClass("btn-primary").addClass("btn-success");
+	if(forwardButtonLinkElements.length) forwardButtonLinkElements.html(forwardButtonLinkElements.html().replace(" =>","").replace(" =&gt;",""));
+
+	var cancelButtonLinkElements = mainElementToUpdate.find("button.btn:contains(' =!'),a.btn:contains(' =!')").removeClass("btn-primary").addClass("btn-cancel");
+	if(cancelButtonLinkElements.length) cancelButtonLinkElements.html(cancelButtonLinkElements.html().replace(" =!","").replace(" =&#33;",""));
+}
+
 // check for buttons with pseudo-tags '<= ' or '=>' or '=!' and update button class appropriately
-var backButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains('<= '),a.btn:contains('<= ')").removeClass("btn-primary").addClass("btn-default");
-if(backButtonLinkElements.length) backButtonLinkElements.html(backButtonLinkElements.html().replace("<= ","").replace("&lt;= ",""));
+convertButtonPseudoTags(newFrontdeskMainEle);
 
-var forwardButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains(' =>'),a.btn:contains(' =>')").removeClass("btn-primary").addClass("btn-success");
-if(forwardButtonLinkElements.length) forwardButtonLinkElements.html(forwardButtonLinkElements.html().replace(" =>","").replace(" =&gt;",""));
 
-var cancelButtonLinkElements = newFrontdeskMainEle.find("button.btn:contains(' =!'),a.btn:contains(' =!')").removeClass("btn-primary").addClass("btn-cancel");
-if(cancelButtonLinkElements.length) cancelButtonLinkElements.html(cancelButtonLinkElements.html().replace(" =!","").replace(" =&#33;",""));
 
+// add highlight to ticket class
+// newFrontdeskMainEle.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
+
+//function to set first H2 "status" content (until first div, h2 or end) to highlighted and aria-live.
+var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContentElement) {
+		
+	var newContentProvided = false
+	if(newContentElement || false) {
+		newContentProvided = true;	
+	} else {
+		newContentProvided = false;
+		newContentElement = activeElementToUpdate;
+	}		
+	
+	var firstH2EleHtml = "";
+	var firstH2NewElement = newContentElement.find("h2").eq(0) || $("<div></div>");
+	
+	// check if the new content's first H2 contains "status".  If so, assume the following content until the first div, h2 or end requires highlighting / aria-live 
+	if(firstH2NewElement.text().toLowerCase().indexOf("status") > 0) {
+		var firstH2NewEleContent = firstH2NewElement.nextUntil("div,h2");
+		if(firstH2NewEleContent.length > 0) {
+			firstH2EleHtml = firstH2NewElement.html();
+			firstH2NewElement.after(
+				$("<p/>")
+				.addClass("highlightedcontent livestatus")
+				.html(firstH2NewEleContent.html())
+				.attr("aria-live","assertive")
+			);
+		}
+		firstH2NewEleContent.remove();
+
+	}
+	
+	// if newContent was provided then transform the newContent and then update the ActiveConent
+	if(newContentProvided) {
+	
+		//if active page is a status page AND the new page also has a "status" h2, then update only the html of the status section, and replace the rest of the content
+		if(activeElementToUpdate.find("p.livestatus").length > 0 && firstH2EleHtml.length > 0) {
+			var firstH2ActiveElement = activeElementToUpdate.find("h2").eq(0);	
+
+			//update first h2 html and remove the element from the newContent
+			firstH2ActiveElement.html(firstH2EleHtml);
+			firstH2NewElement.remove();
+
+			var activeLiveStatusElement = activeElementToUpdate.find("p.livestatus");
+			var newLiveStatusContent = newContentElement.find("p.livestatus");
+			
+			//update livestatus section html and remove the element from the newContent
+			//only update if html has changed in order not to trigger the aria-live unnecessarily
+			if(activeLiveStatusElement.html() != newLiveStatusContent.html()) {
+				activeLiveStatusElement.html(newLiveStatusContent.html());
+			}
+			newLiveStatusContent.remove();
+
+			//replace the rest of the activeElement with the rest of the newContentElement
+			activeLiveStatusElement.nextAll().remove();
+			activeLiveStatusElement.after(newContentElement);
+
+
+		} else {
+		//if active page is not a status page OR the new page is not "status"-h2 page, then simply update the whole activeContent with the new Content
+			activeElementToUpdate.replaceWith(newContentElement);	
+		}
+	}
+}
+
+// if check-in page, then updateActiveContentWithAriaLive
+if(window.location.origin.toLowerCase().indexOf("checkin")>0) {
+	updateActiveContentWithAriaLive(newFrontdeskMainEle);
+}
 
 
 //add styling for reservation delete options
@@ -570,31 +656,43 @@ if(datelistElement.length > 0) {
 	// if tag exists, continue
 	if(scriptTag_w_reloadPage.length > 0) {
 		
-		//read and parse existing reloadPage function
-		var updatePageParams = { ajaxDataStr:false, ajaxType:false, ajaxUrl:false, reloadInterval: 0 };
-		if(scriptTag_w_reloadPage.html().indexOf('CheckInId') < 0) {
-			// user not yet logged in -> replace with static reloadContent function
-			updatePageParams.ajaxDataStr = "";
-			updatePageParams.ajaxType = "GET"
-			updatePageParams.ajaxUrl = window.location.href;
-			updatePageParams.reloadInterval = 60000;
-			// note ideally add a role="timer" and an aria-live to the countdown timer
+		//read and parse existing reloadPage function parameters
+		var getReloadPageParams = function(temp_scriptTag_w_reloadPage) {
+			if(temp_scriptTag_w_reloadPage.length == 0) {
+				temp_scriptTag_w_reloadPage = $("<script/>");
+			}
+			var tempUpdatePageParams = { ajaxDataStr:false, ajaxType:false, ajaxUrl:false, reloadInterval: 0 };
+			if(temp_scriptTag_w_reloadPage.html().indexOf('CheckInId') < 0) {
+				// user not yet logged in -> replace with static reloadContent function
+				tempUpdatePageParams.ajaxDataStr = "";
+				tempUpdatePageParams.ajaxType = "GET"
+				tempUpdatePageParams.ajaxUrl = window.location.href;
+				tempUpdatePageParams.reloadInterval = 60000;
+				// note ideally add a role="timer" and an aria-live to the countdown timer
 
-		} else {
-			// user has already logged in -> replace with dynamic reloadContent function
-			var scriptHtmlMin = scriptTag_w_reloadPage.html().replace(/\s/g, '').replace(/'/g,'"').replace('CheckInId','"CheckInId"').replace('QueueEntryId','"QueueEntryId"');
-			updatePageParams.ajaxDataStr = JSON.parse(scriptHtmlMin.substring(scriptHtmlMin.indexOf('data:{')+5,scriptHtmlMin.indexOf('}',scriptHtmlMin.indexOf('data:{')+5)+1));
-			updatePageParams.ajaxType = "POST"
-			updatePageParams.ajaxUrl = "/CheckedIn";
-			updatePageParams.reloadInterval = 5000;
-		}		
+			} else {
+				// user has already logged in -> replace with dynamic reloadContent function
+				var scriptHtmlMin = temp_scriptTag_w_reloadPage.html().replace(/\s/g, '').replace(/'/g,'"').replace('CheckInId','"CheckInId"').replace('QueueEntryId','"QueueEntryId"');
+				tempUpdatePageParams.ajaxDataStr = JSON.parse(scriptHtmlMin.substring(scriptHtmlMin.indexOf('data:{')+5,scriptHtmlMin.indexOf('}',scriptHtmlMin.indexOf('data:{')+5)+1));
+				tempUpdatePageParams.ajaxType = "POST"
+				tempUpdatePageParams.ajaxUrl = "/CheckedIn";
+				tempUpdatePageParams.reloadInterval = 5000;		
 
-		// remove existing script tag with reloadPage function
-		scriptTag_w_reloadPage.remove();
+			}		
+
+			// remove existing script tag with reloadPage function
+			temp_scriptTag_w_reloadPage.remove();
+			
+			return tempUpdatePageParams;
+		}
 		
 		//replace autoload function with one that only replaces main content w/o reloading on success
 		function updatePage(params) {
-			setInterval(function () {
+
+			//clear any previous setTimeouts
+			var i = setTimeout(function(){}); while(i--) {clearTimeout(i);}
+			
+			setTimeout(function () {
 				$.ajax({
 					type: params.ajaxType,
 					url: params.ajaxUrl,
@@ -606,13 +704,13 @@ if(datelistElement.length > 0) {
 			}, params.reloadInterval);
 		}
 
-		var reloadContent = function(newContent) {
-			var newContentMain = $(newContent).find("main").eq(0);
+		var reloadContent = function(newContentHtml) {
+				
+			var newContentMain = $(newContentHtml).find("main").eq(0);
 			var newContentPageHeader = newContentMain.find("h1").eq(0);
-
 			// move newContentPageHeader to the #torontopageheader, then add to the last breadcrumb.  If the newContentPageHeader is the same as the last link, remove the li.  
 			if(newContentPageHeader.length > 0) {
-				$("#torontopageheader").text(newContentPageHeader.text()).attr("aria-live","assertive");
+				$("#torontopageheader").text(newContentPageHeader.text());
 				$("#breadcrumbs").find("li").eq(-1).text(newContentPageHeader.text());
 				newContentPageHeader.remove();
 
@@ -620,25 +718,47 @@ if(datelistElement.length > 0) {
 				document.title = $("#torontopageheader").text() + " - City of Toronto";
 			}
 
+			
+			//remove any main styling
+			newContentMain.removeClass();
+			
 			//re-add bootstrap button classes to all button like links
-			$(".button, .mdc-button, button.action").addClass("btn btn-primary");
-			$("a.action").addClass("btn btn-default");
+			newContentMain.find(".button, .mdc-button, button.action").addClass("btn btn-primary");
+			newContentMain.find("a.action").addClass("btn btn-default");
+			
+			// check for buttons with pseudo-tags '<= ' or '=>' or '=!' and update button class appropriately
+			convertButtonPseudoTags(newContentMain);
+			
+			//re-remove bootstrap p padding from buttons
+			newContentMain.find("a > p, button > p").addClass("no-margin");
 
+			//re-remove font awesome icons from inside buttons
+			newContentMain.find("a > i.fas, button > i.fas").remove()
+			
+			//remove div.row class under main or under div.content
+			newContentMain.children("div.row").removeClass("row");
+			newContentMain.children("div.content").children("div.row").removeClass("row");
+
+			// updateContent without reloading, adding / updating aria-live if status-h2
+			updateActiveContentWithAriaLive($("div.frontdesk-main").eq(0),newContentMain);
+			
+			// add highlight to ticket class
+			// newContentMain.find("div.ticket").addClass("highlightedcontent").attr("role","mark");
+			
 			//update the page contents without reloading
-			$("#torontopagecontent").empty().append(newContentMain);
+			// $("#torontopagecontent").empty().append(newContentMain);
+			
+			//reset autoloading of content only - update ajax reload params
+			updatePage(getReloadPageParams($(newContentHtml).filter("script:contains('reloadPage')")));
+
 
 			console.log("page contents updated");
 		}
 
 		$(document).ready(() => {
-			// stop default autoload
-			var i = setTimeout(function(){}); while(i--) {clearTimeout(i);}
-
-			//restart autoloading of content only
-			updatePage(updatePageParams);
+			//reset autoloading of content only - update ajax reload params
+			updatePage(getReloadPageParams(scriptTag_w_reloadPage));
 		});
 	}	
 // End of Temp Fix for Auto-load
-
-
 

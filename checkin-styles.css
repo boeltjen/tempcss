@@ -4,11 +4,11 @@ body {
 }
 
 #print {
-    background-image: url("https://www.toronto.ca/wp-content/themes/cot/img/icon-print.svg");
+    background-image: url("https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/icon-print.svg");
 }
 
 #shareit {
-    background-image: url("https://www.toronto.ca/wp-content/themes/cot/img/icon-share.svg")
+    background-image: url("https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/icon-share.svg")
 }
 
 #torontopagecontent {
