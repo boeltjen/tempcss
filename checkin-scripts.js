@@ -1,3 +1,24 @@
+// var defaultContactInfoHtmlString =  
+//     '<p class="contact-information"><strong>Toronto City Hall</strong><br>100 Queen Street West<br>(main entrance off Nathan Phillips Square)<br><strong>Telephone</strong>: 416-392-7036</p><p class="contact-information"><strong>Email</strong>: marriage@toronto.ca</p>';
+
+if(defaultContactInfoHtmlString == undefined) {
+	var defaultContactInfoHtmlString = 
+	'				            <p class="contact-information">'
+	+'						<strong>City Hall</strong><br>'
+	+'						100 Queen St. W.<br>'
+	+'						Toronto, ON<br>'
+	+'						M5H 2N2<br>'
+	+'						<br>'
+	+'						<strong>Telephone:</strong> 311<br>'
+	+'						<strong>TTY:</strong> 416-338-0TTY (0889)<br>'
+	+'					     </p>'
+	+'					     <p class="contact-information">Outside city limits phone:<br>'
+	+'						416-392-CITY (2489)<br>'
+	+'						<strong>Fax:</strong> 416-338-0685<br>'
+	+'						<strong>Email:</strong> <a href="mailto:311@toronto.ca">311@toronto.ca</a><br>'
+	+'					     </p>';
+}
+
 var cframeHeaderHtml = 									
 '	<a id="skippy" class="sr-only sr-only-focusable" href="#main"><span>Skip to content</span></a>'
 +'	<img class="visible-print-block" src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/logo-print.svg" width="175" height="53" alt="City of Toronto">'
@@ -29,7 +50,7 @@ var cframeHeaderHtml =
 +'				<button id="text-decrease" class="btn btn-default hidden-sm hidden-xs" title="Decrease text size"><span class="sr-only">Decrease text size</span><i id="i-text-decrease" aria-hidden="true">A-</i></button>'
 +'				<button id="want-to" class="btn btn-warning" data-target="#want-to-modal" data-toggle="modal">I want to...</button>'
 +'			</div>'
-+'			<div w3-include-html="https://boeltjen.github.io/tempcss/globalnav-header.html" id="main-nav-container"><a href="https://boeltjen.github.io/tempcss/globalnav-header.html"></a></div>'
++'			<div w3-include-html="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/components/globalnav-header.html" id="main-nav-container"><a href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/components/globalnav-header.html"></a></div>'
 +'		</div>'
 +'	</div>'
 +'<!--startindex-->'
@@ -82,20 +103,7 @@ var cframeHeaderHtml =
 +'					<div id="sidebarContact" class="list-group no-border">'
 +'					<h4 class="list-group-item">Contact Information</h4>'
 +'					<div class="list-group-item">'
-+'				            <p class="contact-information">'
-+'						<strong>City Hall</strong><br>'
-+'						100 Queen St. W.<br>'
-+'						Toronto, ON<br>'
-+'						M5H 2N2<br>'
-+'						<br>'
-+'						<strong>Telephone:</strong> 311<br>'
-+'						<strong>TTY:</strong> 416-338-0TTY (0889)<br>'
-+'					     </p>'
-+'					     <p class="contact-information">Outside city limits phone:<br>'
-+'						416-392-CITY (2489)<br>'
-+'						<strong>Fax:</strong> 416-338-0685<br>'
-+'						<strong>Email:</strong> <a href="mailto:311@toronto.ca">311@toronto.ca</a><br>'
-+'					     </p>'
++ '' + defaultContactInfoHtmlString + ''
 +'					</div>'
 +'					</div>'
 +'					<!--startindex--> '
@@ -115,8 +123,8 @@ var cframeFooterHtml =
 +'	<footer id="footer" role="contentinfo">'
 +'	<div id="cotFooterTop" class="cotPlaceholder"></div>'
 +''
-+'	<div w3-include-html="https://boeltjen.github.io/tempcss/globalnav-footer.html?fb=false">'
-+'		<a href="https://boeltjen.github.io/tempcss/globalnav-footer.html?fb=false"></a>'
++'	<div w3-include-html="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/components/globalnav-footer.html?fb=false">'
++'		<a href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/components/globalnav-footer.html?fb=false"></a>'
 +'	</div>'
 +''
 +'	    <!--stopindex-->'
@@ -128,14 +136,10 @@ var cframeFooterHtml =
 +'	<div id="cotFooterBottom" class="cotPlaceholder"></div>'
 +'	</footer>'
 +'	<div id="want-to-modal" class="modal fade in" tabindex="-1" role="dialog">'
-+'	    <div w3-include-html="https://boeltjen.github.io/tempcss/globalnav-iwantto.html">'
-+'		<a href="https://boeltjen.github.io/tempcss/globalnav-iwantto.html"></a></div>'
++'	    <div w3-include-html="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/components/globalnav-iwantto.html">'
++'		<a href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/components/globalnav-iwantto.html"></a></div>'
 +'	</div>'
 +''
-+'	<script src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/jquery-migrate-3.0.1.min.js"></script>'
-+'	<script src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/jquery-additional-custom-js.js?ver=1.0.0"></script>'
-+'	<script src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/bootstrap.3.4.1.min.js"></script>'
-+'	<script src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/footer.js"></script>'
 +'	<script>'
 +'		var w3CallInt = setInterval(function() {'
 +'			if(typeof w3IncludeHTML === "function") {'
@@ -231,7 +235,7 @@ $("footer").eq(0).find("h4").each(function() {
 });
 
 
-//replace header and footer with cframe (through copied w3 pages to github for now)
+//replace header and footer with cframe
 $("footer").eq(0).replaceWith(cframeFooterHtml);
 $("header").eq(0).replaceWith(cframeHeaderHtml);
 newFrontdeskMainEle.append(fronteskMainEle.children().detach());
@@ -633,7 +637,7 @@ if(datelistElement.length > 0) {
 
 	//only unhide dateTimesContainer once cotui is done rendering.
 	accordionEle.on('ready',event=>{
-		console.info("cotui-accordion rendered");
+		// console.info("cotui-accordion rendered");
 		accordionEle.css("display","block");
  		// $("#torontopageheader").focus();
 	})
@@ -761,4 +765,3 @@ if(datelistElement.length > 0) {
 		});
 	}	
 // End of Temp Fix for Auto-load
-
