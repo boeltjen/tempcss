@@ -1,6 +1,6 @@
 if(defaultContactInfoHtmlString == undefined) {
 	var defaultContactInfoHtmlString = 
-	+'				            <p class="contact-information">'
+	'				            <p class="contact-information">'
 	+'						<strong>City Hall</strong><br>'
 	+'						100 Queen St. W.<br>'
 	+'						Toronto, ON<br>'
