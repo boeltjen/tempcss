@@ -1,3 +1,21 @@
+if(defaultContactInfoHtmlString == undefined) {
+	var contactInformationHtmlString = 
+	+'				            <p class="contact-information">'
+	+'						<strong>City Hall</strong><br>'
+	+'						100 Queen St. W.<br>'
+	+'						Toronto, ON<br>'
+	+'						M5H 2N2<br>'
+	+'						<br>'
+	+'						<strong>Telephone:</strong> 311<br>'
+	+'						<strong>TTY:</strong> 416-338-0TTY (0889)<br>'
+	+'					     </p>'
+	+'					     <p class="contact-information">Outside city limits phone:<br>'
+	+'						416-392-CITY (2489)<br>'
+	+'						<strong>Fax:</strong> 416-338-0685<br>'
+	+'						<strong>Email:</strong> <a href="mailto:311@toronto.ca">311@toronto.ca</a><br>'
+	+'					     </p>';
+}
+
 var cframeHeaderHtml = 									
 '	<a id="skippy" class="sr-only sr-only-focusable" href="#main"><span>Skip to content</span></a>'
 +'	<img class="visible-print-block" src="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/logo-print.svg" width="175" height="53" alt="City of Toronto">'
@@ -82,20 +100,7 @@ var cframeHeaderHtml =
 +'					<div id="sidebarContact" class="list-group no-border">'
 +'					<h4 class="list-group-item">Contact Information</h4>'
 +'					<div class="list-group-item">'
-+'				            <p class="contact-information">'
-+'						<strong>City Hall</strong><br>'
-+'						100 Queen St. W.<br>'
-+'						Toronto, ON<br>'
-+'						M5H 2N2<br>'
-+'						<br>'
-+'						<strong>Telephone:</strong> 311<br>'
-+'						<strong>TTY:</strong> 416-338-0TTY (0889)<br>'
-+'					     </p>'
-+'					     <p class="contact-information">Outside city limits phone:<br>'
-+'						416-392-CITY (2489)<br>'
-+'						<strong>Fax:</strong> 416-338-0685<br>'
-+'						<strong>Email:</strong> <a href="mailto:311@toronto.ca">311@toronto.ca</a><br>'
-+'					     </p>'
++ '' + defaultContactInfoHtmlString + ''
 +'					</div>'
 +'					</div>'
 +'					<!--startindex--> '
