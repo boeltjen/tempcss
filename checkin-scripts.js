@@ -179,22 +179,10 @@ faviconsHtml =
 ;
 
 
-let myPromise = new Promise(function(myResolve, myReject) {
-  setTimeout(function() { myResolve("I love You !!"); }, 3000);
-});
-
 var checkforW3IncludePromise =  new Promise(function(w3ReadyResolve, w3ReadyReject) {
-	// check if any w3-includes present
-	if($("[w3-include-html]").length > 0) {
 		var w3CallInt = setInterval(function() {
 			if(typeof w3IncludeHTML === "function") {
 				clearInterval(w3CallInt);
-				w3IncludeHTML(function () {
-					var scriptTag = document.createElement("script"),
-					firstScriptTag = document.getElementsByTagName("script")[0];
-					scriptTag.src = "https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/scripts.js";
-					firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
-				});
 				w3ReadyResolve(true);
 			}
 		},200);
@@ -202,6 +190,15 @@ var checkforW3IncludePromise =  new Promise(function(w3ReadyResolve, w3ReadyReje
 		w3ReadyResolve(true);
 	}
 });
+
+var callbackedW3IncludeHTML = function() {
+	w3IncludeHTML(function () {
+		var scriptTag = document.createElement("script"),
+		firstScriptTag = document.getElementsByTagName("script")[0];
+		scriptTag.src = "https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/scripts.js";
+		firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
+	});
+};	
 
 	
 	
@@ -401,11 +398,17 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 			//replace the rest of the activeElement with the rest of the newContentElement
 			activeLiveStatusElement.nextAll().remove();
 			activeLiveStatusElement.after(newContentElement);
+						
+			//call w3Include before anything else, and wait for the function to load		
+			checkforW3IncludePromise.then(function(value) { if($("['w3-include-html']").length > 0) callbackedW3IncludeHTML();   });
 
 
 		} else {
 		//if active page is not a status page OR the new page is not "status"-h2 page, then simply update the whole activeContent with the new Content
-			activeElementToUpdate.replaceWith(newContentElement);	
+			activeElementToUpdate.replaceWith(newContentElement);
+			
+			//call w3Include before anything else, and wait for the function to load		
+			checkforW3IncludePromise.then(function(value) { if($("['w3-include-html']").length > 0) callbackedW3IncludeHTML();   });
 		}
 	}
 }
@@ -712,20 +715,16 @@ if(datelistElement.length > 0) {
 			//clear any previous setTimeouts or setIntervals to stop autorefresh
 			var i = setTimeout(function(){}); while(i--) {clearTimeout(i);}
 			
-			//call w3Include before anything else, and wait for the function to load		
-			checkforW3IncludePromise.then(function(value) { 
-				setTimeout(function () {
-					$.ajax({
-						type: params.ajaxType,
-						url: params.ajaxUrl,
-						data: params.ajaxDataStr,
-						success: function(htmlData) { 
-							reloadContent(htmlData);
-						}
-					});
-				}, params.reloadInterval);			
-			});
-			
+			setTimeout(function () {
+				$.ajax({
+					type: params.ajaxType,
+					url: params.ajaxUrl,
+					data: params.ajaxDataStr,
+					success: function(htmlData) { 
+						reloadContent(htmlData);
+					}
+				});
+			}, params.reloadInterval);			
 			
 		}
 
@@ -784,9 +783,5 @@ if(datelistElement.length > 0) {
 			//reset autoloading of content only - update ajax reload params
 			updatePage(getReloadPageParams(scriptTag_w_reloadPage));
 		});
-	} else {
-		// if not the checkin page -> load w3elements
-		checkforW3IncludePromise.then(function(value) { });
-		
 	}
 // End of Temp Fix for Auto-load
