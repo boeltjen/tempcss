@@ -180,12 +180,22 @@ faviconsHtml =
 ;
 
 if(typeof w3IncludeHTML === "undefined") var w3IncludeHTML;
-var checkforW3IncludePromise =  new Promise(function(w3ReadyResolve, w3ReadyReject) {
+// var checkforW3IncludePromise =  new Promise(function(w3ReadyResolve, w3ReadyReject) {
+// 	var w3CallInt = setInterval(function() {
+// 		console.log(typeof w3IncludeHTML === "function");
+// 		if(typeof w3IncludeHTML === "function") {
+// 			clearInterval(w3CallInt);
+// 			w3ReadyResolve(true);
+// 		}
+// 	},200);
+// });
+
+var checkforW3Include = function(callback) {
 	var w3CallInt = setInterval(function() {
 		console.log(typeof w3IncludeHTML === "function");
 		if(typeof w3IncludeHTML === "function") {
 			clearInterval(w3CallInt);
-			w3ReadyResolve(true);
+			callback();
 		}
 	},200);
 });
@@ -407,7 +417,7 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 
 	}
 	//call w3Include before anything else, and wait for the function to load		
-	checkforW3IncludePromise.then(function(value) { 
+	checkforW3Include(function(value) { 
 		if($("[w3-include-html]").length > 0) callbackedW3IncludeHTML();   
 	});
 
