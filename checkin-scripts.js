@@ -402,10 +402,11 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 			
 		}
 
-		//call w3Include before anything else, and wait for the function to load		
-		checkforW3IncludePromise.then(function(value) { if($("['w3-include-html']").length > 0) callbackedW3IncludeHTML();   });
 
 	}
+	//call w3Include before anything else, and wait for the function to load		
+	checkforW3IncludePromise.then(function(value) { if($("[w3-include-html]").length > 0) callbackedW3IncludeHTML();   });
+
 }
 
 // if check-in page, then updateActiveContentWithAriaLive
