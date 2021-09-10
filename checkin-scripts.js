@@ -179,7 +179,7 @@ faviconsHtml =
 +'	<link rel="mask-icon" href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/safari-pinned-tab.svg" color="#165788">'
 ;
 
-
+if(typeof w3IncludeHTML === "undefined") var w3IncludeHTML;
 var checkforW3IncludePromise =  new Promise(function(w3ReadyResolve, w3ReadyReject) {
 	var w3CallInt = setInterval(function() {
 		console.log(typeof w3IncludeHTML === "function");
