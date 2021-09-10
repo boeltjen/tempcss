@@ -725,6 +725,11 @@ if(datelistElement.length > 0) {
 			//clear any previous setTimeouts or setIntervals to stop autorefresh
 			var i = setTimeout(function(){}); while(i--) {clearTimeout(i);}
 			
+			//reset any w3Includes		
+			checkforW3Include(function(value) { 
+				if($("[w3-include-html]").length > 0) callbackedW3IncludeHTML();   
+			});
+			
 			setTimeout(function () {
 				$.ajax({
 					type: params.ajaxType,
