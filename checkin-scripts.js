@@ -179,37 +179,23 @@ faviconsHtml =
 +'	<link rel="mask-icon" href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/safari-pinned-tab.svg" color="#165788">'
 ;
 
-if(typeof w3IncludeHTML === "undefined") var w3IncludeHTML;
-// var checkforW3IncludePromise =  new Promise(function(w3ReadyResolve, w3ReadyReject) {
-// 	var w3CallInt = setInterval(function() {
-// 		console.log(typeof w3IncludeHTML === "function");
-// 		if(typeof w3IncludeHTML === "function") {
-// 			clearInterval(w3CallInt);
-// 			w3ReadyResolve(true);
-// 		}
-// 	},200);
-// });
 
 var updateW3Includes = function() {
 	var w3CallInt = setInterval(function() {
-		console.log(typeof w3IncludeHTML === "function");
 		if(typeof w3IncludeHTML === "function") {
 			clearInterval(w3CallInt);
-			if($("[w3-include-html]").length > 0) callbackedW3IncludeHTML();   
+			if($("[w3-include-html]").length > 0) {
+				w3IncludeHTML(function () {
+					var scriptTag = document.createElement("script"),
+					firstScriptTag = document.getElementsByTagName("script")[0];
+					scriptTag.src = "https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/scripts.js";
+					firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
+				});
+			}
 		}
 	},200);
 }
 
-var callbackedW3IncludeHTML = function() {
-	w3IncludeHTML(function () {
-		var scriptTag = document.createElement("script"),
-		firstScriptTag = document.getElementsByTagName("script")[0];
-		scriptTag.src = "https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/scripts.js";
-		firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
-	});
-};	
-
-	
 	
 $('link[rel*="icon"').remove();
 $("head").eq(0).append(faviconsHtml);
