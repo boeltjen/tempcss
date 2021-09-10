@@ -142,6 +142,7 @@ var cframeFooterHtml =
 +''
 +'	<script>'
 +'	</script>'
++'	<script src=" https://frontdesk-cdn.inter.prod-toronto.ca/themes/toronto_ca/js/footer.js"></script>'
 +''
 +'	<script type="text/javascript">'
 +'		var meta=document.createElement("meta");'
