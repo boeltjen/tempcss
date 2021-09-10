@@ -182,6 +182,7 @@ faviconsHtml =
 
 var checkforW3IncludePromise =  new Promise(function(w3ReadyResolve, w3ReadyReject) {
 	var w3CallInt = setInterval(function() {
+		console.log(typeof w3IncludeHTML === "function");
 		if(typeof w3IncludeHTML === "function") {
 			clearInterval(w3CallInt);
 			w3ReadyResolve(true);
