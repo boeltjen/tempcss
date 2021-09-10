@@ -180,15 +180,12 @@ faviconsHtml =
 
 
 var checkforW3IncludePromise =  new Promise(function(w3ReadyResolve, w3ReadyReject) {
-		var w3CallInt = setInterval(function() {
-			if(typeof w3IncludeHTML === "function") {
-				clearInterval(w3CallInt);
-				w3ReadyResolve(true);
-			}
-		},200);
-	} else {
-		w3ReadyResolve(true);
-	}
+	var w3CallInt = setInterval(function() {
+		if(typeof w3IncludeHTML === "function") {
+			clearInterval(w3CallInt);
+			w3ReadyResolve(true);
+		}
+	},200);
 });
 
 var callbackedW3IncludeHTML = function() {
