@@ -198,7 +198,7 @@ var checkforW3Include = function(callback) {
 			callback();
 		}
 	},200);
-});
+}
 
 var callbackedW3IncludeHTML = function() {
 	w3IncludeHTML(function () {
