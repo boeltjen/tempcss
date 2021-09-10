@@ -141,17 +141,6 @@ var cframeFooterHtml =
 +'	</div>'
 +''
 +'	<script>'
-+'		var w3CallInt = setInterval(function() {'
-+'			if(typeof w3IncludeHTML === "function") {'
-+'				clearInterval(w3CallInt);'
-+'				w3IncludeHTML(function () {'
-+'					var scriptTag = document.createElement("script"),'
-+'					firstScriptTag = document.getElementsByTagName("script")[0];'
-+'					scriptTag.src = "https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/scripts.js";'
-+'					firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);'
-+'				});'
-+'			}'
-+'		},200);'
 +'	</script>'
 +''
 +'	<script type="text/javascript">'
@@ -189,6 +178,33 @@ faviconsHtml =
 +'	<link rel="mask-icon" href="https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/safari-pinned-tab.svg" color="#165788">'
 ;
 
+
+let myPromise = new Promise(function(myResolve, myReject) {
+  setTimeout(function() { myResolve("I love You !!"); }, 3000);
+});
+
+var checkforW3IncludePromise =  new Promise(function(w3ReadyResolve, w3ReadyReject) {
+	// check if any w3-includes present
+	if($("[w3-include-html]").length > 0) {
+		var w3CallInt = setInterval(function() {
+			if(typeof w3IncludeHTML === "function") {
+				clearInterval(w3CallInt);
+				w3IncludeHTML(function () {
+					var scriptTag = document.createElement("script"),
+					firstScriptTag = document.getElementsByTagName("script")[0];
+					scriptTag.src = "https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/scripts.js";
+					firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
+				});
+				w3ReadyResolve(true);
+			}
+		},200);
+	} else {
+		w3ReadyResolve(true);
+	}
+});
+
+	
+	
 $('link[rel*="icon"').remove();
 $("head").eq(0).append(faviconsHtml);
 
@@ -693,19 +709,24 @@ if(datelistElement.length > 0) {
 		//replace autoload function with one that only replaces main content w/o reloading on success
 		function updatePage(params) {
 
-			//clear any previous setTimeouts
+			//clear any previous setTimeouts or setIntervals to stop autorefresh
 			var i = setTimeout(function(){}); while(i--) {clearTimeout(i);}
 			
-			setTimeout(function () {
-				$.ajax({
-					type: params.ajaxType,
-					url: params.ajaxUrl,
-					data: params.ajaxDataStr,
-					success: function(htmlData) { 
-						reloadContent(htmlData);
-					}
-				});
-			}, params.reloadInterval);
+			//call w3Include before anything else, and wait for the function to load		
+			checkforW3IncludePromise.then(function(value) { 
+				setTimeout(function () {
+					$.ajax({
+						type: params.ajaxType,
+						url: params.ajaxUrl,
+						data: params.ajaxDataStr,
+						success: function(htmlData) { 
+							reloadContent(htmlData);
+						}
+					});
+				}, params.reloadInterval);			
+			});
+			
+			
 		}
 
 		var reloadContent = function(newContentHtml) {
@@ -763,6 +784,10 @@ if(datelistElement.length > 0) {
 			//reset autoloading of content only - update ajax reload params
 			updatePage(getReloadPageParams(scriptTag_w_reloadPage));
 		});
-	}	
+	} else {
+		// if not the checkin page -> load w3elements
+		checkforW3IncludePromise.then(function(value) { });
+		
+	}
 // End of Temp Fix for Auto-load
 
