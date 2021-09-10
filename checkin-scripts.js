@@ -190,12 +190,12 @@ if(typeof w3IncludeHTML === "undefined") var w3IncludeHTML;
 // 	},200);
 // });
 
-var checkforW3Include = function(callback) {
+var updateW3Includes = function() {
 	var w3CallInt = setInterval(function() {
 		console.log(typeof w3IncludeHTML === "function");
 		if(typeof w3IncludeHTML === "function") {
 			clearInterval(w3CallInt);
-			callback();
+			if($("[w3-include-html]").length > 0) callbackedW3IncludeHTML();   
 		}
 	},200);
 }
@@ -416,10 +416,6 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 
 
 	}
-	//call w3Include before anything else, and wait for the function to load		
-	checkforW3Include(function(value) { 
-		if($("[w3-include-html]").length > 0) callbackedW3IncludeHTML();   
-	});
 
 }
 
@@ -574,6 +570,10 @@ if(datelistElement.length > 0) {
 	//hide date-time selector and display rest of page while the new selector loads
 	divDateOneQueues.eq(0).parent().css("display","none");	
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
+	
+	//call w3Includes		
+	updateW3Includes();
+	
 	$("body").css("display","block");
 	
 	//refresh alert elements since not ajax to trigger sr-alerts
@@ -673,6 +673,10 @@ if(datelistElement.length > 0) {
 } else {	
 	// if no appointment selector is present
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
+	
+	//call w3Includes		
+	updateW3Includes();
+	
 	$("body").css("display","block");
 	// $("#torontopageheader").focus();
 	
@@ -725,11 +729,10 @@ if(datelistElement.length > 0) {
 			//clear any previous setTimeouts or setIntervals to stop autorefresh
 			var i = setTimeout(function(){}); while(i--) {clearTimeout(i);}
 			
-			//reset any w3Includes		
-			checkforW3Include(function(value) { 
-				if($("[w3-include-html]").length > 0) callbackedW3IncludeHTML();   
-			});
 			
+			//recall w3Includes		
+			updateW3Includes();
+	
 			setTimeout(function () {
 				$.ajax({
 					type: params.ajaxType,
