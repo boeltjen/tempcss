@@ -142,6 +142,7 @@ var cframeFooterHtml =
 +''
 +'	<script>'
 +'	</script>'
++'	<script src=" https://frontdesk-cdn.inter.prod-toronto.ca/themes/toronto_ca/js/footer.js"></script>'
 +''
 +'	<script type="text/javascript">'
 +'		var meta=document.createElement("meta");'
@@ -179,31 +180,22 @@ faviconsHtml =
 ;
 
 
-let myPromise = new Promise(function(myResolve, myReject) {
-  setTimeout(function() { myResolve("I love You !!"); }, 3000);
-});
-
-var checkforW3IncludePromise =  new Promise(function(w3ReadyResolve, w3ReadyReject) {
-	// check if any w3-includes present
-	if($("[w3-include-html]").length > 0) {
-		var w3CallInt = setInterval(function() {
-			if(typeof w3IncludeHTML === "function") {
-				clearInterval(w3CallInt);
+var updateW3Includes = function() {
+	var w3CallInt = setInterval(function() {
+		if(typeof w3IncludeHTML === "function") {
+			clearInterval(w3CallInt);
+			if($("[w3-include-html]").length > 0) {
 				w3IncludeHTML(function () {
 					var scriptTag = document.createElement("script"),
 					firstScriptTag = document.getElementsByTagName("script")[0];
 					scriptTag.src = "https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/js/scripts.js";
 					firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
 				});
-				w3ReadyResolve(true);
 			}
-		},200);
-	} else {
-		w3ReadyResolve(true);
-	}
-});
+		}
+	},200);
+}
 
-	
 	
 $('link[rel*="icon"').remove();
 $("head").eq(0).append(faviconsHtml);
@@ -286,7 +278,7 @@ if (contactInformationElements) {
 //check if on the sms validation page by find #code. Or if on an error page containing a single div.alert role alert with no H1;  if not sms validation, find the first H1 header. else use default header "Book an Appointment" if no other H1 is present
 if(newFrontdeskMainEle.find("#code").length > 0) {
 	var customPageHeaderH1 = $("<h1>Enter Verification Code</h1>");
-} else if(newFrontdeskMainEle.find("div.alert").filter('[role="alert"]').length == 1 && newFrontdeskMainEle.find("h1").length == 0) {
+} else if(newFrontdeskMainEle.find("div.alert").filter('[role="alert"]').siblings(":not('script')").text().trim().length == 0 && newFrontdeskMainEle.find("h1").length == 0) {
 	var customPageHeaderH1 = $("<h1>Oops! Something went wrong.</h1>");
 	newFrontdeskMainEle.find("div.alert").filter('[role="alert"]').after("<p>Please try again. If it still doesn't work, please contact us for further assistance.</p>");
 } else {
@@ -401,13 +393,16 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 			//replace the rest of the activeElement with the rest of the newContentElement
 			activeLiveStatusElement.nextAll().remove();
 			activeLiveStatusElement.after(newContentElement);
-
-
+						
 		} else {
 		//if active page is not a status page OR the new page is not "status"-h2 page, then simply update the whole activeContent with the new Content
-			activeElementToUpdate.replaceWith(newContentElement);	
+			activeElementToUpdate.replaceWith(newContentElement);
+			
 		}
+
+
 	}
+
 }
 
 // if check-in page, then updateActiveContentWithAriaLive
@@ -561,6 +556,10 @@ if(datelistElement.length > 0) {
 	//hide date-time selector and display rest of page while the new selector loads
 	divDateOneQueues.eq(0).parent().css("display","none");	
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
+	
+	//call w3Includes		
+	updateW3Includes();
+	
 	$("body").css("display","block");
 	
 	//refresh alert elements since not ajax to trigger sr-alerts
@@ -660,6 +659,10 @@ if(datelistElement.length > 0) {
 } else {	
 	// if no appointment selector is present
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
+	
+	//call w3Includes		
+	updateW3Includes();
+	
 	$("body").css("display","block");
 	// $("#torontopageheader").focus();
 	
@@ -712,20 +715,20 @@ if(datelistElement.length > 0) {
 			//clear any previous setTimeouts or setIntervals to stop autorefresh
 			var i = setTimeout(function(){}); while(i--) {clearTimeout(i);}
 			
-			//call w3Include before anything else, and wait for the function to load		
-			checkforW3IncludePromise.then(function(value) { 
-				setTimeout(function () {
-					$.ajax({
-						type: params.ajaxType,
-						url: params.ajaxUrl,
-						data: params.ajaxDataStr,
-						success: function(htmlData) { 
-							reloadContent(htmlData);
-						}
-					});
-				}, params.reloadInterval);			
-			});
 			
+			//recall w3Includes		
+			updateW3Includes();
+	
+			setTimeout(function () {
+				$.ajax({
+					type: params.ajaxType,
+					url: params.ajaxUrl,
+					data: params.ajaxDataStr,
+					success: function(htmlData) { 
+						reloadContent(htmlData);
+					}
+				});
+			}, params.reloadInterval);			
 			
 		}
 
@@ -784,10 +787,5 @@ if(datelistElement.length > 0) {
 			//reset autoloading of content only - update ajax reload params
 			updatePage(getReloadPageParams(scriptTag_w_reloadPage));
 		});
-	} else {
-		// if not the checkin page -> load w3elements
-		checkforW3IncludePromise.then(function(value) { });
-		
 	}
 // End of Temp Fix for Auto-load
-
