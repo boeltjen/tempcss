@@ -3,6 +3,10 @@ body {
 	display:none;
 }
 
+.confirmed-reservation {
+	display:none;
+}
+
 #print {
     background-image: url("https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/icon-print.svg");
 }
