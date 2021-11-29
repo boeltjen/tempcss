@@ -624,7 +624,7 @@ if(datelistElement.length > 0) {
 			);
 		}
 		
-		var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
+		var tempSectionEle = $("<section/>").attr("expanded",true).append(tempDateHeaderEle).append(tempInnerDiv);
 
 		appointmentDateSections.push(tempSectionEle);
 
