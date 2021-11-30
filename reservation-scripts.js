@@ -567,7 +567,7 @@ if(datelistElement.length > 0) {
 
 	//convert date-time selector to cotui
 	divDateOneQueues.each(function() {
-		var isExpanded = $(this).find("ul.times-list").css("display");
+		var isExpanded = ($(this).find("ul.times-list").css("display") != "none");
 		
 		var timesListLi = $(this).find("ul.times-list li");
 		
@@ -584,7 +584,7 @@ if(datelistElement.length > 0) {
 			.attr({
 			  "data-type":"toggle",
 			  "aria-controls":tempDateTitleId,
-			  "aria-expanded":"false"
+			  "aria-expanded":isExpanded
 			})
 			.text(tempDateTitle);
 
