@@ -567,6 +567,8 @@ if(datelistElement.length > 0) {
 
 	//convert date-time selector to cotui
 	divDateOneQueues.each(function() {
+		var isExpanded = $(this).find("ul.times-list").css("display");
+		
 		var timesListLi = $(this).find("ul.times-list li");
 		
 		//check for regular set of dates vs. full / closed dates
@@ -578,7 +580,7 @@ if(datelistElement.length > 0) {
 		
 		var tempDateTitleId = tempDateTitle.replace(/[^a-zA-Z0-9]/g, '');
 		var tempDateTitleHeaderId = tempDateTitleId+"-header";
-		var tempDateHeaderEle = $("<h2/>")
+		var tempDateHeaderEle = $("<div/>")
 			.attr({
 			  "data-type":"toggle",
 			  "aria-controls":tempDateTitleId,
@@ -624,7 +626,7 @@ if(datelistElement.length > 0) {
 			);
 		}
 		
-		var tempSectionEle = $("<section/>").attr("expanded",true).append(tempDateHeaderEle).append(tempInnerDiv);
+		var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
 
 		appointmentDateSections.push(tempSectionEle);
 
