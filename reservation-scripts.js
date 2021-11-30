@@ -1,3 +1,6 @@
+//delay whole reservation-scripts file to ensure that it last code in html
+setTimeout(function() {
+	
 // var defaultContactInfoHtmlString =  
 //     '<p class="contact-information"><strong>Toronto City Hall</strong><br>100 Queen Street West<br>(main entrance off Nathan Phillips Square)<br><strong>Telephone</strong>: 416-392-7036</p><p class="contact-information"><strong>Email</strong>: marriage@toronto.ca</p>';
 
@@ -162,9 +165,6 @@ var cframeFooterHtml =
 +'		document.getElementsByTagName("head")[0].appendChild(myscript);'
 +'	</script>'
 ;
-
-//check if accordion's are set to expanded
-var isAccordionExpanded = ($("script:contains('setupSelectTimePage(true)')").length > 0);
 
 
 //remove stock stylesheets
@@ -570,6 +570,10 @@ if(datelistElement.length > 0) {
 	
 	//refresh alert elements since not ajax to trigger sr-alerts
 	refreshAlertElements(100);
+	
+	//check if accordion's are set to expanded
+	var isAccordionExpanded = ($("script:contains('setupSelectTimePage(true)')").length > 0);
+
 
 	//convert date-time selector to cotui
 	divDateOneQueues.each(function() {
@@ -796,3 +800,5 @@ if(datelistElement.length > 0) {
 		});
 	}
 // End of Temp Fix for Auto-load
+	
+},1); // end of setTimeout delay of reservation scripts
