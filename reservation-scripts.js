@@ -163,6 +163,10 @@ var cframeFooterHtml =
 +'	</script>'
 ;
 
+//check if accordion's are set to expanded
+var isAccordionExpanded = ($("script:contains('setupSelectTimePage(true)')").length > 0);
+
+
 //remove stock stylesheets
 $('link[rel=stylesheet][href*="bundle.css"]').remove();
 $('link[rel=stylesheet][href*="/css/site.css"]').remove();
@@ -548,9 +552,6 @@ var refreshAlertElements = function(refreshPeriod) {
 //convert to cotui-accordion if any appointment times are present
 var datelistElement = newFrontdeskMainEle.find("div.section.date-list").eq(0);
 
-//check if accordion's are set to expanded
-var isAccordionExpanded = ($("script:contains('setupSelectTimePage(true)')").length > 0);
-
 if(datelistElement.length > 0) {
 
 	
@@ -565,6 +566,7 @@ if(datelistElement.length > 0) {
 	updateW3Includes();
 	
 	$("body").css("display","block");
+
 	
 	//refresh alert elements since not ajax to trigger sr-alerts
 	refreshAlertElements(100);
