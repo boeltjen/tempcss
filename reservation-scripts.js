@@ -547,6 +547,10 @@ var refreshAlertElements = function(refreshPeriod) {
 
 //convert to cotui-accordion if any appointment times are present
 var datelistElement = newFrontdeskMainEle.find("div.section.date-list").eq(0);
+
+//check if accordion's are set to expanded
+var isAccordionExpanded = ($("script:contains('setupSelectTimePage(true)')").length > 0);
+
 if(datelistElement.length > 0) {
 
 	
@@ -567,7 +571,6 @@ if(datelistElement.length > 0) {
 
 	//convert date-time selector to cotui
 	divDateOneQueues.each(function() {
-		var isExpanded = ($(this).find("ul.times-list").css("display") != "none");
 		
 		var timesListLi = $(this).find("ul.times-list li");
 		
@@ -584,7 +587,7 @@ if(datelistElement.length > 0) {
 			.attr({
 			  "data-type":"toggle",
 			  "aria-controls":tempDateTitleId,
-			  "aria-expanded":isExpanded
+			  "aria-expanded":isAccordionExpanded
 			})
 			.text(tempDateTitle);
 
