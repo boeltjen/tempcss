@@ -647,10 +647,11 @@ if(datelistElement.length > 0) {
 			} else {
 				if(hasMultipleLocations) {
 					var tempInnerDivH3 = $("<h3/>").text($(this).parent().children(".location-name").eq(0).text().trim());
-					    if(index == 0) {
-						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<br/>") );
+					
+					if(index == 0) {
+						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<br/>")) );
 					else {
-						tempInnerDiv.append( $("<div/>").append($("<br/>").append(tempInnerDivH3).append($("<br/>") );
+						tempInnerDiv.append( $("<div/>").append($("<br/>")).append(tempInnerDivH3).append($("<br/>")) );
 					}
 				}
 				timesListLi.each(function() {
