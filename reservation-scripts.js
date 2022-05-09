@@ -593,11 +593,11 @@ if(datelistElement.length > 0) {
 		//check for regular set of dates vs. full / closed dates
 		if(timesListLi.length > 0 ) {
 			var tempDateTitle = (hasMultipleLocations) ? 
-			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" $(this).children(".location-name").eq(0).text().trim() ) :
+			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" + $(this).children(".location-name").eq(0).text().trim() ) :
 			    ( $(this).children(".title").eq(0).text().trim() );
 		} else {
 			var tempDateTitle = = (hasMultipleLocations) ? 
-			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" $(this).children().eq(0).children().eq(0).text().trim() ) :
+			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" + $(this).children().eq(0).children().eq(0).text().trim() ) :
 			    ( $(this).children().eq(0).children().eq(0).text().trim() );
 		}
 		
