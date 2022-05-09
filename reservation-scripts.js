@@ -598,7 +598,7 @@ if(datelistElement.length > 0) {
 // 			    ( $(this).children(".title").eq(0).text().trim() );
 			
 			var tempDateTitle =  $(this).children(".title").eq(0).text().trim();
-// 		} else {
+		} else {
 // 			var tempDateTitle = (hasMultipleLocations) ? 
 // 			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" + $(this).children().eq(0).children().eq(0).text().trim() ) :
 // 			    ( $(this).children().eq(0).children().eq(0).text().trim() );
