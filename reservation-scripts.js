@@ -681,7 +681,7 @@ if(datelistElement.length > 0) {
 				}
 				
 				if(hasMultipleLocations) {
-					var tempInnerDivH3 = $("<h3/>").text(tempLocationTitle).attr({"id":tempLocationTitleHeaderId});
+					var tempInnerDivH3 = $("<h3/>").text(tempLocationTitle).attr({"id":tempLocationTitleHeaderId}).addClass("fd-location-header");
 
 					if(index == 0) {
 						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<hr/>")).append(tempTimesListInnerDiv) );
