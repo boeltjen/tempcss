@@ -650,7 +650,7 @@ if(datelistElement.length > 0) {
 					
 					if(index == 0) {
 						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<br/>")) );
-					else {
+					} else {
 						tempInnerDiv.append( $("<div/>").append($("<br/>")).append(tempInnerDivH3).append($("<br/>")) );
 					}
 				}
