@@ -632,7 +632,7 @@ if(datelistElement.length > 0) {
 			.append(tempHiddenTitle);
 
 
-		timesList.each(function(ele,index) {
+		timesList.each(function(index,ele) {
 			var timesListLi = $(this).find("li");
 			
 			// if no list, pass error text to
