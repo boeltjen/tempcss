@@ -556,10 +556,10 @@ if(datelistElement.length > 0) {
 
 	
 	var appointmentDateSections = [];
-	var divDateOneQueues = datelistElement.find("div.date");
+	var divDateElements = datelistElement.find("div.date");
 	
 	//hide date-time selector and display rest of page while the new selector loads
-	divDateOneQueues.eq(0).parent().css("display","none");	
+	divDateElements.eq(0).parent().css("display","none");	
 	newFrontdeskMainEle.appendTo("#torontopagecontent");
 	
 	//call w3Includes		
@@ -574,6 +574,16 @@ if(datelistElement.length > 0) {
 	//check if accordion's are set to expanded
 	var isAccordionExpanded = ($("script:contains('setupSelectTimePage(true)')").length > 0);
 
+	
+	var divDateLocations = divDateElements.find("div.location");
+	var hasMultipleLocations = (divDateLocations.length > 0);
+	
+	//check if single or multiple locations
+	if(hasMultipleLocations) {
+		var divDateOneQueues = divDateLocations;
+	} else {
+		var divDateOneQueues = divDateElements;
+	}
 
 	//convert date-time selector to cotui
 	divDateOneQueues.each(function() {
@@ -581,10 +591,14 @@ if(datelistElement.length > 0) {
 		var timesListLi = $(this).find("ul.times-list li");
 		
 		//check for regular set of dates vs. full / closed dates
-		if(timesListLi.length > 0 ) {
-			var tempDateTitle = $(this).children(".title").eq(0).text().trim();
+		if(timesListLi.length > 0 ) { .prevAll( [selector ] )
+			var tempDateTitle = (hasMultipleLocations) ? 
+			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" $(this).children(".location-name").eq(0).text().trim() ) :
+			    ( $(this).children(".title").eq(0).text().trim() );
 		} else {
-			var tempDateTitle = $(this).children().eq(0).children().eq(0).text().trim();
+			var tempDateTitle = = (hasMultipleLocations) ? 
+			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" $(this).children().eq(0).children().eq(0).text().trim() ) :
+			    ( $(this).children().eq(0).children().eq(0).text().trim() );
 		}
 		
 		var tempDateTitleId = tempDateTitle.replace(/[^a-zA-Z0-9]/g, '');
