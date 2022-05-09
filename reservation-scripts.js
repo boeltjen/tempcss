@@ -653,8 +653,8 @@ if(datelistElement.length > 0) {
 				if(hasMultipleLocations) {
 					
 					var tempLocationTitle = $(this).children().eq(0).children().eq(0).text().trim();
-					tempLocationTitleHeaderId = (tempDateTitle.replace(/[^a-zA-Z0-9]/g, '') )+"-header";
-					var tempInnerDivH3 = $("<h3/>").text(tempDateTitle).attr({"id":tempLocationTitleHeaderId});
+					tempLocationTitleHeaderId = (tempLocationTitle.replace(/[^a-zA-Z0-9]/g, '') )+"-header";
+					var tempInnerDivH3 = $("<h3/>").text(tempLocationTitle).attr({"id":tempLocationTitleHeaderId});
 
 					if(index == 0) {
 						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<br/>")) );
