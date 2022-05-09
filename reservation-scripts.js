@@ -649,9 +649,12 @@ if(datelistElement.length > 0) {
 			//at least one populated times list exists for this specific date
 
 			timesListElements.each(function(index,ele) {
-
+				var tempLocationTitleHeaderId = "";
 				if(hasMultipleLocations) {
-					var tempInnerDivH3 = $("<h3/>").text( $(this).children().eq(0).children().eq(0).text().trim());
+					
+					var tempLocationTitle = $(this).children().eq(0).children().eq(0).text().trim();
+					tempLocationTitleHeaderId = (tempDateTitle.replace(/[^a-zA-Z0-9]/g, '') )+"-header";
+					var tempInnerDivH3 = $("<h3/>").text(tempDateTitle).attr({"id":tempLocationTitleHeaderId});
 
 					if(index == 0) {
 						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<br/>")) );
@@ -666,7 +669,7 @@ if(datelistElement.length > 0) {
 					tempInnerDiv.append(
 					    $("<div/>")
 					    .addClass("text-danger")
-					    .attr("aria-describedby",tempDateTitleHeaderId)
+					    .attr("aria-describedby",tempDateTitleHeaderId + " " + tempLocationTitleHeaderId)
 					    .text($(this).children().eq(0).children().eq(0).siblings().text().trim())
 					);
 				} else {
@@ -675,7 +678,7 @@ if(datelistElement.length > 0) {
 							tempInnerDiv.append("<hr/>");
 						} else {
 							var tempLink = $(this).children("a, button");
-							tempLink.attr("aria-describedby",tempDateTitleHeaderId).removeClass("btn-primary").addClass("btn-default");
+							tempLink.attr("aria-describedby",tempDateTitleHeaderId + " " + tempLocationTitleHeaderId).removeClass("btn-primary").addClass("btn-default");
 							tempInnerDiv.append(
 								$("<div/>").addClass("time ampm-format").append(tempLink)
 							);
