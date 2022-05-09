@@ -589,10 +589,16 @@ if(datelistElement.length > 0) {
 	divDateElements.each(function() {
 		
 		
-		var timesList = $(this).find("ul.times-list");
+		if(hasMultipleLocations) {
+			var timesListElements = $(this).find(".location-name");
+		else {
+			var timesListElements = $(this);
+		}
+		
+// 		var timesList = $(this).find("ul.times-list");
 		
 		//check for regular set of dates vs. full / closed dates
-		if(timesList.find("li").length > 0 ) {
+		if(timesListElements.find("li").length > 0 ) {
 // 			var tempDateTitle = (hasMultipleLocations) ? 
 // 			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" + $(this).children(".location-name").eq(0).text().trim() ) :
 // 			    ( $(this).children(".title").eq(0).text().trim() );
@@ -631,7 +637,7 @@ if(datelistElement.length > 0) {
 			})
 			.append(tempHiddenTitle);
 
-		if(timesList.find("li").length == 0 ) {
+		if(timesListElements.find("li").length == 0 ) {
 			tempInnerDiv.append(
 			    $("<div/>")
 			    .addClass("text-danger")
@@ -640,10 +646,22 @@ if(datelistElement.length > 0) {
 			);
 			
 		} else {
-			timesList.each(function(index,ele) {
+			//at least one populated times list exists for this specific date
+
+			timesListElements.each(function(index,ele) {
+
+				if(hasMultipleLocations) {
+					var tempInnerDivH3 = $("<h3/>").text($(this).text().trim());
+
+					if(index == 0) {
+						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<br/>")) );
+					} else {
+						tempInnerDiv.append( $("<div/>").append($("<br/>")).append(tempInnerDivH3).append($("<br/>")) );
+					}
+				}
+				
 				var timesListLi = $(this).find("li");
 
-				// if no list, pass error text to
 				if(timesListLi.length == 0 ) {
 					tempInnerDiv.append(
 					    $("<div/>")
@@ -651,17 +669,7 @@ if(datelistElement.length > 0) {
 					    .attr("aria-describedby",tempDateTitleHeaderId)
 					    .text($(this).children().eq(0).children().eq(0).siblings().text().trim())
 					);
-
-				} else {
-					if(hasMultipleLocations) {
-						var tempInnerDivH3 = $("<h3/>").text($(this).parent().children(".location-name").eq(0).text().trim());
-
-						if(index == 0) {
-							tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<br/>")) );
-						} else {
-							tempInnerDiv.append( $("<div/>").append($("<br/>")).append(tempInnerDivH3).append($("<br/>")) );
-						}
-					}
+				else {
 					timesListLi.each(function() {
 						if($(this).hasClass("hour-line")) {
 							tempInnerDiv.append("<hr/>");
@@ -673,7 +681,7 @@ if(datelistElement.length > 0) {
 							);
 						}
 					});
-				}			
+				}
 			});
 		}
 		
