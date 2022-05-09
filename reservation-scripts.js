@@ -596,7 +596,7 @@ if(datelistElement.length > 0) {
 			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" + $(this).children(".location-name").eq(0).text().trim() ) :
 			    ( $(this).children(".title").eq(0).text().trim() );
 		} else {
-			var tempDateTitle = = (hasMultipleLocations) ? 
+			var tempDateTitle = (hasMultipleLocations) ? 
 			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" + $(this).children().eq(0).children().eq(0).text().trim() ) :
 			    ( $(this).children().eq(0).children().eq(0).text().trim() );
 		}
