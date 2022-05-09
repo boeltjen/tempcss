@@ -596,7 +596,7 @@ if(datelistElement.length > 0) {
 		}
 		
 // 		var timesList = $(this).find("ul.times-list");
-		
+// 		
 		//check for regular set of dates vs. full / closed dates
 		if(timesListElements.find("li").length > 0 ) {
 // 			var tempDateTitle = (hasMultipleLocations) ? 
