@@ -669,7 +669,7 @@ if(datelistElement.length > 0) {
 					    .attr("aria-describedby",tempDateTitleHeaderId)
 					    .text($(this).children().eq(0).children().eq(0).siblings().text().trim())
 					);
-				else {
+				} else {
 					timesListLi.each(function() {
 						if($(this).hasClass("hour-line")) {
 							tempInnerDiv.append("<hr/>");
