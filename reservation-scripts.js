@@ -578,27 +578,33 @@ if(datelistElement.length > 0) {
 	var divDateLocations = divDateElements.find("div.location");
 	var hasMultipleLocations = (divDateLocations.length > 0);
 	
-	//check if single or multiple locations
-	if(hasMultipleLocations) {
-		var divDateOneQueues = divDateLocations;
-	} else {
-		var divDateOneQueues = divDateElements;
-	}
+// 	//check if single or multiple locations
+// 	if(hasMultipleLocations) {
+// 		var divDateOneQueues = divDateLocations;
+// 	} else {
+// 		var divDateOneQueues = divDateElements;
+// 	}
 
 	//convert date-time selector to cotui
-	divDateOneQueues.each(function() {
+	divDateElements.each(function() {
 		
-		var timesListLi = $(this).find("ul.times-list li");
+		
+		var timesList = $(this).find("ul.times-list");
 		
 		//check for regular set of dates vs. full / closed dates
-		if(timesListLi.length > 0 ) {
-			var tempDateTitle = (hasMultipleLocations) ? 
-			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" + $(this).children(".location-name").eq(0).text().trim() ) :
-			    ( $(this).children(".title").eq(0).text().trim() );
-		} else {
-			var tempDateTitle = (hasMultipleLocations) ? 
-			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" + $(this).children().eq(0).children().eq(0).text().trim() ) :
-			    ( $(this).children().eq(0).children().eq(0).text().trim() );
+		if(timesList.find("li").length > 0 ) {
+// 			var tempDateTitle = (hasMultipleLocations) ? 
+// 			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" + $(this).children(".location-name").eq(0).text().trim() ) :
+// 			    ( $(this).children(".title").eq(0).text().trim() );
+			
+			var tempDateTitle =  $(this).children(".title").eq(0).text().trim();
+// 		} else {
+// 			var tempDateTitle = (hasMultipleLocations) ? 
+// 			    ( $(this).parent().children(".title").eq(0).text().trim() + "-" + $(this).children().eq(0).children().eq(0).text().trim() ) :
+// 			    ( $(this).children().eq(0).children().eq(0).text().trim() );
+
+			var tempDateTitle = $(this).children().eq(0).children().eq(0).text().trim(); 
+
 		}
 		
 		var tempDateTitleId = tempDateTitle.replace(/[^a-zA-Z0-9]/g, '');
@@ -626,28 +632,40 @@ if(datelistElement.length > 0) {
 			.append(tempHiddenTitle);
 
 
-
-		timesListLi.each(function() {
-			if($(this).hasClass("hour-line")) {
-				tempInnerDiv.append("<hr/>");
-			} else {
-				var tempLink = $(this).children("a, button");
-				tempLink.attr("aria-describedby",tempDateTitleHeaderId).removeClass("btn-primary").addClass("btn-default");
+		timesList.each(function() {
+			var timesListLi = $(this).find("li");
+			
+			// if no list, pass error text to
+			if(timesListLi.length == 0 ) {
 				tempInnerDiv.append(
-					$("<div/>").addClass("time ampm-format").append(tempLink)
+				    $("<div/>")
+				    .addClass("text-danger")
+				    .attr("aria-describedby",tempDateTitleHeaderId)
+				    .text($(this).children().eq(0).children().eq(0).siblings().text().trim())
 				);
-			}
+				
+			} else {
+				tempInnerDiv
+					.append($("<br/>"))
+					.append(
+				    		$("<h3/>").text($(this).children().eq(0).children().eq(0).text().trim())
+					.append($("<br/>"))
+				);
+				timesListLi.each(function() {
+					if($(this).hasClass("hour-line")) {
+						tempInnerDiv.append("<hr/>");
+					} else {
+						var tempLink = $(this).children("a, button");
+						tempLink.attr("aria-describedby",tempDateTitleHeaderId).removeClass("btn-primary").addClass("btn-default");
+						tempInnerDiv.append(
+							$("<div/>").addClass("time ampm-format").append(tempLink)
+						);
+					}
+				});
+			}			
 		});
 		
-		// if no list, pass error text to
-		if(timesListLi.length == 0 ) {
-			tempInnerDiv.append(
-			    $("<div/>")
-			    .addClass("text-danger")
-			    .attr("aria-describedby",tempDateTitleHeaderId)
-			    .text($(this).children().eq(0).children().eq(0).siblings().text().trim())
-			);
-		}
+		
 		
 		var tempSectionEle = $("<section/>").append(tempDateHeaderEle).append(tempInnerDiv);
 
