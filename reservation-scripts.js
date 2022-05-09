@@ -632,7 +632,7 @@ if(datelistElement.length > 0) {
 			.append(tempHiddenTitle);
 
 
-		timesList.each(function() {
+		timesList.each(function(ele,index) {
 			var timesListLi = $(this).find("li");
 			
 			// if no list, pass error text to
@@ -646,10 +646,12 @@ if(datelistElement.length > 0) {
 				
 			} else {
 				if(hasMultipleLocations) {
-					tempInnerDiv
-						.append($("<br/>"))
-						.append($("<h3/>").text($(this).parent().children(".location-name").eq(0).text().trim()))
-						.append($("<br/>"));
+					var tempInnerDivH3 = $("<h3/>").text($(this).parent().children(".location-name").eq(0).text().trim());
+					    if(index == 0) {
+						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<br/>") );
+					else {
+						tempInnerDiv.append( $("<div/>").append($("<br/>").append(tempInnerDivH3).append($("<br/>") );
+					}
 				}
 				timesListLi.each(function() {
 					if($(this).hasClass("hour-line")) {
