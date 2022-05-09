@@ -591,7 +591,7 @@ if(datelistElement.length > 0) {
 		
 		if(hasMultipleLocations) {
 			var timesListElements = $(this).find(".location-name");
-		else {
+		} else {
 			var timesListElements = $(this);
 		}
 		
