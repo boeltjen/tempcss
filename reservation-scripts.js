@@ -648,7 +648,7 @@ if(datelistElement.length > 0) {
 				if(hasMultipleLocations) {
 					tempInnerDiv
 						.append($("<br/>"))
-						.append($("<h3/>").text($(this).parent().children(".title").eq(0).text().trim()))
+						.append($("<h3/>").text($(this).parent().children(".location-name").eq(0).text().trim()))
 						.append($("<br/>"))
 					);
 				}
