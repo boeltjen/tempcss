@@ -651,7 +651,7 @@ if(datelistElement.length > 0) {
 			timesListElements.each(function(index,ele) {
 
 				if(hasMultipleLocations) {
-					var tempInnerDivH3 = $("<h3/>").text($(this).text().trim());
+					var tempInnerDivH3 = $("<h3/>").text( $(this).children().eq(0).children().eq(0).text().trim());
 
 					if(index == 0) {
 						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<br/>")) );
