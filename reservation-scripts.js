@@ -657,10 +657,11 @@ if(datelistElement.length > 0) {
 					var tempInnerDivH3 = $("<h3/>").text(tempLocationTitle).attr({"id":tempLocationTitleHeaderId});
 
 					if(index == 0) {
-						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<br/>")) );
+						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3)) );
 					} else {
-						tempInnerDiv.append( $("<div/>").append($("<br/>")).append(tempInnerDivH3).append($("<br/>")) );
+						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3)) );
 					}
+					tempInnerDiv.append($("<hr/>"));
 				}
 				
 				var timesListLi = $(this).find("li");
@@ -673,17 +674,20 @@ if(datelistElement.length > 0) {
 					    .text($(this).children().eq(0).children().eq(0).siblings().text().trim())
 					);
 				} else {
+					var tempTimesListInnerDiv =  $("<div/>");
 					timesListLi.each(function() {
 						if($(this).hasClass("hour-line")) {
-							tempInnerDiv.append("<hr/>");
+							tempTimesListInnerDiv.append("<hr/>");
 						} else {
 							var tempLink = $(this).children("a, button");
 							tempLink.attr("aria-describedby",tempDateTitleHeaderId + " " + tempLocationTitleHeaderId).removeClass("btn-primary").addClass("btn-default");
-							tempInnerDiv.append(
+							tempTimesListInnerDiv.append(
 								$("<div/>").addClass("time ampm-format").append(tempLink)
 							);
 						}
 					});
+					tempInnerDiv.append(tempTimesListInnerDiv);
+					
 				}
 			});
 		}
