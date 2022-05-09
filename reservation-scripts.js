@@ -645,11 +645,13 @@ if(datelistElement.length > 0) {
 				);
 				
 			} else {
-				tempInnerDiv
-					.append($("<br/>"))
-					.append($("<h3/>").text($(this).children().eq(0).children().eq(0).text().trim()))
-					.append($("<br/>"))
-				);
+				if(hasMultipleLocations) {
+					tempInnerDiv
+						.append($("<br/>"))
+						.append($("<h3/>").text($(this).parent().children(".title").eq(0).text().trim()))
+						.append($("<br/>"))
+					);
+				}
 				timesListLi.each(function() {
 					if($(this).hasClass("hour-line")) {
 						tempInnerDiv.append("<hr/>");
