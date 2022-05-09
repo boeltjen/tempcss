@@ -41,6 +41,10 @@ div.time {
 	display:inline;
 }
 
+.fd-location-header {
+	padding-bottom: 10px;
+}
+
 .existing-reservation-block {
   background-color: #e5e5e5;
   border-radius: 5px;
