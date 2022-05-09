@@ -650,31 +650,23 @@ if(datelistElement.length > 0) {
 
 			timesListElements.each(function(index,ele) {
 				var tempLocationTitleHeaderId = "";
-				if(hasMultipleLocations) {
-					
+				if(hasMultipleLocations) {	
 					var tempLocationTitle = $(this).children().eq(0).children().eq(0).text().trim();
 					tempLocationTitleHeaderId = (tempLocationTitle.replace(/[^a-zA-Z0-9]/g, '') ) + "-" + Math.random().toString(36).slice(-6) + "-header";
-					var tempInnerDivH3 = $("<h3/>").text(tempLocationTitle).attr({"id":tempLocationTitleHeaderId});
-
-					if(index == 0) {
-						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3) );
-					} else {
-						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3) );
-					}
-					tempInnerDiv.append($("<hr/>"));
 				}
 				
 				var timesListLi = $(this).find("li");
+				
+				var tempTimesListInnerDiv =  $("<div/>");
 
 				if(timesListLi.length == 0 ) {
-					tempInnerDiv.append(
+					tempTimesListInnerDiv.append(
 					    $("<div/>")
 					    .addClass("text-danger")
 					    .attr("aria-describedby",tempDateTitleHeaderId + " " + tempLocationTitleHeaderId)
 					    .text($(this).children().eq(0).children().eq(0).siblings().text().trim())
 					);
 				} else {
-					var tempTimesListInnerDiv =  $("<div/>");
 					timesListLi.each(function() {
 						if($(this).hasClass("hour-line")) {
 							tempTimesListInnerDiv.append("<hr/>");
@@ -686,9 +678,20 @@ if(datelistElement.length > 0) {
 							);
 						}
 					});
-					tempInnerDiv.append(tempTimesListInnerDiv);
-					
 				}
+				
+				if(hasMultipleLocations) {
+					var tempInnerDivH3 = $("<h3/>").text(tempLocationTitle).attr({"id":tempLocationTitleHeaderId});
+
+					if(index == 0) {
+						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<hr/>")).append(tempTimesListInnerDiv) );
+					} else {
+						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<hr/>")).append(tempTimesListInnerDiv) );
+					}
+				} else {
+					tempInnerDiv.append( tempTimesListInnerDiv );
+				}
+	
 			});
 		}
 		
