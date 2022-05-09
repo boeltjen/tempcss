@@ -657,9 +657,9 @@ if(datelistElement.length > 0) {
 					var tempInnerDivH3 = $("<h3/>").text(tempLocationTitle).attr({"id":tempLocationTitleHeaderId});
 
 					if(index == 0) {
-						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3)) );
+						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3) );
 					} else {
-						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3)) );
+						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3) );
 					}
 					tempInnerDiv.append($("<hr/>"));
 				}
