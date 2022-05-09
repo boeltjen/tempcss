@@ -649,8 +649,7 @@ if(datelistElement.length > 0) {
 					tempInnerDiv
 						.append($("<br/>"))
 						.append($("<h3/>").text($(this).parent().children(".location-name").eq(0).text().trim()))
-						.append($("<br/>"))
-					);
+						.append($("<br/>"));
 				}
 				timesListLi.each(function() {
 					if($(this).hasClass("hour-line")) {
