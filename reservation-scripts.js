@@ -684,9 +684,9 @@ if(datelistElement.length > 0) {
 					var tempInnerDivH3 = $("<h3/>").text(tempLocationTitle).attr({"id":tempLocationTitleHeaderId}).addClass("fd-location-header");
 
 					if(index == 0) {
-						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<hr/>")).append(tempTimesListInnerDiv) );
+						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append(tempTimesListInnerDiv) );
 					} else {
-						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append($("<hr/>")).append(tempTimesListInnerDiv) );
+						tempInnerDiv.append( $("<div/>").append(tempInnerDivH3).append(tempTimesListInnerDiv) );
 					}
 				} else {
 					tempInnerDiv.append( tempTimesListInnerDiv );
