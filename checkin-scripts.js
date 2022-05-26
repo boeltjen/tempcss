@@ -366,7 +366,7 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 			var firstH2NewElementHtml = "";
 			firstH2NewEleContent.each(function() { firstH2NewElementHtml += $(this).html(); });
 			firstH2NewElement.after(
-				$("<p/>")
+				$("<div/>")
 				.addClass("highlightedcontent livestatus")
 				.html(firstH2NewElementHtml)
 				.attr("aria-live","assertive")
