@@ -352,6 +352,10 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 	
 	var firstH2EleHtml = "";
 	var firstH2NewElement = newContentElement.find("h2").eq(0) || $("<div></div>");
+	// wrap plain text in span so they can be selected by jquery
+	$(firstH2NewElement.prop("childNodes")).filter(function() {
+		return this.nodeType === 3;
+	}).wrap("<span>");
 	
 	// check if the new content's first H2 contains "status".  If so, assume the following content until the first div, h2 or end requires highlighting / aria-live 
 	if(firstH2NewElement.text().toLowerCase().indexOf("status") > 0) {
