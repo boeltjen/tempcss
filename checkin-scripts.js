@@ -364,9 +364,9 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 		if(firstH2NewEleContent.length > 0) {
 			firstH2EleHtml = firstH2NewElement.html();
 			var firstH2NewElementHtml = "";
-			firstH2NewEleContent.each(function() { firstH2NewElementHtml += $(this).prop('outerHTML'); });
+			firstH2NewEleContent.each(function() { firstH2NewElementHtml += $(this).html(); });
 			firstH2NewElement.after(
-				$("<div/>")
+				$("<p/>")
 				.addClass("highlightedcontent livestatus")
 				.html(firstH2NewElementHtml)
 				.attr("aria-live","assertive")
@@ -376,7 +376,7 @@ var updateActiveContentWithAriaLive = function(activeElementToUpdate, newContent
 
 	}
 	
-	// if newContent was provided then transform the newContent and then update the ActiveConent
+	// if newContent was provided then transform the newContent and then update the ActiveContent
 	if(newContentProvided) {
 	
 		//if active page is a status page AND the new page also has a "status" h2, then update only the html of the status section, and replace the rest of the content
