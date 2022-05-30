@@ -751,23 +751,24 @@
 					tempUpdatePageParams.ajaxUrl = window.location.href;
 					tempUpdatePageParams.reloadInterval = 60000;
 					// note ideally add a role="timer" and an aria-live to the countdown timer
-	
+
 				} else {
 					// user has already logged in -> replace with dynamic reloadContent function
-					var scriptHtmlMin = temp_scriptTag_w_reloadPage.html().replace(/\s/g, '').replace(/'/g,'"').replace('CheckInId','"CheckInId"').replace('QueueEntryId','"QueueEntryId"');
-					tempUpdatePageParams.ajaxDataStr = JSON.parse(scriptHtmlMin.substring(scriptHtmlMin.indexOf('data:{')+5,scriptHtmlMin.indexOf('}',scriptHtmlMin.indexOf('data:{')+5)+1));
-					tempUpdatePageParams.ajaxType = "POST"
-					tempUpdatePageParams.ajaxUrl = "/CheckedIn";
+					var scriptHtmlMin = temp_scriptTag_w_reloadPage.html().replace(/\s/g, '').replace(/'/g,'"').replace('CheckInId','"CheckInId"').replace('QueueEntryId','"QueueEntryId"').replace('type','"type"').replace('url','"url"').replace('data','"data"');
+					var ajaxOptions = JSON.parse((scriptHtmlMin.substring(scriptHtmlMin.indexOf('ajax(')+5,scriptHtmlMin.indexOf('}',scriptHtmlMin.indexOf('data:')+5)+1))+"}");
+					tempUpdatePageParams.ajaxDataStr = ajaxOptions.data;
+					tempUpdatePageParams.ajaxType = ajaxOptions.type;
+					tempUpdatePageParams.ajaxUrl = ajaxOptions.url;
 					tempUpdatePageParams.reloadInterval = 5000;		
-	
+
 				}		
-	
+
 				// remove existing script tag with reloadPage function
 				temp_scriptTag_w_reloadPage.remove();
 				
 				return tempUpdatePageParams;
 			}
-			
+
 			//replace autoload function with one that only replaces main content w/o reloading on success
 			function updatePage(params) {
 	
