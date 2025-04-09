@@ -4,16 +4,32 @@ body {
 }
 
 #print {
-    background-image: url("https://frontdesk-cdn.inter.prod-toronto.ca/themes/toronto_ca/img/icon-print.svg");
+    background-image: url("https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/icon-print.svg");
 }
 
-#shareit {
-    background-image: url("https://frontdesk-cdn.inter.prod-toronto.ca/themes/toronto_ca/img/icon-share.svg")
+#sharebutton .btn-menu {
+    background-image: url("https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/icon-share.svg")
+}
+
+.cot-translate .btn-menu{
+    background-image: url("https://frontdesk-cdn.inter.dev-toronto.ca/themes/toronto_ca/img/icon-globe.svg");
+}
+
+.position-absolute {
+  position: absolute !important;
+}
+
+.ml-2 {
+  margin-left: 0.5rem !important;
 }
 
 #torontopagecontent {
     margin-bottom: 20px;
 }
+
+/* #torontopagecontent p{
+    margin: 0 0 2em;
+} */
 
 #torontopagecontent .intl-tel-input {
 	display:block;
@@ -22,10 +38,6 @@ body {
 div:not(.time) .button, div:not(.time) .mdc-button, a.action, button.action {
     margin-bottom: 10px;
     white-space: normal;
-}
-
-p.no-margin {
-    margin: 0px;
 }
 
 div.time .btn {
@@ -37,16 +49,213 @@ div.time {
 	display:inline;
 }
 
-.existing-reservation-block {
+.existing-reservation-block, .reservation-info-text {
   background-color: #e5e5e5;
   border-radius: 5px;
   padding: 20px 20px 20px 30px;
 }
 
-.existing-reservation-block .col-sm-4 {
+.existing-reservation-block .col-sm-4, .reservation-info-text .col-sm-4{
   text-align: right;
 }
 
-.existing-reservation-block .col-sm-4 a {
+.existing-reservation-block .col-sm-4 a, .reservation-info-text .col-sm-4 a {
   white-space: normal;
+}
+
+.cot-translate {
+    display: inline-block;
+}
+
+/*.cot-translate--list,.sharebox{
+    display: none;
+    position: absolute;
+    margin: 7px 0 0 0;
+    padding: 0 !important;
+    border: none !important;
+    background: #fff;
+    border-radius: 4px;
+    text-align: left;
+    z-index: 99999;
+}
+*/
+
+#actions .cot-translate .sharebox{
+    border: none;
+}
+ul[role="menu"] {
+  margin: 0;
+  padding: 0;
+  margin-top: -1px;
+  position: absolute;
+  list-style: none;
+  flex-direction: column;
+  z-index: 1;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: auto;
+}
+
+ul[role="menu"] li {
+  margin: 0;
+  padding: 0.5em;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+ul[role="menu"] li:last-child {
+  border-bottom: none;
+}
+
+ul[role="menu"] a[role="menuitem"],
+ul[role="menu"] a[role="menuitem"]:visited {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Added by Kevin */
+
+/* #torontopagecontent p {
+  margin: 0;
+} */
+
+#torontopagecontent .section legend,
+#torontopagecontent .section .reservation-field-name {
+
+  color: #000;
+
+}
+
+#torontopagecontent .section fieldset:has( .radio ) legend,
+#torontopagecontent .section fieldset:has( .checkbox ) legend,
+#torontopagecontent .section fieldset:has( > div > input[type="file"] ) legend {
+
+  font-size: 18px;
+
+}
+
+#torontopagecontent .section-buttons {
+  margin: 0.5rem 0;
+}
+
+#torontopagecontent .section + .section-buttons {
+  margin-top: 12px;
+}
+
+#torontopagecontent .section:not(:first-of-type) h2:first-child{
+  /* background: #ccc; */
+  margin-top:revert;
+}
+
+#page-content .mdc-radio {
+  display: inline-block;
+}
+
+#page-content fieldset > .radio, #page-content fieldset > .checkbox {
+  padding-left: 1.25rem;
+}
+
+#torontopagecontent .section .intl-tel-input input,
+#torontopagecontent .section .intl-tel-input .selected-dial-code {
+  font-size: 14px;
+}
+
+#torontopagecontent .section .intl-tel-input input {
+  height: 34px;
+}
+
+#page-content .mdc-text-field-helper-text {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+#page-content .section-with-bottom-margin {
+  margin-bottom: 1.25rem;
+}
+
+.control-label,
+.mdc-floating-label,
+fieldset > legend {
+  font-size: 16px !important;
+  font-weight: bold !important;
+  color: black !important;
+}
+
+fieldset > legend {
+  margin-bottom: 5px !important;
+}
+
+.checkbox,
+.radio {
+  color: black !important;
+  font-size: 14px !important;
+}
+
+.checkbox:first-of-type,
+.radio:first-of-type {
+  margin-top: 0;
+}
+
+.checkbox:last-of-type,
+.radio:last-of-type {
+  margin-bottom: 0 !important;
+}
+
+.mdc-text-field-helper-text {
+  color: #434343 !important;
+  font-size: 16px !important;
+  font-style: italic !important;
+  margin-top: 5px;
+}
+
+.field-validation-error {
+  font-size: .85rem !important;
+  color: #a94442 !important;
+}
+
+/* Hide Back To Home Page Button on Confirmation Page */
+
+form[action*="ConfirmationPage"] .section:last-of-type {
+  display: none;
+}
+
+/* Testing new styles */
+
+.mdc-form-field {
+  display: flex;
+}
+
+.mdc-form-field > label {
+  margin-left: 0.85rem;
+}
+
+.mdc-checkbox__background {
+  display: none;
+}
+
+.mdc-checkbox__ripple {
+  display: none;
+}
+
+label.mdc-text-field.mdc-text-field--outlined.fd-text-field {
+  display: flex;
+  flex-direction: column;
+}
+
+label.mdc-text-field.mdc-text-field--outlined.mdc-text-field--textarea.mdc-text-field--no-label.fd-textarea-field {
+  display: flex;
+  flex-direction: column;
+}
+
+label.mdc-text-field.mdc-text-field--outlined.mdc-text-field--textarea.mdc-text-field--no-label.fd-textarea-field textarea {
+
+  width: 100%;
+
+}
+
+/* Added 01/11/24 */
+
+.d-none {
+  display: none;
 }
