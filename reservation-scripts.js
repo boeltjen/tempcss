@@ -494,7 +494,7 @@ setTimeout(function () {
 
 				if ($input.getAttribute('type') === "checkbox" || $input.getAttribute('type') === "radio") {
 
-					var $fieldset = document.getElementById(`${$input.getAttribute('name')}`)
+					var $fieldset = document.getElementById(`${$input.getAttribute('name')}-container`)
 					$fieldset.setAttribute('style', 'margin-top: 1em;');
 
 					$label = $section.querySelector('[for="' + $input.getAttribute('id') + '"]');
